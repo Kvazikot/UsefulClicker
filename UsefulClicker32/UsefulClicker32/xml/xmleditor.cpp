@@ -1,3 +1,4 @@
+#include <QTextStream>
 #include <QRegularExpression>
 #include "xmleditor.h"
 #include "settings/clickersettings.h"

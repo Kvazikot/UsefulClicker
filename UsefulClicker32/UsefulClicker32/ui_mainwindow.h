@@ -314,7 +314,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Editable Tree Model", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "UsefulClicker", Q_NULLPTR));
         exitAction->setText(QApplication::translate("MainWindow", "Open", Q_NULLPTR));
 #ifndef QT_NO_SHORTCUT
         exitAction->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", Q_NULLPTR));

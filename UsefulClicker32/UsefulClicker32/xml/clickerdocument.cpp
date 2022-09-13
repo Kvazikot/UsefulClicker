@@ -44,9 +44,9 @@ bool ClickerDocument::load(QString fn)
 
     if( _F("hideAllNonClickerTags") )
     {
-        filters = {"shell", "code", "include"};
         filters.push_back("shell");
         filters.push_back("code");
+        filters.push_back("include");
 
 
 
