@@ -1,0 +1,175 @@
+<?xml version='1.0'?>
+<xml>
+
+<!-- init section (every function that has "init" substring in its name) -->
+<func name="init" no_delay="1" >
+    <list name="apocaliptoLib" filename="./apocaliptoLib/ApocaliptoLIB_list.txt" sep="\n" />
+    <list name="common_english" filename="./lists/common_english_shuffled.txt" sep="\n" />
+    <list name="Thrillers_beetwen_1979-1989" filename="./lists/Thrillers_beetwen_1979-1989.txt" />
+    <list f="select_rand_word" name="common_english" />
+    <table name="movies" filename="movies.csv" header="Title Year Format" />
+    <table name="movies" fromlist="Thrillers_beetwen_1979-1989" header = "Title Year Format" />
+</func>
+
+
+<!-- This function is using in "foreach" loop-->
+<func name="GetBooks">
+  <shell cmd="zlib.html" delay_fixed="1500" delay_random="1"/>
+  <click button="left" x="400" y="600" delay_fixed="2400" delay_random="1"/>
+  <hotkey hotkey="F6" delay_fixed="400" />
+  <type comment="paste url" mode="copy_paste" text="https://zlibrary.org/s/The Knowledge: How to Rebuild our World from Scratch ?" />
+  <hotkey hotkey="enter"  delay_fixed="1400" />
+  <click button="right" x="400" y="500"  />
+  <hotkey hotkey="escape" />
+  <clickrect center="531,669" height="160" kernel_size="13" number="51" width="110" />
+  <scrolldown delta="-120" />
+  <clickimg kernel_size="4" targetImg="$(UsefulClicker)/images/23.52.24.658.png" />
+  <click button="right" x="400" y="600" delay_fixed="2400" delay_random="1"/>
+</func>
+
+<func name="GetBooks2">
+  <shell cmd="zlib.html" delay_fixed="1500" delay_random="1"/>
+  <foreach list="apocaliptoLib"  do="FindBook" delay_fixed="400" delay_random="1"/>
+</func>
+
+<!-- Foreach loop test (with loop body )-->
+<func name="Foreach_test2">
+  <foreach list="Thrillers_beetwen_1979-1989" range="10:100:1">
+    <list f="append" name="search_requests" arg="item_{i}"/>
+  </foreach>
+  <list f="to_xml" name="search_requests" />
+  <list f="show" name="search_requests" editor="notepad.exe" />
+  <cmd c="show search_requests" />
+  <cmd c="search_requests.append({i})" />
+</func>
+
+<func name="Foreach_test3">
+  <foreach table="movies"  do="sort[Year]" />
+  <cmd c="show movies" />
+</func>
+
+<func name="Foreach_test4">
+  <foreach table_from="movies" table_to="movies_1983"  filterBy="Year" />
+  <cmd c="show movies_1983" />
+</func>
+
+
+<func name="PirateBay_spider" >
+    <click button="left" x="1700" y="416" comment="click in chrome window" />
+    <hotkey hotkey="F6"/>
+    <type mode="copy_paste" text="https://www1.thepiratebay3.to/s/0/3/0?q=#{i}"/>
+    <hotkey hotkey="enter" delay_fixed="2000"/>
+    <scrolldown repeats="5" />
+</func>
+
+<func name="PirateBay test">
+<foreach list="Thrillers_beetwen_1979-1989" do="PirateBay_spider"/>
+<shell cmd="notepad.exe tmp.txt" />
+</func>
+
+<func name="Generators test">
+  <gen list="INTEGERS" f="i+1" range="1:10:1" />
+  <check INTEGERS="1 2 3 4 5 6 7 8 9 10" />
+</func>
+
+<!-- 12 expression test -->
+<func name="12 expression test">
+  <set A="2+2+1+4+4" />
+  <check A="13" />
+  <set B="2*3" />
+  <check B="6" />
+  <set B="12/2" />
+  <check B="6" />
+  <set C="(2+2)*3+1" />
+  <check C="13" />
+  <set D="10e3*6+6+6" />
+  <check D="666" />
+  <set E="sqrt(9)*4+1" />
+  <check E="13" />
+  <set F="sqrt(sqrt(8+1)*3)*4+1" />
+  <check F="13" />
+  <set G="(A+B)/2"/>
+  <check G="9" />
+  <set H="pi"/>
+  <check H="3.1415" tol="0.001" comment="check constant pi with deshired tolerance" />
+  <set J="G==9"/>
+  <check J="true"/>
+  <check J="1"/>
+
+</func>
+
+<func name="Youtube search by list" >
+    <click button="left" x="1700" y="416" comment="click in chrome window" />
+    <hotkey hotkey="F6"/>
+    <clip args="rand" list="common_english"/>
+    <type mode="copy_paste" text="https://twitter.com/" />
+    <hotkey hotkey="enter" delay_ms="1000"/>
+</func>
+
+ <func name="Open test_doc.xml">
+  <shell bg="1" showConsole="1" hotkey="ctrl + a" cmd="notepad.exe test_doc.xml" comment="run notepad"/>
+ </func>
+
+<func name="Type test 2">
+ <shell cmd="notepad.exe" comment="run notepad"/>
+ <type mode="copy_paste" text="Это пример текста который был сгенерирован программой UsefulClicker сегодня. " >Это пример текста который был сгенерирован программой UsefulClicker сегодня. </type>
+</func>
+<func name="Type test">
+ <shell bg="1" showConsole="1" hotkey="ctrl + a" cmd="notepad.exe" comment="run notepad"/>
+ <type delay_fixed="100"  >
+   <!--
+   string1
+   string2
+   string3
+   -->
+   </type>
+</func>
+
+ <func name="Change font">
+  <shell cmd="notepad.exe" comment="run notepad"/>
+  <hotkey hotkey="alt+o"/>
+  <hotkey hotkey="f" delay_ms="100"/>
+  <hotkey hotkey="alt+s" delay_fixed="500"/>
+  <type text="48" />
+  <hotkey hotkey="enter" delay_ms="100"/>
+ </func>
+
+  <func name="Change font Windows 11">
+   <shell cmd="notepad.exe" comment="run notepad"/>
+   <type mode="copy_paste" text="Это пример текста который был сгенерирован программой UsefulClicker сегодня. " >Это пример текста который был сгенерирован программой UsefulClicker сегодня. </type>
+   <hotkey hotkey="alt+e"/>
+   <hotkey hotkey="o" delay_ms="100"/>
+   <hotkey hotkey="tab" delay_fixed="100" repeats="3" />
+   <type>44</type>
+   <hotkey hotkey="enter" delay_ms="100" />
+   <hotkey hotkey="back" delay_ms="100" />
+  </func>
+
+<func name="Post Twit">
+ <click button="left" x="1700" y="416" comment="click in chrome window" />
+ <hotkey hotkey="F6"/>
+ <type mode="copy_paste" text="https://twitter.com/" />
+ <hotkey hotkey="enter" delay_ms="1000"/>
+ <clickimg targetImg="$(UsefulClicker)/images/18.13.00.332.png" button="left" delay_fixed="1000"> </clickimg>
+ <type mode="copy_paste" text="Это пример текста который был сгенерирован программой UsefulClicker сегодня." delay_fixed="1000"/>
+ <hotkey hotkey="ctrl+enter" delay_ms="1000"/>
+</func>
+
+<func name="Scroll Test">
+ <shell bg="1" showConsole="1" hotkey="ctrl + a" cmd="notepad.exe" comment="run notepad"/>
+ <type mode="copy_paste" repeats="10" delay_fixed="100" delay_random="1" text="Это пример текста который был сгенерирован программой UsefulClicker сегодня. Это пример текста который был сгенерирован программой UsefulClicker сегодня." > </type>
+ <hotkey hotkey="ctrl + a" delay_fixed="250"/>
+ <hotkey hotkey="ctrl + c" delay_fixed="350"/>
+ <hotkey hotkey="ctrl + v" delay_fixed="450" repeats="6"/>
+ <hotkey hotkey="ctrl + up" delay_fixed="10" repeats="2"/>
+ <click button="left" x="1448" y="573" />
+ <scrollup repeats="5" />
+ <scrolldown repeats="5" />
+</func>
+
+<func name="clickrect test">
+</func>
+
+</xml>
+
+

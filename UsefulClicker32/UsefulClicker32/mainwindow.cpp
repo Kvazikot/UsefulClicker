@@ -210,6 +210,39 @@ void MainWindow::loadDocument(QString filename)
         ui->xmlEditor_2->setTextCursor(c);
         ui->xmlEditor_2->moveCursor(QTextCursor::End);
     }
+    else
+    {
+        QString filename = ".\\tests\\UsefulClicker_tests.xml";
+        QFile f(filename);
+        if ( f.exists() )
+        {
+            ClickerDocument* doc = new ClickerDocument(filename);
+            if( doc->isLoaded )
+            {
+                setDoc(doc);
+                // set full text of documentt to XmlEditor_2
+                QFile f(filename);
+                if( !f.open( QFile::ReadOnly ) )
+                    qDebug() << "Cannot open file " + filename;
+                QTextStream ts(&f);
+                QString xml_text = ts.readAll();
+                ui->xmlEditor_2->enableChangeEvent(true);
+                QTextCursor cur = ui->xmlEditor_2->textCursor();
+                int p = cur.position();
+                ui->xmlEditor_2->setText(xml_text);
+                // set cursor at last pos
+                QTextCursor c(ui->xmlEditor_2->document());
+                int start = c.selectionStart();
+                int end   = c.selectionEnd();
+                c.setPosition(end + p  ,QTextCursor::MoveAnchor);
+                c.setPosition(start + p,QTextCursor::KeepAnchor);
+                ui->xmlEditor_2->setTextCursor(c);
+                ui->xmlEditor_2->moveCursor(QTextCursor::End);
+            }
+
+        }
+
+    }
 }
 
 void MainWindow::reload()

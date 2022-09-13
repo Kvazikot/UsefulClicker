@@ -106,3 +106,6 @@ FORMS    += mainwindow.ui
 
 RESOURCES += \
     res.qrc
+
+DISTFILES += \
+    tests/UsefulClicker_tests.xml
