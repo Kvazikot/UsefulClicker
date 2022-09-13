@@ -17,6 +17,7 @@ XmlEditor::XmlEditor(QWidget *parent)
     setFont(font);
     setReadOnly(false);
 
+
     highlighter = new Highlighter(document());
     connect(this, SIGNAL(textChanged()), this, SLOT(onTextChange()));
 

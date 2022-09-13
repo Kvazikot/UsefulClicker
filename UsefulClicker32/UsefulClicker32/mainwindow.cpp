@@ -198,6 +198,7 @@ _load:
         if( !f.open( QFile::ReadOnly ) )
             qDebug() << "Cannot open file " + filename;
         QTextStream ts(&f);
+        ts.setCodec("UTF-8");
         QString xml_text = ts.readAll();
         ui->xmlEditor_2->enableChangeEvent(true);
         QTextCursor cur = ui->xmlEditor_2->textCursor();
@@ -227,6 +228,7 @@ _load:
                 if( !f.open( QFile::ReadOnly ) )
                     qDebug() << "Cannot open file " + filename;
                 QTextStream ts(&f);
+                ts.setCodec("UTF-8");
                 QString xml_text = ts.readAll();
                 ui->xmlEditor_2->enableChangeEvent(true);
                 QTextCursor cur = ui->xmlEditor_2->textCursor();

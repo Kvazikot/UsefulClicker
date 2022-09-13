@@ -315,7 +315,11 @@ p, li { white-space: pre-wrap; }
           </attribute>
           <layout class="QGridLayout" name="gridLayout_5">
            <item row="0" column="0">
-            <widget class="XmlEditor" name="xmlEditor_2" native="true"/>
+            <widget class="XmlEditor" name="xmlEditor_2" native="true">
+             <property name="locale">
+              <locale language="Russian" country="Russia"/>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>

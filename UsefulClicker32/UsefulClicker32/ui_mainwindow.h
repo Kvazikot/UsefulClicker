@@ -9,6 +9,7 @@
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
+#include <QtCore/QLocale>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -225,6 +226,7 @@ public:
         gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
         xmlEditor_2 = new XmlEditor(tab_3);
         xmlEditor_2->setObjectName(QStringLiteral("xmlEditor_2"));
+        xmlEditor_2->setLocale(QLocale(QLocale::Russian, QLocale::Russia));
 
         gridLayout_5->addWidget(xmlEditor_2, 0, 0, 1, 1);
 
