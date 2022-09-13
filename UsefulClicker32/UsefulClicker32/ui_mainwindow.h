@@ -71,9 +71,7 @@ public:
     XmlEditor *xmlEditor_2;
     QMenuBar *menubar;
     QMenu *fileMenu;
-    QMenu *actionsMenu;
     QMenu *menuAbout;
-    QMenu *menuView;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -243,31 +241,19 @@ public:
         menubar->setGeometry(QRect(0, 0, 1273, 21));
         fileMenu = new QMenu(menubar);
         fileMenu->setObjectName(QStringLiteral("fileMenu"));
-        actionsMenu = new QMenu(menubar);
-        actionsMenu->setObjectName(QStringLiteral("actionsMenu"));
         menuAbout = new QMenu(menubar);
         menuAbout->setObjectName(QStringLiteral("menuAbout"));
-        menuView = new QMenu(menubar);
-        menuView->setObjectName(QStringLiteral("menuView"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
         MainWindow->setStatusBar(statusbar);
 
         menubar->addAction(fileMenu->menuAction());
-        menubar->addAction(actionsMenu->menuAction());
         menubar->addAction(menuAbout->menuAction());
-        menubar->addAction(menuView->menuAction());
         fileMenu->addAction(actionOpen);
         fileMenu->addAction(actionSave);
         fileMenu->addAction(actionSave_as);
-        actionsMenu->addAction(insertRowAction);
-        actionsMenu->addSeparator();
-        actionsMenu->addAction(removeRowAction);
-        actionsMenu->addSeparator();
         menuAbout->addAction(actionAbout);
-        menuView->addAction(actionhideCodeTags);
-        menuView->addAction(actionhideAllNonClickerTags);
 
         retranslateUi(MainWindow);
 
@@ -369,9 +355,7 @@ public:
         groupBox_4->setTitle(QApplication::translate("MainWindow", "Function editor", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Xml Document", Q_NULLPTR));
         fileMenu->setTitle(QApplication::translate("MainWindow", "&File", Q_NULLPTR));
-        actionsMenu->setTitle(QApplication::translate("MainWindow", "&Actions", Q_NULLPTR));
         menuAbout->setTitle(QApplication::translate("MainWindow", "About", Q_NULLPTR));
-        menuView->setTitle(QApplication::translate("MainWindow", "View", Q_NULLPTR));
     } // retranslateUi
 
 };

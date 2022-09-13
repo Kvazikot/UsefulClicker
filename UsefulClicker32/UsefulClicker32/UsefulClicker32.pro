@@ -87,7 +87,8 @@ SOURCES += main.cpp\
     cv/dspmodule.cpp \
     log/logger.cpp \
     globals.cpp \
-    interpreter/expression_calculator.cpp
+    interpreter/expression_calculator.cpp \
+    ui/aboutbox.cpp
 
 HEADERS  += mainwindow.h \
     xml/clickerdocument.h \
@@ -100,9 +101,11 @@ HEADERS  += mainwindow.h \
     cv/rectangle_descriptor.h \
     log/logger.h \
     globals.h \
-    interpreter/expression_calculator.h
+    interpreter/expression_calculator.h \
+    ui/aboutbox.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    ui/aboutbox.ui
 
 RESOURCES += \
     res.qrc

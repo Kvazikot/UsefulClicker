@@ -43,6 +43,7 @@ public slots:
     void new_fun();
     void pause();
     void openXml();
+    void about();
 
 private:
     // log window

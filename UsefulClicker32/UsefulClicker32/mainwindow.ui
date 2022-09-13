@@ -89,7 +89,7 @@ p, li { white-space: pre-wrap; }
               <string>Left click</string>
              </property>
              <property name="icon">
-              <iconset>
+              <iconset resource="res.qrc">
                <normaloff>:/images/mouse_left_click.png</normaloff>:/images/mouse_left_click.png</iconset>
              </property>
              <property name="shortcut">
@@ -118,7 +118,7 @@ p, li { white-space: pre-wrap; }
               <string>Hotkey</string>
              </property>
              <property name="icon">
-              <iconset>
+              <iconset resource="res.qrc">
                <normaloff>:/images/keyboard_color.png</normaloff>:/images/keyboard_color.png</iconset>
              </property>
              <property name="shortcut">
@@ -147,7 +147,7 @@ p, li { white-space: pre-wrap; }
               <string>Area click</string>
              </property>
              <property name="icon">
-              <iconset>
+              <iconset resource="res.qrc">
                <normaloff>:/images/area_icon.png</normaloff>:/images/area_icon.png</iconset>
              </property>
              <property name="shortcut">
@@ -173,7 +173,7 @@ p, li { white-space: pre-wrap; }
               <string>Click on image</string>
              </property>
              <property name="icon">
-              <iconset>
+              <iconset resource="res.qrc">
                <normaloff>:/images/image.png</normaloff>:/images/image.png</iconset>
              </property>
              <property name="shortcut">
@@ -199,7 +199,7 @@ p, li { white-space: pre-wrap; }
               <string>Type</string>
              </property>
              <property name="icon">
-              <iconset>
+              <iconset resource="res.qrc">
                <normaloff>:/images/type.png</normaloff>:/images/type.png</iconset>
              </property>
             </widget>
@@ -222,7 +222,7 @@ p, li { white-space: pre-wrap; }
               <string>...</string>
              </property>
              <property name="icon">
-              <iconset>
+              <iconset resource="res.qrc">
                <normaloff>:/images/clock-icon.png</normaloff>:/images/clock-icon.png</iconset>
              </property>
             </widget>
@@ -343,32 +343,14 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionSave"/>
     <addaction name="actionSave_as"/>
    </widget>
-   <widget class="QMenu" name="actionsMenu">
-    <property name="title">
-     <string>&amp;Actions</string>
-    </property>
-    <addaction name="insertRowAction"/>
-    <addaction name="separator"/>
-    <addaction name="removeRowAction"/>
-    <addaction name="separator"/>
-   </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
      <string>About</string>
     </property>
     <addaction name="actionAbout"/>
    </widget>
-   <widget class="QMenu" name="menuView">
-    <property name="title">
-     <string>View</string>
-    </property>
-    <addaction name="actionhideCodeTags"/>
-    <addaction name="actionhideAllNonClickerTags"/>
-   </widget>
    <addaction name="fileMenu"/>
-   <addaction name="actionsMenu"/>
    <addaction name="menuAbout"/>
-   <addaction name="menuView"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="exitAction">
@@ -467,6 +449,8 @@ p, li { white-space: pre-wrap; }
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

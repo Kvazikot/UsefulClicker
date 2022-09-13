@@ -25,6 +25,7 @@
 #include "xml/clickerdocument.h"
 #include "interpreter/interpreter.h"
 #include "interpreter/interpreterwin64.h"
+#include "ui/aboutbox.h"
 //#include "log/logger.h"
 
 #include <QDateTime>
@@ -105,7 +106,7 @@ MainWindow::MainWindow(QWidget *parent) :
     addToolBar(toolbar);
     //connect(ui->exitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
     //connect(ui->actionsMenu, &QMenu::aboutToShow, this, &MainWindow::updateActions);
-    //connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
+    connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
     //connect(ui->actionSave, &QAction::triggered, this, &MainWindow::save);
 
 }
@@ -187,6 +188,7 @@ void MainWindow::loadDocument(QString filename)
     current_filename = filename;
     if( !filename.contains("temp") )
         SAVE_DEFAULT("last_sheme", filename);
+_load:
     ClickerDocument* doc = new ClickerDocument(filename);
     if( doc->isLoaded )
     {
@@ -244,6 +246,13 @@ void MainWindow::loadDocument(QString filename)
 
     }
 }
+
+void MainWindow::about()
+{
+    AboutBox* aboutbox = new AboutBox(this);
+    aboutbox->show();
+}
+
 
 void MainWindow::reload()
 {

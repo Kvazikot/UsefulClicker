@@ -66,8 +66,8 @@ public:
 
 
         retranslateUi(AboutBox);
-        QObject::connect(buttonBox, &QDialogButtonBox::accepted, AboutBox, qOverload<>(&QDialog::accept));
-        QObject::connect(buttonBox, &QDialogButtonBox::rejected, AboutBox, qOverload<>(&QDialog::reject));
+        QObject::connect(buttonBox, &QDialogButtonBox::accepted, AboutBox, &QDialog::accept);
+        QObject::connect(buttonBox, &QDialogButtonBox::rejected, AboutBox, &QDialog::reject);
 
         QMetaObject::connectSlotsByName(AboutBox);
     } // setupUi
