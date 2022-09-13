@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QDomNode>
 #include <QMap>
+#include <QElapsedTimer>
 #include "interpreter/interpreter.h"
 
 

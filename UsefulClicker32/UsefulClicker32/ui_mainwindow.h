@@ -24,7 +24,6 @@
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolButton>
-#include <QtWidgets/QTreeView>
 #include <QtWidgets/QWidget>
 #include "xml/xmleditor.h"
 
@@ -49,13 +48,6 @@ public:
     QGridLayout *gridLayout_3;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_6;
-    QTabWidget *tabWidget;
-    QWidget *tab_3;
-    QGridLayout *gridLayout_5;
-    XmlEditor *xmlEditor_2;
-    QWidget *tab_4;
-    QGridLayout *gridLayout;
-    QTreeView *view;
     QGroupBox *groupBox_2;
     QHBoxLayout *horizontalLayout;
     QGroupBox *groupBox_3;
@@ -73,6 +65,10 @@ public:
     QGroupBox *groupBox_4;
     QGridLayout *gridLayout_4;
     XmlEditor *xmlEditor;
+    QTabWidget *tabWidget;
+    QWidget *tab_3;
+    QGridLayout *gridLayout_5;
+    XmlEditor *xmlEditor_2;
     QMenuBar *menubar;
     QMenu *fileMenu;
     QMenu *actionsMenu;
@@ -120,52 +116,6 @@ public:
         groupBox->setObjectName(QStringLiteral("groupBox"));
         gridLayout_6 = new QGridLayout(groupBox);
         gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
-        tabWidget = new QTabWidget(groupBox);
-        tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tab_3 = new QWidget();
-        tab_3->setObjectName(QStringLiteral("tab_3"));
-        gridLayout_5 = new QGridLayout(tab_3);
-        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
-        xmlEditor_2 = new XmlEditor(tab_3);
-        xmlEditor_2->setObjectName(QStringLiteral("xmlEditor_2"));
-
-        gridLayout_5->addWidget(xmlEditor_2, 0, 0, 1, 1);
-
-        tabWidget->addTab(tab_3, QString());
-        tab_4 = new QWidget();
-        tab_4->setObjectName(QStringLiteral("tab_4"));
-        gridLayout = new QGridLayout(tab_4);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        view = new QTreeView(tab_4);
-        view->setObjectName(QStringLiteral("view"));
-        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(view->sizePolicy().hasHeightForWidth());
-        view->setSizePolicy(sizePolicy);
-        view->setMouseTracking(true);
-        view->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked);
-        view->setDragEnabled(true);
-        view->setAlternatingRowColors(true);
-        view->setSelectionMode(QAbstractItemView::SingleSelection);
-        view->setSelectionBehavior(QAbstractItemView::SelectRows);
-        view->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
-        view->setIndentation(22);
-        view->setSortingEnabled(false);
-        view->setAnimated(false);
-        view->setAllColumnsShowFocus(true);
-        view->header()->setCascadingSectionResizes(true);
-        view->header()->setDefaultSectionSize(44);
-        view->header()->setHighlightSections(true);
-        view->header()->setMinimumSectionSize(44);
-        view->header()->setProperty("showSortIndicator", QVariant(false));
-
-        gridLayout->addWidget(view, 0, 0, 1, 1);
-
-        tabWidget->addTab(tab_4, QString());
-
-        gridLayout_6->addWidget(tabWidget, 0, 0, 1, 1);
-
         groupBox_2 = new QGroupBox(groupBox);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
         horizontalLayout = new QHBoxLayout(groupBox_2);
@@ -250,11 +200,11 @@ public:
 
         groupBox_4 = new QGroupBox(groupBox_2);
         groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(groupBox_4->sizePolicy().hasHeightForWidth());
-        groupBox_4->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(groupBox_4->sizePolicy().hasHeightForWidth());
+        groupBox_4->setSizePolicy(sizePolicy);
         groupBox_4->setMinimumSize(QSize(300, 0));
         gridLayout_4 = new QGridLayout(groupBox_4);
         gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
@@ -268,6 +218,21 @@ public:
 
 
         gridLayout_6->addWidget(groupBox_2, 1, 0, 1, 1);
+
+        tabWidget = new QTabWidget(groupBox);
+        tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QStringLiteral("tab_3"));
+        gridLayout_5 = new QGridLayout(tab_3);
+        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
+        xmlEditor_2 = new XmlEditor(tab_3);
+        xmlEditor_2->setObjectName(QStringLiteral("xmlEditor_2"));
+
+        gridLayout_5->addWidget(xmlEditor_2, 0, 0, 1, 1);
+
+        tabWidget->addTab(tab_3, QString());
+
+        gridLayout_6->addWidget(tabWidget, 0, 0, 1, 1);
 
 
         gridLayout_3->addWidget(groupBox, 0, 0, 1, 1);
@@ -346,8 +311,6 @@ public:
         actionhideCodeTags->setText(QApplication::translate("MainWindow", "hideCodeTags", Q_NULLPTR));
         actionhideAllNonClickerTags->setText(QApplication::translate("MainWindow", "hideAllNonClickerTags", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "Xml tree view", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Xml Document", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Xml tree", Q_NULLPTR));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "XML", Q_NULLPTR));
         groupBox_3->setTitle(QApplication::translate("MainWindow", "Function description and comments", Q_NULLPTR));
         commentEditor->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -404,6 +367,7 @@ public:
 #endif // QT_NO_SHORTCUT
         PlayButton->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
         groupBox_4->setTitle(QApplication::translate("MainWindow", "Function editor", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Xml Document", Q_NULLPTR));
         fileMenu->setTitle(QApplication::translate("MainWindow", "&File", Q_NULLPTR));
         actionsMenu->setTitle(QApplication::translate("MainWindow", "&Actions", Q_NULLPTR));
         menuAbout->setTitle(QApplication::translate("MainWindow", "About", Q_NULLPTR));

@@ -10,10 +10,9 @@
 #include <QApplication>
 #include <windef.h>
 #include "interpreter/interpreterwin64.h"
-#include "model/clickermodel.h"
-#include "log/logger.h"
+//#include "log/logger.h"
 #include "cv/dspmodule.h"
-#include "ui/mainwindow.h"
+#include "../mainwindow.h"
 #include "windows.h"
 #include "globals.h"
 #include "./interpreter/expression_calculator.h"
@@ -544,8 +543,10 @@ QString decodePath(QString filename)
     if( match.hasMatch() )
     {
         auto varname = match.capturedTexts()[1];
-        filename = filename.replace("$(UsefulClicker)","");
-        clickerPath = qEnvironmentVariable(varname.toStdString().c_str(), QDir::currentPath());
+        filename = filename.replace("$(UsefulClicker)","");        
+        clickerPath = qgetenv(varname.toStdString().c_str()).toStdString().c_str();
+        if( qEnvironmentVariableIsEmpty(varname.toStdString().c_str()) )
+            clickerPath = QDir::currentPath();
     }
     return clickerPath + filename;
 }

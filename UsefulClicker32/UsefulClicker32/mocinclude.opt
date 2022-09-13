@@ -35,7 +35,7 @@
 -IC:/Projects/UsefulClicker/UsefulClicker32/UsefulClicker32/-L
 -IC:/Projects/opencv/modules/photo/include
 -IC:/Projects/UsefulClicker/UsefulClicker32/UsefulClicker32/-L
--IC:/Projects/opencv/opencv_contrib-4.x/modules/shape/include
+-IC:/Projects/opencv/opencv_contrib/modules/shape/include
 -IC:/Projects/UsefulClicker/UsefulClicker32/UsefulClicker32/-L
 -IC:/Projects/opencv/modules/ml/include
 -IC:/Projects/UsefulClicker/UsefulClicker32/UsefulClicker32/-L
