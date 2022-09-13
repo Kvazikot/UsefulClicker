@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg68215"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="plus.svg"
+   inkscape:export-filename="C:\Users\Vladimir\Projects\UsefulClicker\images\plus.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview68217"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.52347032"
+     inkscape:cx="92.650908"
+     inkscape:cy="269.35625"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs68212">
+    <linearGradient
+       id="linearGradient62330"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000700;stop-opacity:1;"
+         offset="0"
+         id="stop62328" />
+    </linearGradient>
+    <rect
+       x="-195.86685"
+       y="-41.874981"
+       width="149.93945"
+       height="93.205605"
+       id="rect54101" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient62330"
+       id="linearGradient72066"
+       gradientUnits="userSpaceOnUse"
+       x1="-190.88672"
+       y1="-18.709749"
+       x2="-170.92578"
+       y2="-18.709749" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       transform="matrix(14.177975,0,0,13.813051,2669.8843,406.93872)"
+       id="text54099"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect54101);fill:#63e9ff;fill-opacity:1;stroke:url(#linearGradient72066);stroke-width:1.3502003;stroke-miterlimit:4;stroke-dasharray:none;stroke-linejoin:round;stroke-linecap:round;stroke-dashoffset:0;paint-order:markers fill stroke"><tspan
+         x="-195.86719"
+         y="-5.1062338"
+         id="tspan74785"><tspan
+           style="font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, '"
+           id="tspan74783">+</tspan></tspan></text>
+  </g>
+</svg>

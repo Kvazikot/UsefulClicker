@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/green_check_mark.png</file>
+        <file>images/red_check_mark.png</file>
+        <file>images/pause.jpg</file>
+        <file>images/play.jpg</file>
+        <file>images/stop.jpg</file>
+        <file>images/keyboard_icon.png</file>
+        <file>images/vector-mouse-icon.jpg</file>
+        <file>images/mouse_default.png</file>
+        <file>images/mouse_left_click.png</file>
+        <file>images/mouse_right_click.png</file>
+        <file>images/mouse_scroll.png</file>
+        <file>images/knights-templar-cross.png</file>
+        <file>images/area_icon.png</file>
+        <file>images/refresh-icon.png</file>
+        <file>images/stop.png</file>
+        <file>images/play.png</file>
+        <file>images/templ_cross_org.png</file>
+        <file>images/bullet.png</file>
+        <file>images/putler.jpg</file>
+        <file>images/hitler_face.png</file>
+        <file>images/stalin.jpg</file>
+        <file>images/Terminal-icon.png</file>
+        <file>images/vector-star-icon.png</file>
+        <file>tests/UsefulClicker_tests.xml</file>
+        <file>images/new_fun.png</file>
+        <file>images/plus.png</file>
+        <file>images/type.png</file>
+    </qresource>
+</RCC>

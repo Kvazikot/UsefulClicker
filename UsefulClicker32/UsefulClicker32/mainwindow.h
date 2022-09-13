@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QPlainTextEdit>
+#include <QComboBox>
 #include "xml/clickerdocument.h"
 #include "interpreter/interpreterwin64.h"
 
@@ -25,6 +26,8 @@ public:
     void   log(QString msg);
     void   loadDocument(QString filename);
     void    setDoc(ClickerDocument* _doc);
+    AbstractInterpreter* getInterpreter();
+
     ClickerDocument* getDoc();
     // flags indicated that UsefulClicker is paused, otherwise its running
     bool   pauseFlag;
@@ -32,11 +35,20 @@ public:
     ClickerDocument defaultDoc;
     QString current_filename;
     InterpreterWin64* interpreter;
+    QAction* playAction;
+
+public slots:
+    void reload();
+    void reloadFromFile(QString& filename);
+    void new_fun();
+    void pause();
+    void openXml();
 
 private:
     // log window
     QPlainTextEdit*  logWindow;
     QVector<QString> cached_messages;
+    QComboBox* functionSelector;
     Ui::MainWindow *ui;
 };
 

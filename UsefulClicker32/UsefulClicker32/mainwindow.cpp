@@ -29,6 +29,11 @@
 
 #include <QDateTime>
 #include <QDebug>
+#include <QComboBox>
+#include <QToolBar>
+#include <QLabel>
+#include <QInputDialog>
+#include <QFileDialog>
 
 MainWindow* MainWindow::instance;
 
@@ -59,7 +64,7 @@ MainWindow::MainWindow(QWidget *parent) :
     interpreter->init(*getDoc());
 
     //--------------------------------------------------------------------
-/*
+
     QToolBar* toolbar = new QToolBar(this);
     playAction =  toolbar->addAction(QIcon(":/images/play.png"), "Play");
     pauseFlag = true;
@@ -83,66 +88,86 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(newFunAction, &QAction::triggered, this, &MainWindow::new_fun);
 
     QLabel* xmlEditorStatus = new QLabel(this);
-    connect(xmlEditor, SIGNAL(updateStatusBar(const QString&, bool)), this, SLOT(updateStatus(const QString&, bool)));
-    connect(xmlEditor_2, SIGNAL(updateStatusBar(const QString&, bool)), this, SLOT(updateStatus(const QString&, bool)));
+    connect(ui->xmlEditor, SIGNAL(updateStatusBar(const QString&, bool)), this, SLOT(updateStatus(const QString&, bool)));
+    connect(ui->xmlEditor_2, SIGNAL(updateStatusBar(const QString&, bool)), this, SLOT(updateStatus(const QString&, bool)));
     //connect(xmlEditor, SIGNAL(textChanged()), this, SLOT(updateFunctionEditor()));
     //updateStatusBar
     statusBar()->addWidget(xmlEditorStatus);
 
-    connect(xmlEditor, SIGNAL(textChanged()), this, SLOT(xmlChanged()));
+    connect(ui->xmlEditor, SIGNAL(textChanged()), this, SLOT(xmlChanged()));
 
-    connect(xmlEditor_2, SIGNAL(cursorPositionChanged()), this, SLOT(xml2CursorChanged()));
+    connect(ui->xmlEditor_2, SIGNAL(cursorPositionChanged()), this, SLOT(xml2CursorChanged()));
 
-    xmlEditor_2->setReadOnly(false);
+    ui->xmlEditor_2->setReadOnly(false);
 
-    //connect(playAction, &QAction::triggered, daemon, &InterpreterDaemon::terminate);
     connect(playAction, &QAction::triggered, this, &MainWindow::pause);
-    connect(actionOpen, &QAction::triggered, this, &MainWindow::openXml);
+    connect(ui->actionOpen, &QAction::triggered, this, &MainWindow::openXml);
     addToolBar(toolbar);
+    //connect(ui->exitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
+    //connect(ui->actionsMenu, &QMenu::aboutToShow, this, &MainWindow::updateActions);
+    //connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
+    //connect(ui->actionSave, &QAction::triggered, this, &MainWindow::save);
 
-    FancyDelegate* spinbox = new FancyDelegate(view);
-    view->setItemDelegate(spinbox);
-    view->header()->setEditTriggers(QAbstractItemView::NoEditTriggers);
+}
 
-
-    QImage image(":/images/vector-star-icon.png");
-    QStandardItem *item = new QStandardItem();
-    //item->setData(QVariant(QPixmap::fromImage(image)), Qt::DecorationRole);
-    model->itemData(model->index(0,0))[Qt::DecorationRole].setValue(QPixmap::fromImage(image));
-
-    for (int row = 0; row < model->rowCount(); ++row)
+void MainWindow::openXml()
+{
+    QFileDialog dialog(this);
+    dialog.setFileMode(QFileDialog::AnyFile);
+    dialog.setDirectory(QDir::currentPath() + "/xml");
+    QStringList fileNames;
+    if (dialog.exec())
     {
-      QMap<int,QVariant> roles;
-      roles[Qt::DecorationRole] = QVariant(QPixmap::fromImage(image));
-      model->setItemData(model->index(row,0),roles);
-      model->setHeaderData(0,Qt::Orientation::Horizontal,roles[Qt::DecorationRole],Qt::DecorationRole);
+        fileNames = dialog.selectedFiles();
+        if( fileNames.size()>0 )
+          loadDocument(fileNames[0]);
     }
-    //
-    connect(view, SIGNAL(clicked(const QModelIndex &)), this, SLOT(itemActivated(const QModelIndex &)));
-    connect(view, SIGNAL(activated()), this, SLOT(itemActivated()));
-    view->parentWidget()->setStyleSheet("QTreeView::item { padding: 10px }; white-space:pre-wrap; word-wrap:break-word" );
 
-    for (int column = 1; column < model->columnCount(); ++column)
-      view->setColumnWidth(column, 500);
 
-    view->setColumnWidth(0, 130);
+}
 
-    connect(exitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
+void MainWindow::pause()
+{
+    pauseFlag = ! pauseFlag;
 
-    connect(view->selectionModel(), &QItemSelectionModel::selectionChanged,
-          this, &MainWindow::updateActions);
+    if( pauseFlag )
+    {
+       playAction->setIcon(QIcon(":/images/play.png"));
+       ui->PlayButton->setIcon(QIcon(":/images/play_123.png"));
+    }
+    else
+    {
+       playAction->setIcon(QIcon(":/images/pause.png"));
+       ui->PlayButton->setIcon(QIcon(":/images/pause.png"));
+       MainWindow* window = MainWindow::getInstance();
+       QDomDocument* doc = static_cast<QDomDocument*>(window->getDoc());
+       InterpreterWin64*  interpreter = (InterpreterWin64*)window->getInterpreter();
+       connect(interpreter, SIGNAL(setCurrentNode(const QDomNode&,Delays)), this, SLOT(currentStep(const QDomNode&,Delays)));
+       connect(this, SIGNAL(pause()), interpreter, SLOT(stop()));
+       QString func_name = functionSelector->currentText();
+       interpreter->executeFunction(doc->documentElement(), doc->documentElement(), func_name);
+       playAction->setIcon(QIcon(":/images/play.png"));
+       ui->PlayButton->setIcon(QIcon(":/images/play_123.png"));
+       pauseFlag = ! pauseFlag;
+    }
 
-    connect(actionsMenu, &QMenu::aboutToShow, this, &MainWindow::updateActions);
-    connect(insertRowAction, &QAction::triggered, this, &MainWindow::insertRow);
-    connect(removeRowAction, &QAction::triggered, this, &MainWindow::removeRow);
-    connect(insertChildAction, &QAction::triggered, this, &MainWindow::insertChild);
-    connect(actionAbout, &QAction::triggered, this, &MainWindow::about);
-    connect(actionSave, &QAction::triggered, this, &MainWindow::save);
-    connect(view,SIGNAL(currentChanged(const QModelIndex &current, const QModelIndex &previous)),
-          this,SLOT(elementClicked(const QModelIndex& current, const QModelIndex& previous)));
+}
 
-    updateActions();
-*/
+AbstractInterpreter* MainWindow::getInterpreter()
+{
+    return interpreter;
+}
+
+void MainWindow::new_fun()
+{
+    qDebug() << __FUNCTION__;
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                         tr("Function name:"), QLineEdit::Normal,
+                                         ui->xmlEditor->genFunName(), &ok);
+    if (ok && !text.isEmpty())
+        ui->xmlEditor->newFun(text);
+
 }
 
 ClickerDocument* MainWindow::getDoc()
@@ -185,6 +210,21 @@ void MainWindow::loadDocument(QString filename)
         ui->xmlEditor_2->setTextCursor(c);
         ui->xmlEditor_2->moveCursor(QTextCursor::End);
     }
+}
+
+void MainWindow::reload()
+{
+
+    reloadFromFile(current_filename);
+}
+
+
+// reload from file
+void MainWindow::reloadFromFile(QString& filename)
+{
+    ClickerSettings::getInstance()->reload();
+    current_filename = filename;
+    loadDocument(current_filename);
 }
 
 MainWindow* MainWindow::getInstance()
