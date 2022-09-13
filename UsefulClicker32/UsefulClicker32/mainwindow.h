@@ -29,6 +29,8 @@ public:
     // flags indicated that UsefulClicker is paused, otherwise its running
     bool   pauseFlag;
     ClickerDocument* doc;
+    ClickerDocument defaultDoc;
+    QString current_filename;
     InterpreterWin64* interpreter;
 
 private:
@@ -36,7 +38,6 @@ private:
     QPlainTextEdit*  logWindow;
     QVector<QString> cached_messages;
     Ui::MainWindow *ui;
-    static QString current_filename;
 };
 
 #endif // MAINWINDOW_H

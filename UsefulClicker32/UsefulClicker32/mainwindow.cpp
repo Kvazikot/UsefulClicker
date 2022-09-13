@@ -44,6 +44,13 @@ MainWindow::MainWindow(QWidget *parent) :
     startTimer(50);
     current_filename = DEFAULT("last_sheme").toString();
 
+    //----------------------------------------------------
+    // setting up default xml doc
+    QString xml = "<?xml version='1.0'?> <xml error=\"This is default document. Make sure you load right xml.\">  </xml>";
+    bool ok  = (*(QDomDocument*)&defaultDoc).setContent(xml);
+    qDebug() << "defaultDoc.setContent " << ok;
+    setDoc(&defaultDoc);
+
 
     loadDocument(current_filename);
     //--------------------------------------------------------------------
@@ -178,6 +185,11 @@ void MainWindow::loadDocument(QString filename)
         ui->xmlEditor_2->setTextCursor(c);
         ui->xmlEditor_2->moveCursor(QTextCursor::End);
     }
+}
+
+MainWindow* MainWindow::getInstance()
+{
+    return instance;
 }
 
 void MainWindow::setLogWindow(QPlainTextEdit* wnd)

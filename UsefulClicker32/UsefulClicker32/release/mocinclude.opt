@@ -3,9 +3,9 @@
 -IC:/Projects/UsefulClicker/UsefulClicker32/UsefulClicker32/-L
 -IC:/Projects/opencv/modules/core/include
 -IC:/Projects/UsefulClicker/UsefulClicker32/UsefulClicker32/-L
--IC:/Projects/opencv/build_mingw/modules
+-IC:/Projects/opencv/build_mingw32/modules
 -IC:/Projects/UsefulClicker/UsefulClicker32/UsefulClicker32/-L
--IC:/Projects/opencv/build_mingw
+-IC:/Projects/opencv/build_mingw32
 -IC:/Projects/UsefulClicker/UsefulClicker32/UsefulClicker32/-L
 -IC:/Projects/opencv/include/opencv2
 -IC:/Projects/UsefulClicker/UsefulClicker32/UsefulClicker32/-L
