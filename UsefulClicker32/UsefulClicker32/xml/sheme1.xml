@@ -1,0 +1,91 @@
+<?xml version='1.0'?>
+<!--
+при запуске UsefulClicker устанавливаются следующие переменные окружения
+UsefulClicker_xml = "(CWD)\xml"    -  каталог где он ищет include
+UsefulClicker_scripts = "(CWD)\scripts"    - каталог куда он сохраняет скрипты из этой схемы
+UsefulClicker_settings = "%APPDATA%\Roaming\UsefulClicker"
+-->
+<xml>
+<include> 1 sheme1.xml </include>
+<include> sheme2.xml </include>
+<include/>
+<include/>
+<include/>
+<include/>
+<code lang="python" source_name="block.py">
+  import random
+  print( random.randint(0, 13) )
+  A = 100
+  def Wave(t):
+     x = A * math.sin(t)
+     return x
+</code>
+<shell bg="1" showConsole="1" name="cmd">
+start / B date
+</shell>
+<py_call name=""/>
+<func_call name="SetUrl" arg0="https://www.hh.ru" comment="set hh url"/>
+<func name="SetUrl" arg0="https://www.youtube.com/results?search_query=" comment="function sets url in chrome browser">
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click area="Rect(0,1,200,200)"/>
+<click x="10" y="20"/>
+</func>
+<!--
+<main>
+<code name="init" >
+mouseX = Wave(t_cycle)
+<dblclick x="10" y="20" />
+<mouseup x="10" y="20" delay_fixed="1000" delay_random="300" repeat="10" />
+<mousedown x="10" y="20" />
+<hotkey> ctrl + C </hotkey>
+<type> this is text to insert . There $(arg0) is python variable  </type>
+<keydown arg0="F6"/>
+<keyup arg0="F6"/>
+<scrollup x="10" y="20"/>
+<scrolldown />
+
+</code>
+
+<func_call name="SetUrl" />
+<func_call name="Wave" arg0="t_cycle * $(dt)" />
+</main>
+-->
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+<img src="myimage.png"/>
+</xml>

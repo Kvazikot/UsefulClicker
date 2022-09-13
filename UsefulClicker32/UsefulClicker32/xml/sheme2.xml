@@ -1,0 +1,21 @@
+<xml>
+ <func>
+  <click x="10" button="right" y="20"/>
+  <hotkey hotkey="ctrl + a"/>
+  <shell hotkey="ctrl + a" cmd="start /B python start.py&quot;" bg="1" showConsole="1"/>
+  <hotkey hotkey="ctrl + a"/>
+  <shell area="Rect(0,1,200,200)" bg="1" button="left" showConsole="1"/>
+  <click area="Rect(0,1,200,200)" button="left"/>
+ </func>
+ <!--
+<main>
+<code name="init" >
+mouseX = Wave(t_cycle)
+</code>
+
+<func_call name="SetUrl" />
+<func_call name="Wave" arg0="t_cycle * $(dt)" />
+</main>
+-->
+ <img src="myimage.png" area="QRect(24,351,23,23) "/>
+</xml>
