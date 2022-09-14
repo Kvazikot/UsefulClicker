@@ -40,7 +40,8 @@ public:
 
     void insertXmlString(QString xml_string);
     void modifyXmlString(QString xml_string);
-    void applyFunctionChanges();
+    QString applyFunctionChanges();
+    void updateXmlEditor2(QString& new_xml);
 
 public slots:
     void reload();

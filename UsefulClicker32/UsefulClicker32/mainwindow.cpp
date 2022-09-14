@@ -133,7 +133,6 @@ void MainWindow::openXml()
 
 void MainWindow::xmlChanged()
 {
-    qDebug() << "xml changed!";
 }
 
 void MainWindow::updateStatus(const QString& text, bool applyChangesFlag)
@@ -436,7 +435,7 @@ void getFunctionName(QStringList lines, QString& out_function_name)
     }
 }
 
-void MainWindow::applyFunctionChanges()
+QString MainWindow::applyFunctionChanges()
 {
     QStringList original_lines = ui->xmlEditor_2->toPlainText().split("\n");
     QStringList function_lines = ui->xmlEditor->toPlainText().split("\n");
@@ -446,10 +445,12 @@ void MainWindow::applyFunctionChanges()
     func_name = func_name.replace("\"","");
     locateFunction(original_lines, func_name, start_line, end_line);
     replaceLines(original_lines, function_lines, start_line, end_line);
+    QString xml = original_lines.join("\n");
+    doc->setContent(*doc, xml);
 
     qDebug() << "func_name is " <<  func_name;
     qDebug() << "located at " << start_line << ", " <<  end_line;
-
+    return xml;
 }
 
 void MainWindow::slotSetAttrs(QMap<QString,QString> attrs_map)
@@ -790,11 +791,28 @@ void MainWindow::on_rectClick_clicked()
 }
 
 
+void MainWindow::updateXmlEditor2(QString& xml_text)
+{
+    ui->xmlEditor_2->enableChangeEvent(true);
+    QTextCursor cur = ui->xmlEditor_2->textCursor();
+    int p = cur.position();
+    ui->xmlEditor_2->setText(xml_text);
+    // set cursor at last pos
+    QTextCursor c(ui->xmlEditor_2->document());
+    int start = c.selectionStart();
+    int end   = c.selectionEnd();
+    c.setPosition(end + p  ,QTextCursor::MoveAnchor);
+    c.setPosition(start + p,QTextCursor::KeepAnchor);
+    ui->xmlEditor_2->setTextCursor(c);
+    ui->xmlEditor_2->moveCursor(QTextCursor::End);
 
+}
 
 void MainWindow::on_PlayButton_clicked()
 {
     //applyChangesXml();
-    applyFunctionChanges();
-    //pause();
+    auto xml = applyFunctionChanges();
+    pause();
+    //updateXmlEditor2(xml);
+
 }
