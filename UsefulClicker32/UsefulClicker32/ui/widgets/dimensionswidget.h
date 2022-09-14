@@ -2,7 +2,7 @@
 #define DIMENSIONSWIDGET_H
 
 #include <QWidget>
-
+#include <QMap>
 namespace Ui {
 class DimensionsWidget;
 }

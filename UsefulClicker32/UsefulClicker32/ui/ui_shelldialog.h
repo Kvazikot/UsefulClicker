@@ -109,8 +109,8 @@ public:
 
 
         retranslateUi(ShellDialog);
-        QObject::connect(buttonBox, &QDialogButtonBox::accepted, ShellDialog, qOverload<>(&QDialog::accept));
-        QObject::connect(buttonBox, &QDialogButtonBox::rejected, ShellDialog, qOverload<>(&QDialog::reject));
+        QObject::connect(buttonBox, &QDialogButtonBox::accepted, ShellDialog, &QDialog::accept);
+        QObject::connect(buttonBox, &QDialogButtonBox::rejected, ShellDialog, &QDialog::reject);
 
         QMetaObject::connectSlotsByName(ShellDialog);
     } // setupUi

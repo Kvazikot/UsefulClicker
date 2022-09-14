@@ -2,6 +2,7 @@
 #define TYPEDIALOG_H
 
 #include <QDialog>
+#include <QMap>
 
 namespace Ui {
 class TypeDialog;

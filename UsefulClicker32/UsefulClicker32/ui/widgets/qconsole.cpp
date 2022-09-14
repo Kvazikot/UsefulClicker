@@ -24,6 +24,8 @@
 #include <QMessageBox>
 #include <QDir>
 #include <QThread>
+#include <QDebug>
+#include <QScreen>
 #include <QVBoxLayout>
 #include <QApplication>
 #include <QScrollBar>
@@ -722,7 +724,7 @@ QString QConsole::interpretCommand(const QString &command, int *res)
     connect(process, SIGNAL(readyRead()), this, SLOT(read_stdout()));
     //QString path = QDir::currentPath();
     //process->setWorkingDirectory(path);
-    process->startCommand(modifiedCommand);
+    process->start(modifiedCommand);
     process->waitForFinished(3000);
     QByteArray ba = "";
 

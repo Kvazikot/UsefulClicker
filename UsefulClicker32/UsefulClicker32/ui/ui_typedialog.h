@@ -54,8 +54,8 @@ public:
 
 
         retranslateUi(TypeDialog);
-        QObject::connect(buttonBox, &QDialogButtonBox::accepted, TypeDialog, qOverload<>(&QDialog::accept));
-        QObject::connect(buttonBox, &QDialogButtonBox::rejected, TypeDialog, qOverload<>(&QDialog::reject));
+        QObject::connect(buttonBox, &QDialogButtonBox::accepted, TypeDialog, &QDialog::accept);
+        QObject::connect(buttonBox, &QDialogButtonBox::rejected, TypeDialog, &QDialog::reject);
 
         QMetaObject::connectSlotsByName(TypeDialog);
     } // setupUi

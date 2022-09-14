@@ -2,9 +2,11 @@
 #include <QGridLayout>
 #include <QDir>
 #include <QPainterPath>
+#include <QScreen>
 #include <QPen>
 #include <QGuiApplication>
 #include <QLabel>
+
 #include "ui/widgets/svgwidget.h"
 #include "ui/widgets/dimensionswidget.h"
 #include "ui_dimensionswidget.h"
@@ -159,6 +161,6 @@ void DimensionsWidget::wheelEvent(QWheelEvent* event)
     else
         wheels--;
 
-    qDebug() << wheels;
+    //qDebug() << wheels;
 }
 

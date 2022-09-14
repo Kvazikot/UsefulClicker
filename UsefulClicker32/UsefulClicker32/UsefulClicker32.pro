@@ -88,7 +88,19 @@ SOURCES += main.cpp\
     log/logger.cpp \
     globals.cpp \
     interpreter/expression_calculator.cpp \
-    ui/aboutbox.cpp
+    ui/aboutbox.cpp \
+    ui/createdialog.cpp \
+    ui/areaselectordialog.cpp \
+    ui/screenbuttonsdetector.cpp \
+    ui/coordselector.cpp \
+    ui/shelldialog.cpp \
+    ui/typedialog.cpp \
+    ui/mousedialog.cpp \
+    ui/widgets/delaywidget.cpp \
+    ui/widgets/dimensionswidget.cpp \
+    ui/widgets/qconsole.cpp \
+    ui/widgets/svgwidget.cpp \
+    ui/widgets/svg_path_parser.cpp
 
 HEADERS  += mainwindow.h \
     xml/clickerdocument.h \
@@ -102,10 +114,29 @@ HEADERS  += mainwindow.h \
     log/logger.h \
     globals.h \
     interpreter/expression_calculator.h \
-    ui/aboutbox.h
+    ui/aboutbox.h \
+    ui/areaselectordialog.h \
+    ui/screenbuttonsdetector.h \
+    ui/coordselector.h \
+    ui/shelldialog.h \
+    ui/typedialog.h \
+    ui/mousedialog.h \
+    ui/widgets/delaywidget.h \
+    ui/widgets/dimensionswidget.h \
+    ui/widgets/qconsole.h \
+    ui/widgets/svgwidget.h \
+    ui/widgets/svg_path_parser.h
 
 FORMS    += mainwindow.ui \
-    ui/aboutbox.ui
+    ui/aboutbox.ui \
+    ui/areaselectordialog.ui \
+    ui/screenbuttonsdetector.ui \
+    ui/coordselector.ui \
+    ui/shelldialog.ui \
+    ui/typedialog.ui \
+    ui/mousedialog.ui \
+    ui/widgets/delaywidget.ui \
+    ui/widgets/dimensionswidget.ui
 
 RESOURCES += \
     res.qrc

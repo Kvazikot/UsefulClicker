@@ -1,8 +1,10 @@
 #include <QPainter>
 #include <QGridLayout>
 #include <QDir>
+#include <QScreen>
 #include <QPainterPath>
 #include <QPen>
+#include <QtMath>
 #include <QGuiApplication>
 #include <QLabel>
 #include "delaywidget.h"
@@ -191,6 +193,6 @@ void DelayWidget::wheelEvent(QWheelEvent* event)
     else
         repeats--;
 
-    qDebug() << repeats;
+//    qDebug() << repeats;
 }
 

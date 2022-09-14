@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QDir>
+#include <QDebug>
 #include <QSoundEffect>
 #include "coordselector.h"
 #include "ui_coordselector.h"
@@ -146,7 +147,7 @@ void CoordSelector::clickDelay()
 
 void CoordSelector::mouseMoveEvent(QMouseEvent* event)
 {
-    mpos = event->globalPosition().toPoint();
+    mpos = QPoint(event->x(),event->y());
     for(int i=0; i < n_rects; i++)
     {
         QRectF r = rects[i];
@@ -229,12 +230,12 @@ bool CoordSelector::setScreenNumber(int n)
 {
     if( QGuiApplication::screens().size() < n)
     {
-        setScreen(QGuiApplication::screens()[0]);
+        //setScreen(QGuiApplication::screens()[0]);
         return false;
     }
     screenNum = n;
     auto scr = QGuiApplication::screens()[screenNum];
-    setScreen(scr);
+    //setScreen(scr);
     setGeometry(scr->geometry());
     qDebug() << __FUNCTION__ << scr->geometry();
     return true;

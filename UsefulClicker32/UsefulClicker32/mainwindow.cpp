@@ -26,6 +26,7 @@
 #include "interpreter/interpreter.h"
 #include "interpreter/interpreterwin64.h"
 #include "ui/aboutbox.h"
+#include "ui/dialogtype.h"
 //#include "log/logger.h"
 
 #include <QDateTime>
@@ -301,3 +302,45 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_leftClick_clicked()
+{
+    last_action_triggered = "left click";
+    createDialog(this, DialogType::MOUSE_DIALOG, "click");
+}
+
+void MainWindow::on_keyboardClick_clicked()
+{
+    last_action_triggered = "hotkey";
+    createDialog(this, DialogType::MOUSE_DIALOG, "hotkey");
+}
+
+
+void MainWindow::on_areaClick_clicked()
+{
+    last_action_triggered = "Area click";
+    createDialog(this, DialogType::AREA_SELECTOR);
+}
+
+void MainWindow::on_imageClick_clicked()
+{
+    last_action_triggered = "Add image click";
+    createDialog(this, DialogType::SCREEN_BUTTONS_DETECTOR);
+}
+
+
+void MainWindow::on_typeTag_clicked()
+{
+    last_action_triggered =  "Add type";
+    createDialog(this, DialogType::TYPE_DIALOG);
+}
+
+
+void MainWindow::on_rectClick_clicked()
+{
+    last_action_triggered = "Add rectangle click";
+    createDialog(this, DialogType::SCREEN_BUTTONS_DETECTOR, "rect_mode");
+}
+
+
+

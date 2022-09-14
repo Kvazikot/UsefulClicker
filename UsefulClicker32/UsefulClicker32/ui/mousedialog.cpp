@@ -203,7 +203,7 @@ void MouseDialog::afterclick()
 
 void MouseDialog::mouseMoveEvent(QMouseEvent* event)
 {
-    mpos = event->globalPosition().toPoint();
+    mpos = QPoint(event->x(), event->y());
     repaint();
     event->accept();
 }

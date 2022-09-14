@@ -1,11 +1,12 @@
 #include <QScreen>
 #include <QPushButton>
-#include <QRandomGenerator>
 #include <QPainter>
 #include <QPainterPath>
 #include <QTimer>
 #include <QDateTime>
 #include <QDir>
+#include <QtMath>
+#include <QDebug>
 #include <algorithm>
 #include <opencv2/imgproc.hpp>
 #include "cv/dspmodule.h"
@@ -48,11 +49,11 @@ bool ScreenButtonsDetector::setScreenNumber(int n)
     if( QGuiApplication::screens().size() < n)
     {
         screenNum = 0;
-        setScreen(QGuiApplication::screens()[screenNum]);
+        //setScreen(QGuiApplication::screens()[screenNum]);
         return false;
     }
     screenNum = n;
-    setScreen(QGuiApplication::screens()[screenNum]);
+    //setScreen(QGuiApplication::screens()[screenNum]);
     return true;
 }
 
@@ -130,7 +131,7 @@ void ScreenButtonsDetector::keyPressEvent(QKeyEvent* event)
 
 void ScreenButtonsDetector::mouseMoveEvent(QMouseEvent* event)
 {
-    mpos = event->globalPosition().toPoint();
+    mpos = QPoint(event->x(), event->y());
     repaint();
     event->accept();
 }
@@ -143,7 +144,7 @@ void ScreenButtonsDetector::wheelEvent(QWheelEvent* event)
     else
         p+=1;
 
-    dsp->kernel_size = std::clamp(p, 1, 40);
+    dsp->kernel_size = p;
     rects.clear();
     dsp->detectButtons(screenNum, dsp->kernel_size, rects);
     //dsp->detectButtons(screenNum, dsp->kernel_size, rects, true);
@@ -181,11 +182,15 @@ void Train::computeRectangleMaps(std::vector<QRect>& in_rects, t_rectmap& out_xM
     }
 }
 
+int bounded(int up_boundary)
+{
+    return int(float(up_boundary) * (rand()/RAND_MAX));
+}
+
 QPoint randomPointInRect(QRect& r)
 {
-    QRandomGenerator rng(QDateTime::currentDateTime().toMSecsSinceEpoch());
-    return QPoint(r.left() + rng.bounded(r.width()),
-                  r.top() + rng.bounded(r.height()));
+    return QPoint(r.left() + bounded(r.width()),
+                  r.top() + bounded(r.height()));
 }
 
 
@@ -193,21 +198,22 @@ QPoint randomPointInRect(QRect& r)
 QPainterPath GenerateSpiral(QPoint origin, int Npoints)
 {
     QPainterPath path;
-    QList<QPointF> spiral_points;
+    QPolygonF spiral_points;
     //Npoints = 20000;
     const float a = 2;
     const float b = 3;
     const float c = 1;
     const int N_loops = 10;
     //polar coordinates formula for spiral
-    float dt = qDegreesToRadians(1);
+    float dt = qDegreesToRadians(1.);
     float theta = 0;
-    while(theta < qDegreesToRadians(360*N_loops))
+    while(theta < qDegreesToRadians((float)360*N_loops))
     {
         float r = a + b * pow(theta, 1./c);
         float x = origin.x() + r * cos(theta);
         float y = origin.y() + r * sin(theta);
-        spiral_points.push_back(QPointF(x,y));
+        //spiral_points.push_back(QPointF(x,y));
+        spiral_points.append(QPointF(x,y));
         theta+=dt;
     }
     path.addPolygon(spiral_points);
@@ -381,7 +387,7 @@ void ScreenButtonsDetector::init()
     qDebug() << __FUNCTION__ << "screen geometry" << screen->geometry();
     qDebug() << __FUNCTION__ << "ScreenButtonsDetector window  geometry" << geometry();
     setGeometry(r);
-    setScreen(screen);
+    //setScreen(screen);
     setCursor(Qt::CrossCursor);
     dsp->detectButtons(screenNum, dsp->kernel_size, rects);
     showFullScreen();

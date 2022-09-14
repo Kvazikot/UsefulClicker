@@ -184,7 +184,7 @@ void AreaSelectorDialog::mousePressEvent(QMouseEvent *event)
     if ( event->button() == Qt::LeftButton )
     {
         dragStarted = true;
-        prevMouseCoords = event->globalPosition().toPoint();
+        prevMouseCoords = QPoint(event->x(),event->y());
         startWndCoords = prevMouseCoords;
     }
 }
@@ -196,7 +196,7 @@ void AreaSelectorDialog::mouseMoveEvent(QMouseEvent *event)
     {
         //QPoint delta = prevMouseCoords - event->pos();
         if(!fullscreenMode)
-          move( event->globalPosition().toPoint()  - QPoint(rect().width() / 2,rect().height() / 2));
+          move( QPoint(event->x(),event->y())  - QPoint(rect().width() / 2,rect().height() / 2));
     }
     prevMouseCoords = event->pos();
     repaint();
