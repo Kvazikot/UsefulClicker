@@ -68,6 +68,9 @@ private slots:
     void xml2CursorChanged();
     void on_rectClick_clicked();
 
+    void on_PlayButton_clicked();
+    void applyChangesXml();
+    void updateStatus(const QString& text, bool applyChangesFlag);
 private:
     // log window
     QPlainTextEdit*  logWindow;

@@ -31,6 +31,7 @@
 
 #include <QDateTime>
 #include <QDebug>
+#include <QPushButton>
 #include <QComboBox>
 #include <QToolBar>
 #include <QLabel>
@@ -38,6 +39,9 @@
 #include <QFileDialog>
 
 MainWindow* MainWindow::instance;
+static QPushButton* applyButton = 0;
+static QPushButton* apply_button2 = 0;
+static QLabel* errorLabel = 0;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -125,6 +129,76 @@ void MainWindow::openXml()
           loadDocument(fileNames[0]);
     }
 
+}
+
+void MainWindow::updateStatus(const QString& text, bool applyChangesFlag)
+{
+    if( text.contains("error"))
+    {
+        if(errorLabel!=0)
+        {
+            statusBar()->removeWidget(errorLabel);
+            delete errorLabel;
+            errorLabel = 0;
+        }
+        errorLabel = new QLabel(this);
+        errorLabel->setText(text);
+        errorLabel->setStyleSheet("background-color: rgb(255, 0, 0); color: rgb(255, 255, 255);");
+        statusBar()->addWidget(errorLabel, width()-errorLabel->width());
+
+    }
+    else
+    {
+        if(errorLabel!=0)
+        {
+            statusBar()->removeWidget(errorLabel);
+            delete errorLabel;
+            errorLabel = 0;
+        }
+        if( applyChangesFlag && applyButton == 0 )
+        {
+            applyButton = new QPushButton(this);
+            applyButton->setText("Apply changes");
+            connect(applyButton, SIGNAL(clicked()), this, SLOT(applyChangesXml()));
+            statusBar()->addWidget(applyButton, width()-applyButton->width());
+
+        }
+    }
+
+
+}
+
+void MainWindow::applyChangesXml()
+{
+    // update model from main XML editor
+    if( ui->xmlEditor_2->iamChanged )
+    {
+        if( current_filename.isNull() || current_filename.contains(":/tests") )
+            current_filename = "temp.xml";
+        QFile f( current_filename );
+        if( !f.open( QFile::WriteOnly | QFile::Truncate ) )
+        {
+            qDebug() << "Cannot open file " + current_filename;
+            return ;
+        }
+        QTextStream ts(&f);
+        ts << ui->xmlEditor_2->toPlainText();
+        f.close();
+        QString xml = ui->xmlEditor_2->toPlainText();
+
+        if( !doc->checkXmlSyntax(xml) )
+            emit ui->xmlEditor->updateStatusBar("Xml error!", false);
+        else
+        {
+            emit ui->xmlEditor->updateStatusBar("Xml OK!", true);
+            reloadFromFile(current_filename);
+        }
+
+
+    }
+    // remove button from status Bar
+    statusBar()->removeWidget((QWidget*)applyButton);
+    applyButton = 0;
 
 }
 
@@ -630,3 +704,8 @@ void MainWindow::on_rectClick_clicked()
 
 
 
+
+void MainWindow::on_PlayButton_clicked()
+{
+    pause();
+}
