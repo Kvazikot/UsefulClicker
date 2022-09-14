@@ -36,6 +36,10 @@ public:
     QString current_filename;
     InterpreterWin64* interpreter;
     QAction* playAction;
+    bool     disableCursorMove;
+
+    void insertXmlString(QString xml_string);
+    void modifyXmlString(QString xml_string);
 
 public slots:
     void reload();
@@ -44,6 +48,10 @@ public slots:
     void pause();
     void openXml();
     void about();
+    void updateFunctionEditor();
+    void functionSelected(const QString&);
+    void slotSetAttrs(QMap<QString,QString> attrs_map);
+    void XmlStringFromUniversalDialog(QMap<QString,QString> attrs_map);
 
 private slots:
     void on_leftClick_clicked();
@@ -57,7 +65,7 @@ private slots:
     void on_typeTag_clicked();
 
     //void on_toolButton_7_clicked();
-
+    void xml2CursorChanged();
     void on_rectClick_clicked();
 
 private:

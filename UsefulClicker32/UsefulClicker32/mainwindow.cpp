@@ -128,6 +128,292 @@ void MainWindow::openXml()
 
 }
 
+void MainWindow::xml2CursorChanged()
+{
+    QTextCursor cursor = ui->xmlEditor_2->textCursor();
+    cursor.select(QTextCursor::LineUnderCursor);
+    QString searchLine = cursor.selectedText();
+    QStringList lines  = ui->xmlEditor_2->toPlainText().split("\n");
+    int line_number = 0;
+    foreach(QString l, lines)
+    {
+        if( l.contains(searchLine) )
+        {
+            int n_max = line_number;
+            while(--n_max > 0)
+            {
+                if( lines[n_max].contains("<func ") )
+                {
+                    // QRegularExpression re("[<]{0,1}func.*name=(.*)[>]{1}");
+                     QRegularExpression re("<func name=\"([\\w _\\d]+)\"");
+                     QRegularExpressionMatch match = re.match(lines[n_max]);
+                     if( match.hasMatch() )
+                     {
+                         QString name = match.capturedTexts()[1];
+                         name = name.replace("\"","");
+                         //qDebug() << name;
+                         n_max = -5;
+                         disableCursorMove = true;
+                         int index = functionSelector->findText(name);
+                         if ( index != -1 ) { // -1 for not found
+                             functionSelector->setCurrentIndex(index);
+                         }
+                         disableCursorMove = true;
+                         break;
+                     }
+                }
+            }
+            if( n_max == -5) break;
+
+            break;
+        }
+        line_number++;
+    }
+}
+
+void MainWindow::updateFunctionEditor()
+{
+    auto func_body_text = getDoc()->getFunction(functionSelector->currentText());
+    ui->xmlEditor->clear();
+    ui->xmlEditor->setText(func_body_text);
+}
+
+void MainWindow::XmlStringFromUniversalDialog(QMap<QString,QString> attrs_map)
+{
+    QString xml_string;
+    auto event = attrs_map["event"];
+    bool withDelayFlag = attrs_map["withDelayFlag"].toInt();
+    if(withDelayFlag)
+    {
+        if(event == "hotkey")
+            xml_string = QString("<hotkey hotkey=\"%1\" delay_fixed=\"%2\" delay_random=\"%3\" repeats=\"%4\" />")
+                        .arg(attrs_map["hotkey"])
+                        .arg(attrs_map["delay_fixed"])
+                        .arg(attrs_map["delay_random"])
+                        .arg(attrs_map["repeats"]);
+        if(event == "click")
+            xml_string = QString("<click button=\"%1\" x=\"%2\" y=\"%3\" delay_fixed=\"%4\" delay_random=\"%5\" repeats=\"%6\"/>")
+                                .arg(attrs_map["button"])
+                                .arg(attrs_map["x"])
+                                .arg(attrs_map["y"])
+                                .arg(attrs_map["delay_fixed"])
+                                .arg(attrs_map["delay_random"])
+                                .arg(attrs_map["repeats"]);
+        if(event == "area")
+            xml_string = QString("<click button=\"%1\" area=\"%2\" delay_fixed=\"%3\" delay_random=\"%4\" repeats=\"%5\"/>")
+                                .arg(attrs_map["button"])
+                                .arg(attrs_map["area"])
+                                .arg(attrs_map["delay_fixed"])
+                                .arg(attrs_map["delay_random"])
+                                .arg(attrs_map["repeats"]);
+
+        if(event == "scroll")
+        {
+            if( attrs_map["delta"].toInt() > 0)
+                xml_string = QString("<scrollup delta=\"%1\" delay_fixed=\"%2\" delay_random=\"%3\" repeats=\"%4\"/>")
+                             .arg(attrs_map["delta"])
+                             .arg(attrs_map["delay_fixed"])
+                             .arg(attrs_map["delay_random"])
+                             .arg(attrs_map["repeats"]);
+
+            else
+                xml_string = QString("<scrolldown delta=\"%1\" delay_fixed=\"%2\" delay_random=\"%3\" repeats=\"%4\"/>")
+                             .arg(attrs_map["delta"])
+                             .arg(attrs_map["delay_fixed"])
+                             .arg(attrs_map["delay_random"])
+                             .arg(attrs_map["repeats"]);
+
+
+        }
+    }
+    else // without delay attributes (default delay)
+    {
+        if(event == "hotkey")
+            xml_string = QString("<hotkey hotkey=\"%1\" />")
+                        .arg(attrs_map["hotkey"]);
+        if(event == "click")
+            xml_string = QString("<click button=\"%1\" x=\"%2\" y=\"%3\" />")
+                                .arg(attrs_map["button"])
+                                .arg(attrs_map["x"])
+                                .arg(attrs_map["y"]);
+        if(event == "area")
+            xml_string = QString("<click button=\"%1\" area=\"%2\" />")
+                                .arg(attrs_map["button"])
+                                .arg(attrs_map["area"]);
+        if(event == "scroll")
+        {
+            if( attrs_map["delta"].toInt() > 0)
+                xml_string = QString("<scrollup delta=\"%1\" />")
+                             .arg(attrs_map["delta"]);
+
+            else
+                xml_string = QString("<scrolldown delta=\"%1\" />")
+                             .arg(attrs_map["delta"]);
+
+            if( attrs_map["wheel_repeats"] != "0" )
+            {
+                if( attrs_map["delta"].toInt() > 0)
+                    xml_string = QString("<scrollup delta=\"%1\"  repeats=\"%2\" />")
+                                 .arg(attrs_map["delta"])
+                                 .arg(attrs_map["wheel_repeats"]);
+
+                else
+                    xml_string = QString("<scrolldown delta=\"%1\"  repeats=\"%2\" />")
+                                 .arg(attrs_map["delta"])
+                                 .arg(attrs_map["wheel_repeats"]);
+               modifyXmlString(xml_string);
+               return;
+            }
+
+        }
+
+    }
+
+    insertXmlString(xml_string);
+}
+
+void MainWindow::insertXmlString(QString xml_string)
+{
+    QString xml = ui->xmlEditor->toPlainText();
+    xml = xml.replace("\n</func>","\n"+xml_string+"\n</func>");
+    ui->xmlEditor->setText(xml);
+}
+
+void MainWindow::modifyXmlString(QString xml_string)
+{
+    QString xml = ui->xmlEditor->toPlainText();
+    QStringList lines = xml.split("\n");
+    int idx = lines.size()-3;
+    if(idx>0)
+      lines[idx] = xml_string;
+    ui->xmlEditor->setText(lines.join("\n"));
+}
+
+
+
+void MainWindow::slotSetAttrs(QMap<QString,QString> attrs_map)
+{
+    QString xml_string;
+    //for()
+
+    if( attrs_map.contains("event") )
+    {
+        XmlStringFromUniversalDialog(attrs_map);
+        return;
+    }
+
+    QString act = last_action_triggered;
+    if( act.contains("left click") )
+    {
+        xml_string = QString("<click button=\"left\" x=\"%1\" y=\"%2\" />")
+                            .arg(attrs_map["x"])
+                            .arg(attrs_map["y"]);
+    }
+    if( act.contains("right click") )
+    {
+        xml_string = QString("<click button=\"right\" x=\"%1\" y=\"%2\" />")
+                            .arg(attrs_map["x"])
+                            .arg(attrs_map["y"]);
+    }
+
+    if( act.contains("scroll down") )
+    {
+        xml_string = QString("<scrolldown repeats=\"5\" />");
+    }
+
+    if( act.contains("scroll up") )
+    {
+        xml_string = QString("<scrollup repeats=\"5\" />");
+    }
+
+    if( act.contains("Add keydown") )
+    {
+        xml_string = QString("<hotkey hotkey=\"ctrl + v\" delay_fixed=\"450\" repeats=\"6\" />");
+    }
+
+    if( act.contains("Area") )
+    {
+        xml_string = QString("<click button=\"left\" area=\"%1\" />").arg(attrs_map["area"]);
+    }
+
+    if( act.contains("image click") )
+    {
+        xml_string = QString("<clickimg targetImg=\"%1\" button=\"left\" delay_fixed=\"1000\"> </clickimg>").arg(attrs_map["targetImg"]);
+    }
+
+
+    if( act.contains("rectangle click") )
+    {
+        xml_string = QString("<clickrectn=\"%1\" button=\"left\" n=\"%2\" rect=\"200x140\" area_tolerance=\"5%%\" ratio_tolerance=\"2%%\"  /> ")
+                     .arg(attrs_map["targetImg"])
+                     .arg(attrs_map["targetImg"]);
+    }
+
+    if( act.contains("Add type") )
+    {
+        if(!attrs_map.contains("mode"))
+            xml_string = QString("<type> %1 </type>").arg(attrs_map["text"]);
+        else
+            xml_string = QString("<type mode=\"%2\"> %1 </type>").arg(attrs_map["text"]).arg(attrs_map["mode"]);
+
+    }
+
+    if( act.contains("keydown") )
+    {
+        xml_string = QString("<hotkey hotkey=\"%1\" />").arg(attrs_map["hotkey"]);
+    }
+
+
+    insertXmlString(xml_string);
+
+
+}
+
+
+void MainWindow::functionSelected(const QString&)
+{
+
+    updateFunctionEditor();
+    if( !disableCursorMove )
+    {
+        // select text in xmlEditor_2
+        QTextDocument *document = ui->xmlEditor_2->document();
+        QTextCursor c_start(document);
+        c_start.setPosition(0, QTextCursor::MoveAnchor);
+        c_start.setPosition(0, QTextCursor::KeepAnchor);
+        QTextCursor c = document->find( functionSelector->currentText(), c_start);
+        //c.movePosition(QTextCursor::Start);
+        //show_message("",QString::number(c.position()) );
+        ui->xmlEditor_2->moveCursor(QTextCursor::End);
+        int start = c.selectionStart();
+        int end   = c.selectionEnd();
+        c.setPosition(end, QTextCursor::MoveAnchor);
+        c.setPosition(start, QTextCursor::KeepAnchor);
+        ui->xmlEditor_2->setTextCursor(c);
+
+    }
+    /*
+
+    QList<QTextEdit::ExtraSelection> selections;
+    auto cursor = xmlEditor_2->textCursor();
+    int _startIndex = xmlEditor_2->toPlainText().indexOf(functionSelector->currentText());
+    show_message("", QString::number(_startIndex));
+    cursor.setPosition(_startIndex);
+    //cursor.
+    //cursor.select(QTextCursor::LineUnderCursor);
+    xmlEditor_2->moveCursor(QTextCursor::End);
+
+    QTextFormat format;
+    QTextEdit::ExtraSelection es;
+    es.format.setBackground(Qt::red);
+    es.cursor = cursor;
+    selections.push_back(es);
+    xmlEditor_2->setExtraSelections(selections);
+
+*/
+
+}
+
 void MainWindow::pause()
 {
     pauseFlag = ! pauseFlag;
