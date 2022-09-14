@@ -265,8 +265,8 @@ p, li { white-space: pre-wrap; }
               <string>...</string>
              </property>
              <property name="icon">
-              <iconset>
-               <normaloff>:/images/play_123.png</normaloff>:/images/play_123.png</iconset>
+              <iconset resource="res.qrc">
+               <normaloff>:/images/play.png</normaloff>:/images/play.png</iconset>
              </property>
              <property name="iconSize">
               <size>

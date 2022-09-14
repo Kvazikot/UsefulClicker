@@ -191,7 +191,7 @@ public:
         PlayButton->setObjectName(QStringLiteral("PlayButton"));
         PlayButton->setGeometry(QRect(10, 110, 111, 121));
         QIcon icon7;
-        icon7.addFile(QStringLiteral(":/images/play_123.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon7.addFile(QStringLiteral(":/images/play.png"), QSize(), QIcon::Normal, QIcon::Off);
         PlayButton->setIcon(icon7);
         PlayButton->setIconSize(QSize(128, 128));
 

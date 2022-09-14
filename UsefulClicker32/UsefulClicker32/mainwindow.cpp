@@ -286,7 +286,7 @@ void MainWindow::modifyXmlString(QString xml_string)
     int idx = lines.size()-3;
     if(idx>0)
       lines[idx] = xml_string;
-    ui->xmlEditor->setText(lines.join("\n"));
+    ui-> xmlEditor->setText(lines.join("\n"));
 }
 
 
@@ -421,12 +421,12 @@ void MainWindow::pause()
     if( pauseFlag )
     {
        playAction->setIcon(QIcon(":/images/play.png"));
-       ui->PlayButton->setIcon(QIcon(":/images/play_123.png"));
+       ui->PlayButton->setIcon(QIcon(":/images/play.png"));
     }
     else
     {
-       playAction->setIcon(QIcon(":/images/pause.png"));
-       ui->PlayButton->setIcon(QIcon(":/images/pause.png"));
+       playAction->setIcon(QIcon(":/images/pause.jpg"));
+       ui->PlayButton->setIcon(QIcon(":/images/pause.jpg"));
        MainWindow* window = MainWindow::getInstance();
        QDomDocument* doc = static_cast<QDomDocument*>(window->getDoc());
        InterpreterWin64*  interpreter = (InterpreterWin64*)window->getInterpreter();
@@ -435,7 +435,7 @@ void MainWindow::pause()
        QString func_name = functionSelector->currentText();
        interpreter->executeFunction(doc->documentElement(), doc->documentElement(), func_name);
        playAction->setIcon(QIcon(":/images/play.png"));
-       ui->PlayButton->setIcon(QIcon(":/images/play_123.png"));
+       ui->PlayButton->setIcon(QIcon(":/images/play.png"));
        pauseFlag = ! pauseFlag;
     }
 
