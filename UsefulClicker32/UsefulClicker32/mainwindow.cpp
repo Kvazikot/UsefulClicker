@@ -61,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent) :
     bool ok  = (*(QDomDocument*)&defaultDoc).setContent(xml);
     qDebug() << "defaultDoc.setContent " << ok;
     setDoc(&defaultDoc);
-
+    disableCursorMove = false;
 
     loadDocument(current_filename);
     //--------------------------------------------------------------------
@@ -129,6 +129,11 @@ void MainWindow::openXml()
           loadDocument(fileNames[0]);
     }
 
+}
+
+void MainWindow::xmlChanged()
+{
+    qDebug() << "xml changed!";
 }
 
 void MainWindow::updateStatus(const QString& text, bool applyChangesFlag)
@@ -363,7 +368,76 @@ void MainWindow::modifyXmlString(QString xml_string)
     ui-> xmlEditor->setText(lines.join("\n"));
 }
 
+void replaceLines(QStringList& lines, QStringList new_lines, int start, int end)
+{
+    int line_number = 0;
+    foreach( QString l, lines)
+    {
+        if(line_number >= start && line_number <=end)
+        {
+            int i = line_number - start;
+            if ( i < new_lines.size() )
+                lines[line_number] = new_lines[i];
+        }
+        line_number++;
 
+    }
+
+}
+
+void locateFunction(QStringList lines, QString func_name, int& out_start_line, int& out_end_line)
+{
+    int line_number = 0;
+    out_start_line = -1;
+    out_end_line = -1;
+    foreach(QString l, lines)
+    {
+        QRegularExpression re("<func name=\"([\\w _\\d]+)\"");
+        QRegularExpressionMatch match = re.match(l);
+        if( match.hasMatch() )
+        {
+            QString name = match.capturedTexts()[1];
+            name = name.replace("\"","");
+            if( name == func_name)
+                out_start_line = line_number;
+        }
+        if (l.contains("</func>") && out_start_line!=-1)
+        {
+            out_end_line = line_number;
+            break;
+        }
+        line_number++;
+    }
+}
+
+void getFunctionName(QStringList lines, QString& out_function_name)
+{
+    foreach(QString l, lines)
+    {
+        QRegularExpression re("<func name=\"([\\w _\\d]+)\"");
+        QRegularExpressionMatch match = re.match(l);
+        if( match.hasMatch() )
+        {
+            out_function_name = match.capturedTexts()[1];
+            return;
+        }
+    }
+}
+
+void MainWindow::applyFunctionChanges()
+{
+    QStringList original_lines = ui->xmlEditor_2->toPlainText().split("\n");
+    QStringList function_lines = ui->xmlEditor->toPlainText().split("\n");
+    QString func_name;
+    int start_line, end_line;
+    getFunctionName(function_lines, func_name);
+    func_name = func_name.replace("\"","");
+    locateFunction(original_lines, func_name, start_line, end_line);
+    replaceLines(original_lines, function_lines, start_line, end_line);
+    qDebug() << "func_name is " <<  func_name;
+    qDebug() << "located at " << start_line << ", " <<  end_line;
+
+}
 
 void MainWindow::slotSetAttrs(QMap<QString,QString> attrs_map)
 {
@@ -707,5 +781,7 @@ void MainWindow::on_rectClick_clicked()
 
 void MainWindow::on_PlayButton_clicked()
 {
-    pause();
+    //applyChangesXml();
+    applyFunctionChanges();
+    //pause();
 }

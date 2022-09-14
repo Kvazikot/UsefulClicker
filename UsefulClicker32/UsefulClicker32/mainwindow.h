@@ -40,6 +40,7 @@ public:
 
     void insertXmlString(QString xml_string);
     void modifyXmlString(QString xml_string);
+    void applyFunctionChanges();
 
 public slots:
     void reload();
@@ -52,6 +53,7 @@ public slots:
     void functionSelected(const QString&);
     void slotSetAttrs(QMap<QString,QString> attrs_map);
     void XmlStringFromUniversalDialog(QMap<QString,QString> attrs_map);
+    void xmlChanged();
 
 private slots:
     void on_leftClick_clicked();
