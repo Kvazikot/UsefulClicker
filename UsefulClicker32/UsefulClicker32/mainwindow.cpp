@@ -25,6 +25,7 @@
 #include "xml/clickerdocument.h"
 #include "interpreter/interpreter.h"
 #include "interpreter/interpreterwin64.h"
+#include "interpreter/uc_shortcode_generator.h"
 #include "ui/aboutbox.h"
 #include "ui/dialogtype.h"
 //#include "log/logger.h"
@@ -554,6 +555,14 @@ void MainWindow::functionSelected(const QString&)
         ui->xmlEditor_2->setTextCursor(c);
 
     }
+
+    // generate short code for node
+    UC_ShortCode_Generator uc_codegen;
+    QString funcname = functionSelector->currentText();
+    QDomNode func_node = doc->findNodeByName(doc->documentElement(), funcname);
+    QString code = uc_codegen.UCforFunction(func_node);
+    ui->commentEditor->append("UC short code: " + code);
+
     /*
 
     QList<QTextEdit::ExtraSelection> selections;

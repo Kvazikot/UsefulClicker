@@ -100,7 +100,8 @@ SOURCES += main.cpp\
     ui/widgets/dimensionswidget.cpp \
     ui/widgets/qconsole.cpp \
     ui/widgets/svgwidget.cpp \
-    ui/widgets/svg_path_parser.cpp
+    ui/widgets/svg_path_parser.cpp \
+    interpreter/uc_shortcode_generator.cpp
 
 HEADERS  += mainwindow.h \
     xml/clickerdocument.h \
@@ -125,7 +126,8 @@ HEADERS  += mainwindow.h \
     ui/widgets/dimensionswidget.h \
     ui/widgets/qconsole.h \
     ui/widgets/svgwidget.h \
-    ui/widgets/svg_path_parser.h
+    ui/widgets/svg_path_parser.h \
+    interpreter/uc_shortcode_generator.h
 
 FORMS    += mainwindow.ui \
     ui/aboutbox.ui \
