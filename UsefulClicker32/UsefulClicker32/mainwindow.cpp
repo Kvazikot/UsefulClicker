@@ -373,11 +373,23 @@ void replaceLines(QStringList& lines, QStringList new_lines, int start, int end)
     int line_number = 0;
     foreach( QString l, lines)
     {
-        if(line_number >= start && line_number <=end)
+        if(line_number >= start && line_number <= end)
         {
             int i = line_number - start;
             if ( i < new_lines.size() )
                 lines[line_number] = new_lines[i];
+        }
+        int delta = end - start;
+        //do i need to add exta lines?
+        if((new_lines.size() > delta) && ( line_number == end ))
+        {
+            int extra = (new_lines.size() - delta);
+            for(int i=delta+1; i < (delta + extra); i++)
+            {
+                QString line = new_lines[i];
+                lines.insert(line_number+i-delta+1, line);
+            }
+
         }
         line_number++;
 
@@ -434,6 +446,7 @@ void MainWindow::applyFunctionChanges()
     func_name = func_name.replace("\"","");
     locateFunction(original_lines, func_name, start_line, end_line);
     replaceLines(original_lines, function_lines, start_line, end_line);
+
     qDebug() << "func_name is " <<  func_name;
     qDebug() << "located at " << start_line << ", " <<  end_line;
 
