@@ -561,7 +561,7 @@ void MainWindow::functionSelected(const QString&)
     QString funcname = functionSelector->currentText();
     QDomNode func_node = doc->findNodeByName(doc->documentElement(), funcname);
     QString code = uc_codegen.UCforFunction(func_node);
-    ui->commentEditor->append("UC short code: " + code);
+    ui->commentEditor->setHtml(code);
 
     /*
 
