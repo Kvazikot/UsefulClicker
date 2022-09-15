@@ -293,9 +293,18 @@ public:
         insertChildAction->setShortcut(QApplication::translate("MainWindow", "Ctrl+N", Q_NULLPTR));
 #endif // QT_NO_SHORTCUT
         actionAbout->setText(QApplication::translate("MainWindow", "About", Q_NULLPTR));
-        actionSave->setText(QApplication::translate("MainWindow", "Save", Q_NULLPTR));
+        actionSave->setText(QApplication::translate("MainWindow", "Save (ctrl+s)", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionSave->setToolTip(QApplication::translate("MainWindow", "Save (ctrl+s)", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_SHORTCUT
+        actionSave->setShortcut(QApplication::translate("MainWindow", "Ctrl+S", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
         actionSave_as->setText(QApplication::translate("MainWindow", "Save as...", Q_NULLPTR));
-        actionOpen->setText(QApplication::translate("MainWindow", "Open", Q_NULLPTR));
+        actionOpen->setText(QApplication::translate("MainWindow", "Open (ctrl+o)", Q_NULLPTR));
+#ifndef QT_NO_SHORTCUT
+        actionOpen->setShortcut(QApplication::translate("MainWindow", "Ctrl+O", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
         actionhideCodeTags->setText(QApplication::translate("MainWindow", "hideCodeTags", Q_NULLPTR));
         actionhideAllNonClickerTags->setText(QApplication::translate("MainWindow", "hideAllNonClickerTags", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "Xml tree view", Q_NULLPTR));

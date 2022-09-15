@@ -70,5 +70,6 @@
         <file>images/vector-mouse-icon.jpg</file>
         <file>images/vector-star-icon.png</file>
         <file>images/vector-star-icon.svg</file>
+        <file>images/open-file.png</file>
     </qresource>
 </RCC>

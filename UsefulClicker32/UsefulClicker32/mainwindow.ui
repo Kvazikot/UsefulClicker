@@ -412,7 +412,13 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionSave">
    <property name="text">
-    <string>Save</string>
+    <string>Save (ctrl+s)</string>
+   </property>
+   <property name="toolTip">
+    <string>Save (ctrl+s)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="actionSave_as">
@@ -422,7 +428,10 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionOpen">
    <property name="text">
-    <string>Open</string>
+    <string>Open (ctrl+o)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
   <action name="actionhideCodeTags">

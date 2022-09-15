@@ -73,6 +73,10 @@ MainWindow::MainWindow(QWidget *parent) :
     //--------------------------------------------------------------------
 
     QToolBar* toolbar = new QToolBar(this);
+    QAction* openAction =  toolbar->addAction(QIcon(":/images/open-file.png"), "Open");
+    connect(openAction, &QAction::triggered, this, &MainWindow::openXml);
+
+
     playAction =  toolbar->addAction(QIcon(":/images/play.png"), "Play");
     pauseFlag = true;
 
@@ -123,6 +127,7 @@ void MainWindow::saveXml()
     if (f.open(QFile::WriteOnly | QFile::Truncate) )
     {
         QTextStream ts(&f);
+        ts.setCodec("utf8");
         ts << ui->xmlEditor_2->toPlainText();
     }
 }
@@ -137,7 +142,12 @@ void MainWindow::openXml()
     {
         fileNames = dialog.selectedFiles();
         if( fileNames.size()>0 )
-          loadDocument(fileNames[0]);
+        {
+            QString s = fileNames[0];
+            int len = s.lastIndexOf("/");
+            ui->tabWidget->setTabText(0, s.right(s.size() - len - 1));
+            loadDocument(fileNames[0]);
+        }
     }
 
 }
@@ -654,6 +664,7 @@ void MainWindow::setDoc(ClickerDocument* _doc)
 void MainWindow::loadDocument(QString filename)
 {
     current_filename = filename;
+    setWindowTitle("UsefulClicker -->  " + current_filename);
     if( !filename.contains("temp") )
         SAVE_DEFAULT("last_sheme", filename);
 _load:
@@ -666,7 +677,7 @@ _load:
         if( !f.open( QFile::ReadOnly ) )
             qDebug() << "Cannot open file " + filename;
         QTextStream ts(&f);
-        ts.setCodec("UTF-8");
+        ts.setCodec("utf8");
         QString xml_text = ts.readAll();
         ui->xmlEditor_2->enableChangeEvent(true);
         QTextCursor cur = ui->xmlEditor_2->textCursor();
