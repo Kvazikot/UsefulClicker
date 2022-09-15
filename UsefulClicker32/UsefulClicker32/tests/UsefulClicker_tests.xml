@@ -112,7 +112,7 @@
 
 <func name="Type test 2">
  <shell cmd="notepad.exe" comment="run notepad"/>
- <type mode="copy_paste" text="Р­С‚Рѕ РїСЂРёРјРµСЂ С‚РµРєСЃС‚Р° РєРѕС‚РѕСЂС‹Р№ Р±С‹Р» СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅ РїСЂРѕРіСЂР°РјРјРѕР№ UsefulClicker СЃРµРіРѕРґРЅСЏ. " >Р­С‚Рѕ РїСЂРёРјРµСЂ С‚РµРєСЃС‚Р° РєРѕС‚РѕСЂС‹Р№ Р±С‹Р» СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅ РїСЂРѕРіСЂР°РјРјРѕР№ UsefulClicker СЃРµРіРѕРґРЅСЏ. </type>
+ <type mode="copy_paste" text="Это пример текста который был сгенерирован программой UsefulClicker сегодня. " >Это пример текста который был сгенерирован программой UsefulClicker сегодня. </type>
 </func>
 <func name="Type test">
  <shell bg="1" showConsole="1" hotkey="ctrl + a" cmd="notepad.exe" comment="run notepad"/>
@@ -136,7 +136,7 @@
 
   <func name="Change font Windows 11">
    <shell cmd="notepad.exe" comment="run notepad"/>
-   <type mode="copy_paste" text="Р­С‚Рѕ РїСЂРёРјРµСЂ С‚РµРєСЃС‚Р° РєРѕС‚РѕСЂС‹Р№ Р±С‹Р» СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅ РїСЂРѕРіСЂР°РјРјРѕР№ UsefulClicker СЃРµРіРѕРґРЅСЏ. " >Р­С‚Рѕ РїСЂРёРјРµСЂ С‚РµРєСЃС‚Р° РєРѕС‚РѕСЂС‹Р№ Р±С‹Р» СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅ РїСЂРѕРіСЂР°РјРјРѕР№ UsefulClicker СЃРµРіРѕРґРЅСЏ. </type>
+   <type mode="copy_paste" text="Это пример текста который был сгенерирован программой UsefulClicker сегодня. " >Это пример текста который был сгенерирован программой UsefulClicker сегодня. </type>
    <hotkey hotkey="alt+e"/>
    <hotkey hotkey="o" delay_ms="100"/>
    <hotkey hotkey="tab" delay_fixed="100" repeats="3" />
@@ -151,13 +151,13 @@
  <type mode="copy_paste" text="https://twitter.com/" />
  <hotkey hotkey="enter" delay_ms="1000"/>
  <clickimg targetImg="$(UsefulClicker)/images/18.13.00.332.png" button="left" delay_fixed="1000"> </clickimg>
- <type mode="copy_paste" text="Р­С‚Рѕ РїСЂРёРјРµСЂ С‚РµРєСЃС‚Р° РєРѕС‚РѕСЂС‹Р№ Р±С‹Р» СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅ РїСЂРѕРіСЂР°РјРјРѕР№ UsefulClicker СЃРµРіРѕРґРЅСЏ." delay_fixed="1000"/>
+ <type mode="copy_paste" text="Это пример текста который был сгенерирован программой UsefulClicker сегодня." delay_fixed="1000"/>
  <hotkey hotkey="ctrl+enter" delay_ms="1000"/>
 </func>
 
 <func name="Scroll Test">
  <shell bg="1" showConsole="1" hotkey="ctrl + a" cmd="notepad.exe" comment="run notepad"/>
- <type mode="copy_paste" repeats="10" delay_fixed="100" delay_random="1" text="Р­С‚Рѕ РїСЂРёРјРµСЂ С‚РµРєСЃС‚Р° РєРѕС‚РѕСЂС‹Р№ Р±С‹Р» СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅ РїСЂРѕРіСЂР°РјРјРѕР№ UsefulClicker СЃРµРіРѕРґРЅСЏ. Р­С‚Рѕ РїСЂРёРјРµСЂ С‚РµРєСЃС‚Р° РєРѕС‚РѕСЂС‹Р№ Р±С‹Р» СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅ РїСЂРѕРіСЂР°РјРјРѕР№ UsefulClicker СЃРµРіРѕРґРЅСЏ." > </type>
+ <type mode="copy_paste" repeats="10" delay_fixed="100" delay_random="1" text="Это пример текста который был сгенерирован программой UsefulClicker сегодня. Это пример текста который был сгенерирован ФФФФФ программой UsefulClicker сегодня." > </type>
  <hotkey hotkey="ctrl + a" delay_fixed="250"/>
  <hotkey hotkey="ctrl + c" delay_fixed="350"/>
  <hotkey hotkey="ctrl + v" delay_fixed="450" repeats="6"/>

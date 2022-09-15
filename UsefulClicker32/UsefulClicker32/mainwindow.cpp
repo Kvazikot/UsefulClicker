@@ -113,8 +113,18 @@ MainWindow::MainWindow(QWidget *parent) :
     //connect(ui->exitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
     //connect(ui->actionsMenu, &QMenu::aboutToShow, this, &MainWindow::updateActions);
     connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
-    //connect(ui->actionSave, &QAction::triggered, this, &MainWindow::save);
+    connect(ui->actionSave, &QAction::triggered, this, &MainWindow::saveXml);
 
+}
+
+void MainWindow::saveXml()
+{
+    QFile f(current_filename);
+    if (f.open(QFile::WriteOnly | QFile::Truncate) )
+    {
+        QTextStream ts(&f);
+        ts << ui->xmlEditor_2->toPlainText();
+    }
 }
 
 void MainWindow::openXml()

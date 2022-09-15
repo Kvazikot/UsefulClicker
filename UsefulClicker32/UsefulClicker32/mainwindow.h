@@ -47,6 +47,7 @@ public slots:
     void reload();
     void reloadFromFile(QString& filename);
     void new_fun();
+    void saveXml();
     void pause();
     void openXml();
     void about();
