@@ -48,8 +48,9 @@ public slots:
     void reloadFromFile(QString& filename);
     void new_fun();
     void saveXml();
+    void saveXmlAs();
     void pause();
-    void openXml();
+    void openXml();    
     void about();
     void updateFunctionEditor();
     void functionSelected(const QString&);

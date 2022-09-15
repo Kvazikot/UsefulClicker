@@ -118,6 +118,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //connect(ui->actionsMenu, &QMenu::aboutToShow, this, &MainWindow::updateActions);
     connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
     connect(ui->actionSave, &QAction::triggered, this, &MainWindow::saveXml);
+    connect(ui->actionSave_as, &QAction::triggered, this, &MainWindow::saveXmlAs);
 
 }
 
@@ -130,6 +131,32 @@ void MainWindow::saveXml()
         ts.setCodec("utf8");
         ts << ui->xmlEditor_2->toPlainText();
     }
+}
+
+void MainWindow::saveXmlAs()
+{
+    QFileDialog dialog(this);
+    dialog.setFileMode(QFileDialog::AnyFile);
+    dialog.setAcceptMode(QFileDialog::AcceptSave);
+    dialog.setDirectory(QDir::currentPath() + "/xml");
+    QStringList fileNames;
+    if (dialog.exec())
+    {
+        fileNames = dialog.selectedFiles();
+        if( fileNames.size()>0 )
+        {
+            QString s = fileNames[0];
+            QFile f(fileNames[0]);
+            if (f.open(QFile::WriteOnly | QFile::Truncate) )
+            {
+                QTextStream ts(&f);
+                ts.setCodec("utf8");
+                ts << ui->xmlEditor_2->toPlainText();
+            }
+
+        }
+    }
+
 }
 
 void MainWindow::openXml()
