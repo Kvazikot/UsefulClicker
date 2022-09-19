@@ -1,0 +1,4 @@
+RectangleDescriptor::RectangleDescriptor()
+{
+
+}

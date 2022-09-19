@@ -8,8 +8,9 @@ QT += core gui widgets xml svg
 
 QT += core gui widgets xml svg
 QT += multimedia
-
-QMAKE_CXXFLAGS+= -std=c++17 -Wno-write-strings
+DEFINES += QT_DEPRECATED_WARNINGS
+#QMAKE_CXXFLAGS+= -std=c++17 -Wno-write-strings
+QMAKE_CXXFLAGS+=/std:c++14
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,8 +19,8 @@ TEMPLATE = app
 
 OPENCV_460_PATH = "C:\Projects\opencv"
 INCLUDEPATH+=-L "$$OPENCV_460_PATH\\modules\\core\\include"
-INCLUDEPATH+=-L "$$OPENCV_460_PATH\\build_mingw32\\modules"
-INCLUDEPATH+=-L "$$OPENCV_460_PATH\\build_mingw32\\"
+INCLUDEPATH+=-L "$$OPENCV_460_PATH\\build_vs2017\\modules"
+INCLUDEPATH+=-L "$$OPENCV_460_PATH\\build_vs2017\\"
 INCLUDEPATH+=-L "$$OPENCV_460_PATH\\include\\opencv2"
 INCLUDEPATH+=-L "$$OPENCV_460_PATH\\include\\"
 #INCLUDEPATH+=-L "$$OPENCV_460_PATH\\modules\\calib3d\\include\\"
@@ -53,22 +54,41 @@ INCLUDEPATH+=-L "$$OPENCV_460_PATH\\modules\\stitching\\include"
 INCLUDEPATH+= "./interpreter"
 
 LIBS += -luser32 -lgdi32
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_core460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_ml460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_flann460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_imgproc460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_photo460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_features2d460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_imgcodecs460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_videoio460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_highgui460.dll
-#LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\" -lopencv_ts460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_calib3d460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_objdetect460.dll
-#LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_stitching460.dll
-#LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_dnn460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_video460.dll
-LIBS+=-L$$OPENCV_460_PATH\\build_mingw32\\lib\\ -lopencv_shape460.dll
+#win32:CONFIG(release, debug|release):
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_core460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_ml460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_flann460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_imgproc460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_photo460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_features2d460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_imgcodecs460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_videoio460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_highgui460
+##LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\" -lopencv_ts460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_calib3d460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_objdetect460
+##LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_stitching460
+##LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_dnn460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_video460
+#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_shape460
+
+#win32:CONFIG(debug, debug|release):
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_core460d
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_ml460d
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_flann460d
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_imgproc460d
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_photo460d
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_features2d460d
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_imgcodecs460d
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_videoio460d
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_highgui460d
+#LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\" -lopencv_ts460
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_calib3d460d
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_objdetect460d
+#LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_stitching460
+#LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_dnn460
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_video460d
+LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_shape460d
 
 #LIBS+=-L$$PYTHON_PATH\\libs\\ -lpython37
 #LIBS+="$$(PYTHON_PATH)\\libs\\python39
@@ -101,7 +121,11 @@ SOURCES += main.cpp\
     ui/widgets/qconsole.cpp \
     ui/widgets/svgwidget.cpp \
     ui/widgets/svg_path_parser.cpp \
-    interpreter/uc_shortcode_generator.cpp
+    interpreter/uc_shortcode_generator.cpp \
+    tests/cool_tests_form.cpp \
+    ui/imagesearchdialog.cpp \
+    cv/rectangle_descriptor.cpp \
+    tests/rectangle_descriptor_test.cpp
 
 HEADERS  += mainwindow.h \
     xml/clickerdocument.h \
@@ -127,7 +151,11 @@ HEADERS  += mainwindow.h \
     ui/widgets/qconsole.h \
     ui/widgets/svgwidget.h \
     ui/widgets/svg_path_parser.h \
-    interpreter/uc_shortcode_generator.h
+    interpreter/uc_shortcode_generator.h \
+    tests/cool_tests_form.h \
+    ui/imagesearchdialog.h \
+    cv/rectangle_descriptor.h \
+    tests/rectangle_descriptor_test.h
 
 FORMS    += mainwindow.ui \
     ui/aboutbox.ui \
@@ -138,10 +166,15 @@ FORMS    += mainwindow.ui \
     ui/typedialog.ui \
     ui/mousedialog.ui \
     ui/widgets/delaywidget.ui \
-    ui/widgets/dimensionswidget.ui
+    ui/widgets/dimensionswidget.ui \
+    tests/cool_tests_form.ui \
+    ui/imagesearchdialog.ui
 
 RESOURCES += \
     res.qrc
 
 DISTFILES += \
     tests/UsefulClicker_tests.xml
+
+INCLUDEPATH += $$PWD/../../../opencv/build_vs2017/lib/Release
+DEPENDPATH += $$PWD/../../../opencv/build_vs2017/lib/Release

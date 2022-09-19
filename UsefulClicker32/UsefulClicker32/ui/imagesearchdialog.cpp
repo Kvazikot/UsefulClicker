@@ -25,7 +25,7 @@
 #include <windows.h>
 #include <QDateTime>
 #include <QDir>
-#include "ui/ui_imagesearchdialog.h"
+#include "ui_imagesearchdialog.h"
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgcodecs.hpp>
 
@@ -150,7 +150,9 @@ void ImageSearchDialog::slotTargetSelected(QRect rect, QPointF window_offset)
     //QDateTime currentTime = QDateTime::currentDateTime();
     QDateTime dt;
     dt = dt.currentDateTime();
-    QString clickerPath = qEnvironmentVariable("UsefulClicker");
+//    QString clickerPath = qEnvironmentVariable("UsefulClicker");
+    QString varname = "UsefulClicker";
+    QString clickerPath = qgetenv(varname.toStdString().c_str()).toStdString().c_str();
     if(clickerPath.size() == 0)
         clickerPath = QDir::currentPath();
     QString filename = clickerPath + "/images/" + dt.toString("hh.mm.ss.zzz.png");

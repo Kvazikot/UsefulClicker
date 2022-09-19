@@ -40,10 +40,13 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/core/utility.hpp>
 #include <opencv2/shape/shape_distance.hpp>
-
-float a[256] __attribute__((aligned(16)));
-float b[256] __attribute__((aligned(16)));
-float rv[256] __attribute__((aligned(16)));
+#include <QtAlgorithms>
+float a[256];
+//__attribute__((aligned(16)));
+float b[256];
+//__attribute__((aligned(16)));
+float rv[256];
+//__attribute__((aligned(16)));
 
 
 unsigned int N = 0;

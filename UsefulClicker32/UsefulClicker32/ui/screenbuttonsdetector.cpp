@@ -12,7 +12,7 @@
 #include "cv/dspmodule.h"
 #include "ui/screenbuttonsdetector.h"
 #include "ui/widgets/dimensionswidget.h"
-#include "ui/ui_screenbuttonsdetector.h"
+#include "ui_screenbuttonsdetector.h"
 
 using namespace cv;
 static DspModule* dsp;

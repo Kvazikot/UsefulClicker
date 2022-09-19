@@ -353,8 +353,15 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menuTests">
+    <property name="title">
+     <string>Tests</string>
+    </property>
+    <addaction name="actionRun_tests"/>
+   </widget>
    <addaction name="fileMenu"/>
    <addaction name="menuAbout"/>
+   <addaction name="menuTests"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="exitAction">
@@ -451,6 +458,11 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="text">
     <string>hideAllNonClickerTags</string>
+   </property>
+  </action>
+  <action name="actionRun_tests">
+   <property name="text">
+    <string>Run tests </string>
    </property>
   </action>
  </widget>

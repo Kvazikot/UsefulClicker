@@ -26,6 +26,7 @@
 #include "interpreter/interpreter.h"
 #include "interpreter/interpreterwin64.h"
 #include "interpreter/uc_shortcode_generator.h"
+#include "tests/cool_tests_form.h"
 #include "ui/aboutbox.h"
 #include "ui/dialogtype.h"
 //#include "log/logger.h"
@@ -43,6 +44,7 @@ MainWindow* MainWindow::instance;
 static QPushButton* applyButton = 0;
 static QPushButton* apply_button2 = 0;
 static QLabel* errorLabel = 0;
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -119,7 +121,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
     connect(ui->actionSave, &QAction::triggered, this, &MainWindow::saveXml);
     connect(ui->actionSave_as, &QAction::triggered, this, &MainWindow::saveXmlAs);
+    connect(ui->actionRun_tests, &QAction::triggered, this, &MainWindow::runTests);
 
+}
+
+void MainWindow::runTests()
+{
+    CoolTestsForm* tests = new CoolTestsForm(0);
+    tests->show();
 }
 
 void MainWindow::saveXml()
@@ -284,7 +293,7 @@ void MainWindow::xml2CursorChanged()
                          if ( index != -1 ) { // -1 for not found
                              functionSelector->setCurrentIndex(index);
                          }
-                         disableCursorMove = true;
+                         disableCursorMove = false;
                          break;
                      }
                 }
@@ -593,14 +602,13 @@ void MainWindow::functionSelected(const QString&)
         c_start.setPosition(0, QTextCursor::KeepAnchor);
         QTextCursor c = document->find( functionSelector->currentText(), c_start);
         //c.movePosition(QTextCursor::Start);
-        //show_message("",QString::number(c.position()) );
-        ui->xmlEditor_2->moveCursor(QTextCursor::End);
+        show_message("",QString::number(c.position()) );
         int start = c.selectionStart();
         int end   = c.selectionEnd();
         c.setPosition(end, QTextCursor::MoveAnchor);
-        c.setPosition(start, QTextCursor::KeepAnchor);
+        c.setPosition(start, QTextCursor::KeepAnchor);        
         ui->xmlEditor_2->setTextCursor(c);
-
+        ui->xmlEditor_2->moveCursor(QTextCursor::End);
     }
 
     // generate short code for node

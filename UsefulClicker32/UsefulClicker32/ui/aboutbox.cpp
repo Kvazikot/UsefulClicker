@@ -25,13 +25,14 @@
 #include <QPointer>
 #include <QDir>
 #include "aboutbox.h"
-#include "ui/ui_aboutbox.h"
+#include "ui_aboutbox.h"
 
 AboutBox::AboutBox(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AboutBox)
 {
     ui->setupUi(this);
+
     QTimer::singleShot(1000, this, SLOT(delayedSlot()));
 }
 

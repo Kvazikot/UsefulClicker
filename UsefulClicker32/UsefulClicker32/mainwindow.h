@@ -44,6 +44,7 @@ public:
     void updateXmlEditor2(QString& new_xml);
 
 public slots:
+    void runTests();
     void reload();
     void reloadFromFile(QString& filename);
     void new_fun();

@@ -14,6 +14,7 @@ Globals::Globals()
 bool Globals::set_var(QString name, QVariant val)
 {
     global_vars[name] = val;
+    return true;
 }
 
 bool Globals::contains(QString varname)

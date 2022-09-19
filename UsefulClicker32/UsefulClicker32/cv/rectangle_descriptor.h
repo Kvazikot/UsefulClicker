@@ -8,6 +8,7 @@
 #include <QRect>
 #include <QVector2D>
 #include "log/logger.h"
+#include <opencv2/opencv.hpp>
 
 struct RectangleDescriptor
 {
@@ -20,6 +21,10 @@ struct RectangleDescriptor
     int height;
     QPoint center;
     float ratio;
+    cv::Mat hist_base1;
+    int h_bins = 255, s_bins = 255;
+    cv::Mat hist[3];
+
 
     RectangleDescriptor()
     {
@@ -29,18 +34,51 @@ struct RectangleDescriptor
         number_weight = 1;
     }
 
+    RectangleDescriptor(int w, int h, cv::Mat& im)
+    {
+        width = w;
+        height = h;
+        getHist(im);
+
+    }
+
+    void getHist(cv::Mat& im)
+    {
+        cv::Mat hsv_sample;
+        cv::cvtColor( im, hsv_sample, cv::COLOR_BGR2HSV );
+        std::vector<cv::Mat> channels;
+        cv::split(hsv_sample, channels);
+
+        for(int i=0; i < 3; i++)
+        {
+            //cv::Mat chanel_histogram = cv::calcHist({channels[i]},{0}, 0, [256],[0,256]);
+            float range[] = { 0, 256 }; //the upper boundary is exclusive
+            float h_ranges[] = { 0, 255 };
+            float s_ranges[] = { 0, 255 };
+            int histSize[] = { h_bins, s_bins };
+            const float* histRange[] = { range };
+            int channels[] = { 0, 1 };
+            const float* ranges[] = { h_ranges, s_ranges };
+            calcHist( &hsv_sample, 1, channels, cv::Mat(), hist_base1, 2, histSize, ranges, true, false );
+            normalize( hist_base1, hist_base1, 0, 1, cv::NORM_MINMAX, -1, cv::Mat() );
+            hist[i] = hist_base1;
+            //base_base = compareHist( hist_base1, hist_base2, 2 );
+
+        }
+    }
     float calculateDifference(RectangleDescriptor& r1, RectangleDescriptor r2)
     {
-        //QVector4D v1(float(r1.number) * number_weight, r1.ratio * ratio_weight, r1.center.x(), r1.center.y());
-        //QVector4D v2(float(r2.number) * number_weight, r2.ratio * ratio_weight, r2.center.x(), r2.center.y());
-        //return (v1-v2).lengthSquared();
         float da = abs( area(r1) - area(r2) ) * area_weight;
         float dc = abs( QVector2D(r1.center - r2.center).length() ) * center_weight;
         float dn = abs( r1.number - r2.number) * number_weight;
         float dr = ratio_weight * abs(r1.ratio - r2.ratio);
-        qDebug("da=%f dc=%f dn=%f dr=%f",da,dc,dn,dr);
-        return dc + dn  + dr;
+        float dh = abs(1 - cv::compareHist( hist[0], hist[0], 0 ));
+        dh+= abs(1 - cv::compareHist( r1.hist[1], r2.hist[1], 0 ));
+        dh+= abs(1 - cv::compareHist( r1.hist[2], r2.hist[2], 0 ));
+        //qDebug("dh=%f da=%f dc=%f dn=%f dr=%f",dh,da,dc,dn,dr);
+        return dh + dc + dn  + dr;
     }
+
 
     void fromDomNode(QDomNode node)
     {
@@ -105,5 +143,6 @@ struct RectangleDescriptor
     }
 
 };
+
 
 #endif // RECTANGLE_DESCRIPTOR_H

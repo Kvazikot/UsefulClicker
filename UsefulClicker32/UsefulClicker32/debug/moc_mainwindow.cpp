@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[31];
-    char stringdata0[441];
+    QByteArrayData data[32];
+    char stringdata0[450];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,39 +32,40 @@ struct qt_meta_stringdata_MainWindow_t {
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
 QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
-QT_MOC_LITERAL(1, 11, 6), // "reload"
-QT_MOC_LITERAL(2, 18, 0), // ""
-QT_MOC_LITERAL(3, 19, 14), // "reloadFromFile"
-QT_MOC_LITERAL(4, 34, 8), // "QString&"
-QT_MOC_LITERAL(5, 43, 8), // "filename"
-QT_MOC_LITERAL(6, 52, 7), // "new_fun"
-QT_MOC_LITERAL(7, 60, 7), // "saveXml"
-QT_MOC_LITERAL(8, 68, 9), // "saveXmlAs"
-QT_MOC_LITERAL(9, 78, 5), // "pause"
-QT_MOC_LITERAL(10, 84, 7), // "openXml"
-QT_MOC_LITERAL(11, 92, 5), // "about"
-QT_MOC_LITERAL(12, 98, 20), // "updateFunctionEditor"
-QT_MOC_LITERAL(13, 119, 16), // "functionSelected"
-QT_MOC_LITERAL(14, 136, 12), // "slotSetAttrs"
-QT_MOC_LITERAL(15, 149, 21), // "QMap<QString,QString>"
-QT_MOC_LITERAL(16, 171, 9), // "attrs_map"
-QT_MOC_LITERAL(17, 181, 28), // "XmlStringFromUniversalDialog"
-QT_MOC_LITERAL(18, 210, 10), // "xmlChanged"
-QT_MOC_LITERAL(19, 221, 20), // "on_leftClick_clicked"
-QT_MOC_LITERAL(20, 242, 24), // "on_keyboardClick_clicked"
-QT_MOC_LITERAL(21, 267, 20), // "on_areaClick_clicked"
-QT_MOC_LITERAL(22, 288, 21), // "on_imageClick_clicked"
-QT_MOC_LITERAL(23, 310, 18), // "on_typeTag_clicked"
-QT_MOC_LITERAL(24, 329, 17), // "xml2CursorChanged"
-QT_MOC_LITERAL(25, 347, 20), // "on_rectClick_clicked"
-QT_MOC_LITERAL(26, 368, 21), // "on_PlayButton_clicked"
-QT_MOC_LITERAL(27, 390, 15), // "applyChangesXml"
-QT_MOC_LITERAL(28, 406, 12), // "updateStatus"
-QT_MOC_LITERAL(29, 419, 4), // "text"
-QT_MOC_LITERAL(30, 424, 16) // "applyChangesFlag"
+QT_MOC_LITERAL(1, 11, 8), // "runTests"
+QT_MOC_LITERAL(2, 20, 0), // ""
+QT_MOC_LITERAL(3, 21, 6), // "reload"
+QT_MOC_LITERAL(4, 28, 14), // "reloadFromFile"
+QT_MOC_LITERAL(5, 43, 8), // "QString&"
+QT_MOC_LITERAL(6, 52, 8), // "filename"
+QT_MOC_LITERAL(7, 61, 7), // "new_fun"
+QT_MOC_LITERAL(8, 69, 7), // "saveXml"
+QT_MOC_LITERAL(9, 77, 9), // "saveXmlAs"
+QT_MOC_LITERAL(10, 87, 5), // "pause"
+QT_MOC_LITERAL(11, 93, 7), // "openXml"
+QT_MOC_LITERAL(12, 101, 5), // "about"
+QT_MOC_LITERAL(13, 107, 20), // "updateFunctionEditor"
+QT_MOC_LITERAL(14, 128, 16), // "functionSelected"
+QT_MOC_LITERAL(15, 145, 12), // "slotSetAttrs"
+QT_MOC_LITERAL(16, 158, 21), // "QMap<QString,QString>"
+QT_MOC_LITERAL(17, 180, 9), // "attrs_map"
+QT_MOC_LITERAL(18, 190, 28), // "XmlStringFromUniversalDialog"
+QT_MOC_LITERAL(19, 219, 10), // "xmlChanged"
+QT_MOC_LITERAL(20, 230, 20), // "on_leftClick_clicked"
+QT_MOC_LITERAL(21, 251, 24), // "on_keyboardClick_clicked"
+QT_MOC_LITERAL(22, 276, 20), // "on_areaClick_clicked"
+QT_MOC_LITERAL(23, 297, 21), // "on_imageClick_clicked"
+QT_MOC_LITERAL(24, 319, 18), // "on_typeTag_clicked"
+QT_MOC_LITERAL(25, 338, 17), // "xml2CursorChanged"
+QT_MOC_LITERAL(26, 356, 20), // "on_rectClick_clicked"
+QT_MOC_LITERAL(27, 377, 21), // "on_PlayButton_clicked"
+QT_MOC_LITERAL(28, 399, 15), // "applyChangesXml"
+QT_MOC_LITERAL(29, 415, 12), // "updateStatus"
+QT_MOC_LITERAL(30, 428, 4), // "text"
+QT_MOC_LITERAL(31, 433, 16) // "applyChangesFlag"
 
     },
-    "MainWindow\0reload\0\0reloadFromFile\0"
+    "MainWindow\0runTests\0\0reload\0reloadFromFile\0"
     "QString&\0filename\0new_fun\0saveXml\0"
     "saveXmlAs\0pause\0openXml\0about\0"
     "updateFunctionEditor\0functionSelected\0"
@@ -85,7 +86,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      23,   14, // methods
+      24,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -93,33 +94,35 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  129,    2, 0x0a /* Public */,
-       3,    1,  130,    2, 0x0a /* Public */,
-       6,    0,  133,    2, 0x0a /* Public */,
-       7,    0,  134,    2, 0x0a /* Public */,
-       8,    0,  135,    2, 0x0a /* Public */,
-       9,    0,  136,    2, 0x0a /* Public */,
-      10,    0,  137,    2, 0x0a /* Public */,
-      11,    0,  138,    2, 0x0a /* Public */,
-      12,    0,  139,    2, 0x0a /* Public */,
-      13,    1,  140,    2, 0x0a /* Public */,
-      14,    1,  143,    2, 0x0a /* Public */,
-      17,    1,  146,    2, 0x0a /* Public */,
-      18,    0,  149,    2, 0x0a /* Public */,
-      19,    0,  150,    2, 0x08 /* Private */,
-      20,    0,  151,    2, 0x08 /* Private */,
-      21,    0,  152,    2, 0x08 /* Private */,
-      22,    0,  153,    2, 0x08 /* Private */,
-      23,    0,  154,    2, 0x08 /* Private */,
-      24,    0,  155,    2, 0x08 /* Private */,
-      25,    0,  156,    2, 0x08 /* Private */,
-      26,    0,  157,    2, 0x08 /* Private */,
-      27,    0,  158,    2, 0x08 /* Private */,
-      28,    2,  159,    2, 0x08 /* Private */,
+       1,    0,  134,    2, 0x0a /* Public */,
+       3,    0,  135,    2, 0x0a /* Public */,
+       4,    1,  136,    2, 0x0a /* Public */,
+       7,    0,  139,    2, 0x0a /* Public */,
+       8,    0,  140,    2, 0x0a /* Public */,
+       9,    0,  141,    2, 0x0a /* Public */,
+      10,    0,  142,    2, 0x0a /* Public */,
+      11,    0,  143,    2, 0x0a /* Public */,
+      12,    0,  144,    2, 0x0a /* Public */,
+      13,    0,  145,    2, 0x0a /* Public */,
+      14,    1,  146,    2, 0x0a /* Public */,
+      15,    1,  149,    2, 0x0a /* Public */,
+      18,    1,  152,    2, 0x0a /* Public */,
+      19,    0,  155,    2, 0x0a /* Public */,
+      20,    0,  156,    2, 0x08 /* Private */,
+      21,    0,  157,    2, 0x08 /* Private */,
+      22,    0,  158,    2, 0x08 /* Private */,
+      23,    0,  159,    2, 0x08 /* Private */,
+      24,    0,  160,    2, 0x08 /* Private */,
+      25,    0,  161,    2, 0x08 /* Private */,
+      26,    0,  162,    2, 0x08 /* Private */,
+      27,    0,  163,    2, 0x08 /* Private */,
+      28,    0,  164,    2, 0x08 /* Private */,
+      29,    2,  165,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 4,    5,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 5,    6,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -128,8 +131,8 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    2,
-    QMetaType::Void, 0x80000000 | 15,   16,
-    QMetaType::Void, 0x80000000 | 15,   16,
+    QMetaType::Void, 0x80000000 | 16,   17,
+    QMetaType::Void, 0x80000000 | 16,   17,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -140,7 +143,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::Bool,   29,   30,
+    QMetaType::Void, QMetaType::QString, QMetaType::Bool,   30,   31,
 
        0        // eod
 };
@@ -151,29 +154,30 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->reload(); break;
-        case 1: _t->reloadFromFile((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 2: _t->new_fun(); break;
-        case 3: _t->saveXml(); break;
-        case 4: _t->saveXmlAs(); break;
-        case 5: _t->pause(); break;
-        case 6: _t->openXml(); break;
-        case 7: _t->about(); break;
-        case 8: _t->updateFunctionEditor(); break;
-        case 9: _t->functionSelected((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 10: _t->slotSetAttrs((*reinterpret_cast< QMap<QString,QString>(*)>(_a[1]))); break;
-        case 11: _t->XmlStringFromUniversalDialog((*reinterpret_cast< QMap<QString,QString>(*)>(_a[1]))); break;
-        case 12: _t->xmlChanged(); break;
-        case 13: _t->on_leftClick_clicked(); break;
-        case 14: _t->on_keyboardClick_clicked(); break;
-        case 15: _t->on_areaClick_clicked(); break;
-        case 16: _t->on_imageClick_clicked(); break;
-        case 17: _t->on_typeTag_clicked(); break;
-        case 18: _t->xml2CursorChanged(); break;
-        case 19: _t->on_rectClick_clicked(); break;
-        case 20: _t->on_PlayButton_clicked(); break;
-        case 21: _t->applyChangesXml(); break;
-        case 22: _t->updateStatus((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
+        case 0: _t->runTests(); break;
+        case 1: _t->reload(); break;
+        case 2: _t->reloadFromFile((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 3: _t->new_fun(); break;
+        case 4: _t->saveXml(); break;
+        case 5: _t->saveXmlAs(); break;
+        case 6: _t->pause(); break;
+        case 7: _t->openXml(); break;
+        case 8: _t->about(); break;
+        case 9: _t->updateFunctionEditor(); break;
+        case 10: _t->functionSelected((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 11: _t->slotSetAttrs((*reinterpret_cast< QMap<QString,QString>(*)>(_a[1]))); break;
+        case 12: _t->XmlStringFromUniversalDialog((*reinterpret_cast< QMap<QString,QString>(*)>(_a[1]))); break;
+        case 13: _t->xmlChanged(); break;
+        case 14: _t->on_leftClick_clicked(); break;
+        case 15: _t->on_keyboardClick_clicked(); break;
+        case 16: _t->on_areaClick_clicked(); break;
+        case 17: _t->on_imageClick_clicked(); break;
+        case 18: _t->on_typeTag_clicked(); break;
+        case 19: _t->xml2CursorChanged(); break;
+        case 20: _t->on_rectClick_clicked(); break;
+        case 21: _t->on_PlayButton_clicked(); break;
+        case 22: _t->applyChangesXml(); break;
+        case 23: _t->updateStatus((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
         default: ;
         }
     }
@@ -204,13 +208,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 24)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 24;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
+        if (_id < 24)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 23;
+        _id -= 24;
     }
     return _id;
 }

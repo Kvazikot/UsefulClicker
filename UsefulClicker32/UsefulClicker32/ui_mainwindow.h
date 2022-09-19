@@ -45,6 +45,7 @@ public:
     QAction *actionOpen;
     QAction *actionhideCodeTags;
     QAction *actionhideAllNonClickerTags;
+    QAction *actionRun_tests;
     QWidget *centralwidget;
     QGridLayout *gridLayout_3;
     QGroupBox *groupBox;
@@ -73,6 +74,7 @@ public:
     QMenuBar *menubar;
     QMenu *fileMenu;
     QMenu *menuAbout;
+    QMenu *menuTests;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -107,6 +109,8 @@ public:
         actionhideAllNonClickerTags->setObjectName(QStringLiteral("actionhideAllNonClickerTags"));
         actionhideAllNonClickerTags->setCheckable(true);
         actionhideAllNonClickerTags->setChecked(true);
+        actionRun_tests = new QAction(MainWindow);
+        actionRun_tests->setObjectName(QStringLiteral("actionRun_tests"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         gridLayout_3 = new QGridLayout(centralwidget);
@@ -245,6 +249,8 @@ public:
         fileMenu->setObjectName(QStringLiteral("fileMenu"));
         menuAbout = new QMenu(menubar);
         menuAbout->setObjectName(QStringLiteral("menuAbout"));
+        menuTests = new QMenu(menubar);
+        menuTests->setObjectName(QStringLiteral("menuTests"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -252,10 +258,12 @@ public:
 
         menubar->addAction(fileMenu->menuAction());
         menubar->addAction(menuAbout->menuAction());
+        menubar->addAction(menuTests->menuAction());
         fileMenu->addAction(actionOpen);
         fileMenu->addAction(actionSave);
         fileMenu->addAction(actionSave_as);
         menuAbout->addAction(actionAbout);
+        menuTests->addAction(actionRun_tests);
 
         retranslateUi(MainWindow);
 
@@ -307,6 +315,7 @@ public:
 #endif // QT_NO_SHORTCUT
         actionhideCodeTags->setText(QApplication::translate("MainWindow", "hideCodeTags", Q_NULLPTR));
         actionhideAllNonClickerTags->setText(QApplication::translate("MainWindow", "hideAllNonClickerTags", Q_NULLPTR));
+        actionRun_tests->setText(QApplication::translate("MainWindow", "Run tests ", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "Xml tree view", Q_NULLPTR));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "XML", Q_NULLPTR));
         groupBox_3->setTitle(QApplication::translate("MainWindow", "Function description and comments", Q_NULLPTR));
@@ -367,6 +376,7 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Xml Document", Q_NULLPTR));
         fileMenu->setTitle(QApplication::translate("MainWindow", "&File", Q_NULLPTR));
         menuAbout->setTitle(QApplication::translate("MainWindow", "About", Q_NULLPTR));
+        menuTests->setTitle(QApplication::translate("MainWindow", "Tests", Q_NULLPTR));
     } // retranslateUi
 
 };

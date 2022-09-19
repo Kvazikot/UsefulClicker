@@ -8,7 +8,8 @@
 #include <QScreen>
 #include <QtGlobal>
 #include <QApplication>
-#include <windef.h>
+#include <random>
+#include <windows.h>
 #include "interpreter/interpreterwin64.h"
 //#include "log/logger.h"
 #include "cv/dspmodule.h"
@@ -154,15 +155,18 @@ void ScrollUp()
 
 std::set<WORD> modifiers_set { VK_CONTROL, VK_MENU, VK_SHIFT} ;
 
-std::map<char*, WORD> keys_map{ {"ctrl", VK_CONTROL}, {"alt", VK_MENU}, {"shift", VK_SHIFT}, {"F1", VK_F1}, {"F2", VK_F2}, {"F3", VK_F3},
-                                      {"F4", VK_F4}, {"F5", VK_F5}, {"F6", VK_F6},
-                                      {"F7", VK_F7}, {"F8", VK_F8}, {"F9", VK_F9},
-                                      {"F10", VK_F10}, {"F10", VK_F11},{"F10", VK_F12},
-                                      {"return", VK_RETURN},{"enter", VK_RETURN},
-                                      {"escape", VK_ESCAPE},{"up", VK_UP},{"left", VK_LEFT},
-                                      {"right", VK_RIGHT},{"up", VK_UP},{"down", VK_DOWN},
-                                      {"tab", VK_TAB},{"back", VK_BACK},{"insert", VK_INSERT},
-                                      {"delete", VK_DELETE},{"lwin", VK_LWIN},{"rwin", VK_RWIN},{"space", VK_SPACE}};
+std::map<QString, int> keys_map = // nested list-initialization
+   {
+            {"ctrl", VK_CONTROL}, {"alt", VK_MENU}, {"shift", VK_SHIFT}, {"F1", VK_F1}, {"F2", VK_F2}, {"F3", VK_F3},
+            {"F4", VK_F4}, {"F5", VK_F5}, {"F6", VK_F6},
+            {"F7", VK_F7}, {"F8", VK_F8}, {"F9", VK_F9},
+            {"F10", VK_F10}, {"F10", VK_F11},{"F10", VK_F12},
+            {"return", VK_RETURN},{"enter", VK_RETURN},
+            {"escape", VK_ESCAPE},{"up", VK_UP},{"left", VK_LEFT},
+            {"right", VK_RIGHT},{"up", VK_UP},{"down", VK_DOWN},
+            {"tab", VK_TAB},{"back", VK_BACK},{"insert", VK_INSERT},
+            {"delete", VK_DELETE},{"lwin", VK_LWIN},{"rwin", VK_RWIN},{"space", VK_SPACE}
+};
 
 void Key(char* hot_key)
 {
@@ -407,7 +411,7 @@ int InterpreterWin64::executeType(const QDomNode& node)
         {
             clipboard->setText(text);
             //clipboard->c
-            Key("ctrl+v");
+            Key((char*)"ctrl+v");
             return 0;
         }
     }
@@ -672,7 +676,7 @@ int InterpreterWin64::executeList(const QDomNode& node)
     {
         if( str.size() > 0 )
         {
-            std::uniform_int_distribution<int> distribution(0,str.size());
+            std::uniform_int_distribution<int> distribution(0,str.size()-1);
             int n = distribution(generator);  // generates number in the range 1..6
             outputString = str[n];
             Log("selecting " + outputString);
@@ -690,6 +694,7 @@ int InterpreterWin64::executeDblClick(const QDomNode& node)
     executeClick(node);
     nanosleep(1000);
     executeClick(node);
+    return 0;
 }
 
 int InterpreterWin64::executeCheck(const QDomNode& node)
