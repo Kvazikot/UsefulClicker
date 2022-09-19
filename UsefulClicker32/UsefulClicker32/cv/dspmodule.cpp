@@ -277,7 +277,7 @@ QRect DspModule::searchImage(std::string TargetIn_path, int screenNum)
     }
 
     double base_base;
-    double max_hist_match = std::numeric_limits<double>::min();
+    double min_diff_match = std::numeric_limits<double>::max();
 
     for(auto screen: screens)
     {
@@ -320,6 +320,7 @@ QRect DspModule::searchImage(std::string TargetIn_path, int screenNum)
         Mat hsv_base1, hsv_base2;
         Mat hist_base1, hist_base2;
 
+        RectangleDescriptor rd1(TargetIn.size[1], TargetIn.size[0], TargetIn);
         cvtColor( TargetIn, hsv_base2, COLOR_BGR2HSV );
         calcHist( &hsv_base2, 2, channels, Mat(), hist_base2, 2, histSize, ranges, true, false );
         normalize( hist_base2, hist_base2, 0, 1, NORM_MINMAX, -1, Mat() );
@@ -344,11 +345,14 @@ QRect DspModule::searchImage(std::string TargetIn_path, int screenNum)
                 cvtColor( cutfromSearch, hsv_base1, COLOR_BGR2HSV );
                 calcHist( &hsv_base1, 1, channels, Mat(), hist_base1, 2, histSize, ranges, true, false );
                 normalize( hist_base1, hist_base1, 0, 1, NORM_MINMAX, -1, Mat() );
-                base_base = compareHist( hist_base1, hist_base2, 2 );
+                // only hist deifference // base_base = compareHist( hist_base1, hist_base2, 2 );
+                RectangleDescriptor rd2(hsv_base1.size[1], hsv_base1.size[0], hsv_base1);
+                base_base = rd1.calculateDifference(rd1, rd2);
+
                 //qDebug("%s  hist_compare %f ", __FUNCTION__, base_base);
-                if(base_base > max_hist_match )
+                if(base_base < min_diff_match )
                 {
-                    max_hist_match = base_base;
+                    min_diff_match = base_base;
                     float area_diff = qAbs(TargetIn.rows * TargetIn.cols  - r.area());
                     //qDebug("%s area_diff %f hist_compare %f ", __FUNCTION__, area_diff, base_base);
                     //if(int(area_diff) == 0)

@@ -17,7 +17,7 @@
 #include "settings/clickersettings.h"
 #include "tests/highlighter.h"
 #include "tests/rectangle_descriptor_test.h"
-
+#include "cv/dspmodule.h"
 #include "ui/widgets/areabutton.h"
 #include "ui/widgets/crossbutton.h"
 #include "ui/widgets/keyboardbutton.h"
@@ -192,10 +192,15 @@ void ExecuteXmlString(QString xml)
 void CoolTestsForm::on_clickimgTest_clicked()
 {
     hide();
-    ui->buttonImage->setPixmap(QPixmap());
-    auto lines = ui->logEdit->toPlainText().split("\n");
-    auto xml = lines.back();
-    ExecuteXmlString(xml);
+    ui->buttonImage->pixmap()->save("temp.png");
+    DspModule dsp;
+    QRect rect = dsp.searchImage("temp.png",0);
+    ui->logEdit->appendPlainText("search using etalon temp.png and class RectangleDescriptor");
+    QString s;
+    s = s.sprintf("result of search: %d %d %d %d", rect.left(), rect.top(), rect.right(),rect.bottom());
+    ui->logEdit->appendPlainText(s);
+    MouseClick(rect.center(), Qt::LeftButton);
+
     show();
 }
 
