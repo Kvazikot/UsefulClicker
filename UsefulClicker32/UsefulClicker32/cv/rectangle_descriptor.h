@@ -70,7 +70,7 @@ struct RectangleDescriptor
     {
         float da = abs( area(r1) - area(r2) ) * area_weight;
         float dc = abs( QVector2D(r1.center - r2.center).length() ) * center_weight;
-        float dn = abs( r1.number - r2.number) * number_weight;
+        float dn = 0;//abs( r1.number - r2.number) * number_weight;
         float dr = ratio_weight * abs(r1.ratio - r2.ratio);
         float dh = abs(1 - cv::compareHist( hist[0], hist[0], 0 ));
         dh+= abs(1 - cv::compareHist( r1.hist[1], r2.hist[1], 0 ));
