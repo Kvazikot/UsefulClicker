@@ -166,9 +166,6 @@ void CoolTestsForm::buttonDetectorOut(QMap<QString, QString> attrs)
         // compare it with reference image
         cv::Mat targetImg = cv::imread(fn.toStdString());
         RectangleDescriptor rd(targetImg.size[1], targetImg.size[0], targetImg);
-        for(int bin=0; bin < rd.s_bins; bin++)
-            str_hist+=QString::number(rd.hist_base1.at<int>(bin,0))+",";
-        str_hist+="}";
 
     }
     ui->logEdit->appendPlainText(xmlstring);

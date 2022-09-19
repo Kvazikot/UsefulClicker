@@ -7,8 +7,11 @@
 #include <QPoint>
 #include <QRect>
 #include <QVector2D>
+#include <vector>
 #include "log/logger.h"
 #include <opencv2/opencv.hpp>
+
+using namespace  std;
 
 struct RectangleDescriptor
 {
@@ -22,8 +25,10 @@ struct RectangleDescriptor
     QPoint center;
     float ratio;
     cv::Mat hist_base1;
-    int h_bins = 255, s_bins = 255;
-    cv::Mat hist[3];
+    int h_bins = 100;
+    cv::Mat hist;
+    cv::MatND HistB, HistG, HistR;
+
 
 
     RectangleDescriptor()
@@ -44,27 +49,29 @@ struct RectangleDescriptor
 
     void getHist(cv::Mat& im)
     {
-        cv::Mat hsv_sample;
-        cv::cvtColor( im, hsv_sample, cv::COLOR_BGR2HSV );
-        std::vector<cv::Mat> channels;
-        cv::split(hsv_sample, channels);
+        cv::cvtColor( im, im, cv::COLOR_BGR2HSV );
+        int channels[] = { 0 }; //index of channel
+        int histSize[] = { h_bins };
+        float hranges[] = { 0, 255 };
+        const float* ranges[] = { hranges };
 
-        for(int i=0; i < 3; i++)
-        {
-            //cv::Mat chanel_histogram = cv::calcHist({channels[i]},{0}, 0, [256],[0,256]);
-            float range[] = { 0, 256 }; //the upper boundary is exclusive
-            float h_ranges[] = { 0, 255 };
-            float s_ranges[] = { 0, 255 };
-            int histSize[] = { h_bins, s_bins };
-            const float* histRange[] = { range };
-            int channels[] = { 0, 1 };
-            const float* ranges[] = { h_ranges, s_ranges };
-            calcHist( &hsv_sample, 1, channels, cv::Mat(), hist_base1, 2, histSize, ranges, true, false );
-            normalize( hist_base1, hist_base1, 0, 1, cv::NORM_MINMAX, -1, cv::Mat() );
-            hist[i] = hist_base1;
-            //base_base = compareHist( hist_base1, hist_base2, 2 );
+        //split rgb
+        vector<cv::Mat> bgr_planes;
+        cv::split(im, bgr_planes);
 
-        }
+        //cal histogram & normalization
+        cv::calcHist(&bgr_planes[0], 1, 0, cv::Mat(), HistB, 1, histSize, ranges, true, false);
+        cv::calcHist(&bgr_planes[1], 1, 0, cv::Mat(), HistG, 1, histSize, ranges, true, false);
+        cv::calcHist(&bgr_planes[2], 1, 0, cv::Mat(), HistR, 1, histSize, ranges, true, false);
+
+        cv::normalize(HistB, HistB, 0, 255, cv::NORM_MINMAX);
+        cv::normalize(HistG, HistG, 0, 255, cv::NORM_MINMAX);
+        cv::normalize(HistR, HistR, 0, 255, cv::NORM_MINMAX);
+
+        //normalize( hist, hist, 0, 255, cv::NORM_MINMAX, -1, cv::Mat() );
+        //base_base = compareHist( hist_base1, hist_base2, 2 );
+
+
     }
     float calculateDifference(RectangleDescriptor& r1, RectangleDescriptor r2)
     {
@@ -72,13 +79,44 @@ struct RectangleDescriptor
         float dc = abs( QVector2D(r1.center - r2.center).length() ) * center_weight;
         float dn = 0;//abs( r1.number - r2.number) * number_weight;
         float dr = ratio_weight * abs(r1.ratio - r2.ratio);
-        float dh = abs(1 - cv::compareHist( hist[0], hist[0], 0 ));
-        dh+= abs(1 - cv::compareHist( r1.hist[1], r2.hist[1], 0 ));
-        dh+= abs(1 - cv::compareHist( r1.hist[2], r2.hist[2], 0 ));
+        float dh = abs(1 - cv::compareHist( r1.hist, r2.hist, 0 ));
         //qDebug("dh=%f da=%f dc=%f dn=%f dr=%f",dh,da,dc,dn,dr);
         return dh + dc + dn  + dr;
     }
 
+    QString compressHistogram(cv::MatND& h)
+    {
+        QString out_str;
+        QMap<float, int> zero_indexes;
+        //vector<pair<int,int>> zeroes_pairs;
+        for(int i = 0; i < h_bins; i++)
+        {
+            float val = h.at<float>(i);
+            if(zero_indexes.find(val) == zero_indexes.end())
+                zero_indexes[val] = 0;
+            zero_indexes[val]++;
+        }
+        for(auto it=zero_indexes.begin(); it!=zero_indexes.end(); it++)
+        {
+            out_str+=QString::number(it.key()) + "-" + QString::number(it.value())+",";
+        }
+
+
+        return out_str;
+    }
+
+    QString toString()
+    {
+        QString sout;
+        sout = sout.sprintf("%dx%d,", width, height);
+        QString s;
+        for(int i = 0; i < h_bins; i++)
+           sout+=s.sprintf("%0.3f,", HistR.at<float>(i));
+        //for(int i = 0; i < h_bins; i++)
+         //   sout+=s.sprintf("%0.3f,", HistG.at<float>(i));
+        sout+="compress="+compressHistogram(HistR);
+        return sout;
+    }
 
     void fromDomNode(QDomNode node)
     {

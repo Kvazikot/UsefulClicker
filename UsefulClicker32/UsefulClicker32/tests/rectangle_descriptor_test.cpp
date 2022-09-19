@@ -1,5 +1,5 @@
 #include "rectangle_descriptor_test.h"
-
+#include <QDebug>
 
 QImage mat2img(cv::Mat& mat, int channels)
 {
@@ -30,6 +30,8 @@ RectangleDescriptorTest::RectangleDescriptorTest()
                                             make_pair("button_cropped.png", "button.png"),
                                             make_pair("button.png", "button_scaled_no_aspect.png"),
                                             make_pair("button_half_size.png", "button_scaled_no_aspect.png")};
+//    vector<pair<string,string>> buttons = { make_pair("button_with_drawings.png","button.png") };
+
     std::string path_to_images = "./images/rect_descriptor_tests/";
     cv::Mat mat;
     std::vector<cv::Mat> hstack;
@@ -39,11 +41,15 @@ RectangleDescriptorTest::RectangleDescriptorTest()
     {
         auto sample1 = cv::imread(path_to_images+i->first);
         auto sample2 = cv::imread(path_to_images+i->second);
-        auto rd1 = RectangleDescriptor( sample1.size[1], sample1.size[0], sample1);
-        auto rd2 = RectangleDescriptor( sample2.size[1], sample2.size[0], sample2);
-        auto d = rd1.calculateDifference(rd1, rd2);
-        s+=s.sprintf("%s and %s : d = %f \n\n", i->first.c_str(), i->second.c_str(), d);
-        results_str+= s;
+        qDebug() << sample2.cols << "x" << sample2.rows;
+        RectangleDescriptor* rd1 = new RectangleDescriptor( sample1.size[1], sample1.size[0], sample1);
+        RectangleDescriptor* rd2 = new RectangleDescriptor( sample2.size[1], sample2.size[0], sample2);
+        auto d = 0;//rd1->calculateDifference(*rd1, *rd2);
+        s="";
+        s+=s.sprintf("%s and %s : d = %f \n", i->first.c_str(), i->second.c_str(), d);
+        s+="\n"+rd1->toString()+"\n";
+        s+="\n"+rd2->toString()+"\n";
+        results_str=s;
         cv::resize(sample1, sample1, cv::Size(sample2.size[1], sample2.size[0]), cv::INTER_LINEAR);
         cv::hconcat(sample1, sample2, mat );
         cv::Mat* m = new cv::Mat(mat.rows, mat.cols, mat.type());
