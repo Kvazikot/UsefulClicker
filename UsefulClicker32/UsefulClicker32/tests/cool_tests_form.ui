@@ -297,6 +297,9 @@ text-decoration: underline;</string>
         <property name="text">
          <string>TextLabel</string>
         </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
      </layout>

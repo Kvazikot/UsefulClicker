@@ -447,5 +447,7 @@ void CoolTestsForm::on_clickrectTest_clicked()
 
 void CoolTestsForm::on_rectangleDescriptorTest_clicked()
 {
-    RectangleDescriptorTest test(ui->logEdit);
+    RectangleDescriptorTest tst;
+    ui->logEdit->appendPlainText( tst.results_str );
+    ui->buttonImage->setPixmap(  QPixmap::fromImage(tst.results_pixmap) );
 }

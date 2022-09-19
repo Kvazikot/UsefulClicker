@@ -73,7 +73,9 @@ SOURCES       = main.cpp \
 		ui\widgets\svg_path_parser.cpp \
 		interpreter\uc_shortcode_generator.cpp \
 		tests\cool_tests_form.cpp \
-		ui\imagesearchdialog.cpp debug\qrc_res.cpp \
+		ui\imagesearchdialog.cpp \
+		cv\rectangle_descriptor.cpp \
+		tests\rectangle_descriptor_test.cpp debug\qrc_res.cpp \
 		debug\moc_mainwindow.cpp \
 		debug\moc_xmleditor.cpp \
 		debug\moc_highlighter.cpp \
@@ -120,6 +122,8 @@ OBJECTS       = debug\main.obj \
 		debug\uc_shortcode_generator.obj \
 		debug\cool_tests_form.obj \
 		debug\imagesearchdialog.obj \
+		debug\rectangle_descriptor.obj \
+		debug\rectangle_descriptor_test.obj \
 		debug\qrc_res.obj \
 		debug\moc_mainwindow.obj \
 		debug\moc_xmleditor.obj \
@@ -166,7 +170,9 @@ DIST          = tests/UsefulClicker_tests.xml mainwindow.h \
 		ui\widgets\svg_path_parser.h \
 		interpreter\uc_shortcode_generator.h \
 		tests\cool_tests_form.h \
-		ui\imagesearchdialog.h main.cpp \
+		ui\imagesearchdialog.h \
+		cv\rectangle_descriptor.h \
+		tests\rectangle_descriptor_test.h main.cpp \
 		mainwindow.cpp \
 		xml\clickerdocument.cpp \
 		xml\xmleditor.cpp \
@@ -193,7 +199,9 @@ DIST          = tests/UsefulClicker_tests.xml mainwindow.h \
 		ui\widgets\svg_path_parser.cpp \
 		interpreter\uc_shortcode_generator.cpp \
 		tests\cool_tests_form.cpp \
-		ui\imagesearchdialog.cpp
+		ui\imagesearchdialog.cpp \
+		cv\rectangle_descriptor.cpp \
+		tests\rectangle_descriptor_test.cpp
 QMAKE_TARGET  = UsefulClicker32
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = UsefulClicker32.exe
@@ -410,8 +418,8 @@ all: Makefile.Debug  $(DESTDIR_TARGET)
 
 $(DESTDIR_TARGET): ui_mainwindow.h ui_aboutbox.h ui_areaselectordialog.h ui_screenbuttonsdetector.h ui_coordselector.h ui_shelldialog.h ui_typedialog.h ui_mousedialog.h ui_delaywidget.h ui_dimensionswidget.h ui_cool_tests_form.h ui_imagesearchdialog.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) /MANIFEST:embed /OUT:$(DESTDIR_TARGET) @<<
-debug\main.obj debug\mainwindow.obj debug\clickerdocument.obj debug\xmleditor.obj debug\clickersettings.obj debug\highlighter.obj debug\interpreter.obj debug\interpreterwin64.obj debug\dspmodule.obj debug\logger.obj debug\globals.obj debug\expression_calculator.obj debug\aboutbox.obj debug\createdialog.obj debug\areaselectordialog.obj debug\screenbuttonsdetector.obj debug\coordselector.obj debug\shelldialog.obj debug\typedialog.obj debug\mousedialog.obj debug\delaywidget.obj debug\dimensionswidget.obj debug\qconsole.obj debug\svgwidget.obj debug\svg_path_parser.obj debug\uc_shortcode_generator.obj debug\cool_tests_form.obj debug\imagesearchdialog.obj debug\qrc_res.obj debug\moc_mainwindow.obj debug\moc_xmleditor.obj debug\moc_highlighter.obj debug\moc_interpreter.obj debug\moc_interpreterwin64.obj debug\moc_dspmodule.obj debug\moc_aboutbox.obj debug\moc_areaselectordialog.obj debug\moc_screenbuttonsdetector.obj debug\moc_coordselector.obj debug\moc_shelldialog.obj
-debug\moc_typedialog.obj debug\moc_mousedialog.obj debug\moc_delaywidget.obj debug\moc_dimensionswidget.obj debug\moc_qconsole.obj debug\moc_cool_tests_form.obj debug\moc_imagesearchdialog.obj
+debug\main.obj debug\mainwindow.obj debug\clickerdocument.obj debug\xmleditor.obj debug\clickersettings.obj debug\highlighter.obj debug\interpreter.obj debug\interpreterwin64.obj debug\dspmodule.obj debug\logger.obj debug\globals.obj debug\expression_calculator.obj debug\aboutbox.obj debug\createdialog.obj debug\areaselectordialog.obj debug\screenbuttonsdetector.obj debug\coordselector.obj debug\shelldialog.obj debug\typedialog.obj debug\mousedialog.obj debug\delaywidget.obj debug\dimensionswidget.obj debug\qconsole.obj debug\svgwidget.obj debug\svg_path_parser.obj debug\uc_shortcode_generator.obj debug\cool_tests_form.obj debug\imagesearchdialog.obj debug\rectangle_descriptor.obj debug\rectangle_descriptor_test.obj debug\qrc_res.obj debug\moc_mainwindow.obj debug\moc_xmleditor.obj debug\moc_highlighter.obj debug\moc_interpreter.obj debug\moc_interpreterwin64.obj debug\moc_dspmodule.obj debug\moc_aboutbox.obj debug\moc_areaselectordialog.obj debug\moc_screenbuttonsdetector.obj
+debug\moc_coordselector.obj debug\moc_shelldialog.obj debug\moc_typedialog.obj debug\moc_mousedialog.obj debug\moc_delaywidget.obj debug\moc_dimensionswidget.obj debug\moc_qconsole.obj debug\moc_cool_tests_form.obj debug\moc_imagesearchdialog.obj
 $(LIBS)
 <<
 
@@ -421,10 +429,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) UsefulClicker32.zip $(SOURCES) $(DIST) UsefulClicker32.pro ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\spec_pre.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\common\angle.conf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\common\msvc-desktop.conf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\qconfig.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3drender.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_core.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_help.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_location.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_location_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_network.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_scxml.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_webview.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_webview_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\qt_functions.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\qt_config.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\win32-msvc\qmake.conf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\exclusive_builds.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\common\msvc-version.conf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\toolchain.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\default_pre.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\win32\default_pre.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\resolve_config.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\default_post.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\build_pass.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\qml_debug.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\precompile_header.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\warn_on.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\qt.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\resources.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\moc.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\win32\opengl.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\uic.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\qmake_use.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\file_copies.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\win32\windows.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\testcase_targets.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\exceptions.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\yacc.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\lex.prf UsefulClicker32.pro res.qrc ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\qtmaind.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Svgd.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Widgetsd.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Multimediad.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Guid.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Xmld.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Networkd.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Cored.prl   res.qrc ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\data\dummy.cpp mainwindow.h xml\clickerdocument.h xml\xmleditor.h settings\clickersettings.h tests\highlighter.h interpreter\interpreter.h interpreter\interpreterwin64.h cv\dspmodule.h cv\rectangle_descriptor.h log\logger.h globals.h interpreter\expression_calculator.h ui\aboutbox.h ui\areaselectordialog.h ui\screenbuttonsdetector.h ui\coordselector.h ui\shelldialog.h ui\typedialog.h ui\mousedialog.h ui\widgets\delaywidget.h ui\widgets\dimensionswidget.h ui\widgets\qconsole.h ui\widgets\svgwidget.h ui\widgets\svg_path_parser.h interpreter\uc_shortcode_generator.h tests\cool_tests_form.h ui\imagesearchdialog.h main.cpp mainwindow.cpp xml\clickerdocument.cpp xml\xmleditor.cpp settings\clickersettings.cpp tests\highlighter.cpp interpreter\interpreter.cpp interpreter\interpreterwin64.cpp cv\dspmodule.cpp log\logger.cpp globals.cpp interpreter\expression_calculator.cpp ui\aboutbox.cpp ui\createdialog.cpp ui\areaselectordialog.cpp ui\screenbuttonsdetector.cpp ui\coordselector.cpp ui\shelldialog.cpp ui\typedialog.cpp ui\mousedialog.cpp ui\widgets\delaywidget.cpp ui\widgets\dimensionswidget.cpp ui\widgets\qconsole.cpp ui\widgets\svgwidget.cpp ui\widgets\svg_path_parser.cpp interpreter\uc_shortcode_generator.cpp tests\cool_tests_form.cpp ui\imagesearchdialog.cpp mainwindow.ui ui\aboutbox.ui ui\areaselectordialog.ui ui\screenbuttonsdetector.ui ui\coordselector.ui ui\shelldialog.ui ui\typedialog.ui ui\mousedialog.ui ui\widgets\delaywidget.ui ui\widgets\dimensionswidget.ui tests\cool_tests_form.ui ui\imagesearchdialog.ui    
+	$(ZIP) UsefulClicker32.zip $(SOURCES) $(DIST) UsefulClicker32.pro ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\spec_pre.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\common\angle.conf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\common\msvc-desktop.conf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\qconfig.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3drender.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_core.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_help.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_location.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_location_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_network.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_scxml.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_webview.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_webview_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\qt_functions.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\qt_config.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\win32-msvc\qmake.conf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\exclusive_builds.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\common\msvc-version.conf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\toolchain.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\default_pre.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\win32\default_pre.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\resolve_config.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\default_post.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\build_pass.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\qml_debug.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\precompile_header.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\warn_on.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\qt.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\resources.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\moc.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\win32\opengl.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\uic.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\qmake_use.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\file_copies.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\win32\windows.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\testcase_targets.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\exceptions.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\yacc.prf ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\lex.prf UsefulClicker32.pro res.qrc ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\qtmaind.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Svgd.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Widgetsd.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Multimediad.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Guid.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Xmld.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Networkd.prl ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Cored.prl   res.qrc ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\features\data\dummy.cpp mainwindow.h xml\clickerdocument.h xml\xmleditor.h settings\clickersettings.h tests\highlighter.h interpreter\interpreter.h interpreter\interpreterwin64.h cv\dspmodule.h cv\rectangle_descriptor.h log\logger.h globals.h interpreter\expression_calculator.h ui\aboutbox.h ui\areaselectordialog.h ui\screenbuttonsdetector.h ui\coordselector.h ui\shelldialog.h ui\typedialog.h ui\mousedialog.h ui\widgets\delaywidget.h ui\widgets\dimensionswidget.h ui\widgets\qconsole.h ui\widgets\svgwidget.h ui\widgets\svg_path_parser.h interpreter\uc_shortcode_generator.h tests\cool_tests_form.h ui\imagesearchdialog.h cv\rectangle_descriptor.h tests\rectangle_descriptor_test.h main.cpp mainwindow.cpp xml\clickerdocument.cpp xml\xmleditor.cpp settings\clickersettings.cpp tests\highlighter.cpp interpreter\interpreter.cpp interpreter\interpreterwin64.cpp cv\dspmodule.cpp log\logger.cpp globals.cpp interpreter\expression_calculator.cpp ui\aboutbox.cpp ui\createdialog.cpp ui\areaselectordialog.cpp ui\screenbuttonsdetector.cpp ui\coordselector.cpp ui\shelldialog.cpp ui\typedialog.cpp ui\mousedialog.cpp ui\widgets\delaywidget.cpp ui\widgets\dimensionswidget.cpp ui\widgets\qconsole.cpp ui\widgets\svgwidget.cpp ui\widgets\svg_path_parser.cpp interpreter\uc_shortcode_generator.cpp tests\cool_tests_form.cpp ui\imagesearchdialog.cpp cv\rectangle_descriptor.cpp tests\rectangle_descriptor_test.cpp mainwindow.ui ui\aboutbox.ui ui\areaselectordialog.ui ui\screenbuttonsdetector.ui ui\coordselector.ui ui\shelldialog.ui ui\typedialog.ui ui\mousedialog.ui ui\widgets\delaywidget.ui ui\widgets\dimensionswidget.ui tests\cool_tests_form.ui ui\imagesearchdialog.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.obj debug\mainwindow.obj debug\clickerdocument.obj debug\xmleditor.obj debug\clickersettings.obj debug\highlighter.obj debug\interpreter.obj debug\interpreterwin64.obj debug\dspmodule.obj debug\logger.obj debug\globals.obj debug\expression_calculator.obj debug\aboutbox.obj debug\createdialog.obj debug\areaselectordialog.obj debug\screenbuttonsdetector.obj debug\coordselector.obj debug\shelldialog.obj debug\typedialog.obj debug\mousedialog.obj debug\delaywidget.obj debug\dimensionswidget.obj debug\qconsole.obj debug\svgwidget.obj debug\svg_path_parser.obj debug\uc_shortcode_generator.obj debug\cool_tests_form.obj debug\imagesearchdialog.obj debug\qrc_res.obj debug\moc_mainwindow.obj debug\moc_xmleditor.obj debug\moc_highlighter.obj debug\moc_interpreter.obj debug\moc_interpreterwin64.obj debug\moc_dspmodule.obj debug\moc_aboutbox.obj debug\moc_areaselectordialog.obj debug\moc_screenbuttonsdetector.obj debug\moc_coordselector.obj debug\moc_shelldialog.obj debug\moc_typedialog.obj debug\moc_mousedialog.obj debug\moc_delaywidget.obj debug\moc_dimensionswidget.obj debug\moc_qconsole.obj debug\moc_cool_tests_form.obj debug\moc_imagesearchdialog.obj
+	-$(DEL_FILE) debug\main.obj debug\mainwindow.obj debug\clickerdocument.obj debug\xmleditor.obj debug\clickersettings.obj debug\highlighter.obj debug\interpreter.obj debug\interpreterwin64.obj debug\dspmodule.obj debug\logger.obj debug\globals.obj debug\expression_calculator.obj debug\aboutbox.obj debug\createdialog.obj debug\areaselectordialog.obj debug\screenbuttonsdetector.obj debug\coordselector.obj debug\shelldialog.obj debug\typedialog.obj debug\mousedialog.obj debug\delaywidget.obj debug\dimensionswidget.obj debug\qconsole.obj debug\svgwidget.obj debug\svg_path_parser.obj debug\uc_shortcode_generator.obj debug\cool_tests_form.obj debug\imagesearchdialog.obj debug\rectangle_descriptor.obj debug\rectangle_descriptor_test.obj debug\qrc_res.obj debug\moc_mainwindow.obj debug\moc_xmleditor.obj debug\moc_highlighter.obj debug\moc_interpreter.obj debug\moc_interpreterwin64.obj debug\moc_dspmodule.obj debug\moc_aboutbox.obj debug\moc_areaselectordialog.obj debug\moc_screenbuttonsdetector.obj debug\moc_coordselector.obj debug\moc_shelldialog.obj debug\moc_typedialog.obj debug\moc_mousedialog.obj debug\moc_delaywidget.obj debug\moc_dimensionswidget.obj debug\moc_qconsole.obj debug\moc_cool_tests_form.obj debug\moc_imagesearchdialog.obj
 	-$(DEL_FILE) debug\UsefulClicker32.exp debug\UsefulClicker32.vc.pdb debug\UsefulClicker32.ilk debug\UsefulClicker32.idb
 
 distclean: clean 
@@ -1700,6 +1708,111 @@ debug\moc_screenbuttonsdetector.cpp: ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\incl
 		interpreter\interpreter.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QThread \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qthread.h \
+		..\..\..\opencv\include\opencv2\opencv.hpp \
+		..\..\..\opencv\build_vs2017\opencv2\opencv_modules.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvdef.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\version.hpp \
+		..\..\..\opencv\build_vs2017\cvconfig.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\hal\interface.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\cv_cpu_dispatch.h \
+		..\..\..\opencv\build_vs2017\cv_cpu_config.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\cv_cpu_helper.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\hal\msa_macros.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\fast_math.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\base.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd_wrapper.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\neon_utils.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\vsx_utils.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\check.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\traits.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\matx.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\saturate.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\types.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\mat.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\bufferpool.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\mat.inl.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\persistence.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\operations.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd.inl.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utility.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utils\instrumentation.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utils\tls.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\optim.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\ovx.hpp \
+		..\..\..\opencv\modules\calib3d\include\opencv2\calib3d.hpp \
+		..\..\..\opencv\modules\features2d\include\opencv2\features2d.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\miniflann.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\defines.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\config.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\affine.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dnn.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\async.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\version.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dict.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\layer.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dnn.inl.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\utils\inference_engine.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\flann_base.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\general.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\matrix.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\params.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\any.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\saving.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\nn_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\result_set.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\all_indices.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kdtree_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\dynamic_bitset.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\dist.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\heap.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\allocator.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\random.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kdtree_single_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kmeans_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\logger.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\composite_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\linear_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\hierarchical_clustering_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\lsh_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\lsh_table.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\autotuned_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\ground_truth.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\index_testing.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\timer.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\sampling.h \
+		..\..\..\opencv\modules\highgui\include\opencv2\highgui.hpp \
+		..\..\..\opencv\modules\imgcodecs\include\opencv2\imgcodecs.hpp \
+		..\..\..\opencv\modules\videoio\include\opencv2\videoio.hpp \
+		..\..\..\opencv\modules\imgproc\include\opencv2\imgproc.hpp \
+		..\..\..\opencv\modules\imgproc\include\opencv2\imgproc\segmentation.hpp \
+		..\..\..\opencv\modules\ml\include\opencv2\ml.hpp \
+		..\..\..\opencv\modules\ml\include\opencv2\ml\ml.inl.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect\detection_based_tracker.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect\face.hpp \
+		..\..\..\opencv\modules\photo\include\opencv2\photo.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\warpers.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\warpers.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda_types.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda.inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\warpers_inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\matchers.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\motion_estimators.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\util.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\util_inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\camera.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\exposure_compensate.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\seam_finders.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\blenders.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
 		ui\screenbuttonsdetector.h \
 		debug\mocinclude.opt \
 		debug\moc_predefs.h \
@@ -5437,21 +5550,6 @@ debug\createdialog.obj: ui\createdialog.cpp ui\dialogtype.h \
 		interpreter/interpreter.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QThread \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qthread.h \
-		ui/coordselector.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\QSoundEffect \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qsoundeffect.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qtmultimediaglobal.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qtmultimedia-config.h \
-		ui/shelldialog.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QCloseEvent \
-		ui\widgets\keyboardbutton.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QWidget \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QLabel \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qlabel.h \
-		ui/typedialog.h \
-		ui/mousedialog.h \
-		cv/dspmodule.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QImage \
 		..\..\..\opencv\include\opencv2\opencv.hpp \
 		..\..\..\opencv\build_vs2017\opencv2\opencv_modules.hpp \
 		..\..\..\opencv\modules\core\include\opencv2\core.hpp \
@@ -5557,6 +5655,21 @@ debug\createdialog.obj: ui\createdialog.cpp ui\dialogtype.h \
 		..\..\..\opencv\modules\video\include\opencv2\video.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
+		ui/coordselector.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\QSoundEffect \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qsoundeffect.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qtmultimediaglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qtmultimedia-config.h \
+		ui/shelldialog.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QCloseEvent \
+		ui\widgets\keyboardbutton.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QWidget \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QLabel \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qlabel.h \
+		ui/typedialog.h \
+		ui/mousedialog.h \
+		cv/dspmodule.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QImage \
 		ui/widgets/delaywidget.h
 
 debug\areaselectordialog.obj: ui\areaselectordialog.cpp ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QPainter \
@@ -7956,12 +8069,6 @@ debug\cool_tests_form.obj: tests\cool_tests_form.cpp ..\..\..\..\Qt\Qt5.9.0\5.9\
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
 		log/logger.h \
-		ui/coordselector.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\QSoundEffect \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qsoundeffect.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qtmultimediaglobal.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qtmultimedia-config.h \
-		ui/imagesearchdialog.h \
 		..\..\..\opencv\include\opencv2\opencv.hpp \
 		..\..\..\opencv\build_vs2017\opencv2\opencv_modules.hpp \
 		..\..\..\opencv\modules\core\include\opencv2\core.hpp \
@@ -8067,6 +8174,12 @@ debug\cool_tests_form.obj: tests\cool_tests_form.cpp ..\..\..\..\Qt\Qt5.9.0\5.9\
 		..\..\..\opencv\modules\video\include\opencv2\video.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
+		ui/coordselector.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\QSoundEffect \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qsoundeffect.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qtmultimediaglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qtmultimedia-config.h \
+		ui/imagesearchdialog.h \
 		ui/shelldialog.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QCloseEvent \
 		settings/clickersettings.h \
@@ -8080,6 +8193,7 @@ debug\cool_tests_form.obj: tests\cool_tests_form.cpp ..\..\..\..\Qt\Qt5.9.0\5.9\
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextobject.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTextCharFormat \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRegularExpression \
+		tests/rectangle_descriptor_test.h \
 		ui\widgets\areabutton.h \
 		ui\widgets\keyboardbutton.h \
 		ui\widgets\crossbutton.h \
@@ -8388,6 +8502,268 @@ debug\imagesearchdialog.obj: ui\imagesearchdialog.cpp ui/areaselectordialog.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPushButton \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qpushbutton.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractbutton.h
+
+debug\rectangle_descriptor.obj: cv\rectangle_descriptor.cpp 
+
+debug\rectangle_descriptor_test.obj: tests\rectangle_descriptor_test.cpp tests/rectangle_descriptor_test.h \
+		..\..\..\opencv\include\opencv2\opencv.hpp \
+		..\..\..\opencv\build_vs2017\opencv2\opencv_modules.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvdef.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\version.hpp \
+		..\..\..\opencv\build_vs2017\cvconfig.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\hal\interface.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\cv_cpu_dispatch.h \
+		..\..\..\opencv\build_vs2017\cv_cpu_config.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\cv_cpu_helper.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\hal\msa_macros.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\fast_math.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\base.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd_wrapper.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\neon_utils.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\vsx_utils.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\check.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\traits.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\matx.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\saturate.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\types.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\mat.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\bufferpool.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\mat.inl.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\persistence.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\operations.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd.inl.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utility.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utils\instrumentation.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utils\tls.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\optim.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\ovx.hpp \
+		..\..\..\opencv\modules\calib3d\include\opencv2\calib3d.hpp \
+		..\..\..\opencv\modules\features2d\include\opencv2\features2d.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\miniflann.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\defines.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\config.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\affine.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dnn.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\async.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\version.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dict.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\layer.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dnn.inl.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\utils\inference_engine.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\flann_base.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\general.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\matrix.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\params.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\any.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\saving.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\nn_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\result_set.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\all_indices.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kdtree_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\dynamic_bitset.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\dist.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\heap.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\allocator.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\random.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kdtree_single_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kmeans_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\logger.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\composite_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\linear_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\hierarchical_clustering_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\lsh_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\lsh_table.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\autotuned_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\ground_truth.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\index_testing.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\timer.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\sampling.h \
+		..\..\..\opencv\modules\highgui\include\opencv2\highgui.hpp \
+		..\..\..\opencv\modules\imgcodecs\include\opencv2\imgcodecs.hpp \
+		..\..\..\opencv\modules\videoio\include\opencv2\videoio.hpp \
+		..\..\..\opencv\modules\imgproc\include\opencv2\imgproc.hpp \
+		..\..\..\opencv\modules\imgproc\include\opencv2\imgproc\segmentation.hpp \
+		..\..\..\opencv\modules\ml\include\opencv2\ml.hpp \
+		..\..\..\opencv\modules\ml\include\opencv2\ml\ml.inl.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect\detection_based_tracker.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect\face.hpp \
+		..\..\..\opencv\modules\photo\include\opencv2\photo.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\warpers.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\warpers.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda_types.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda.inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\warpers_inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\matchers.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\motion_estimators.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\util.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\util_inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\camera.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\exposure_compensate.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\seam_finders.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\blenders.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
+		cv/rectangle_descriptor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstring.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qchar.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qconfig-bootstrapped.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qconfig.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qtcore-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsystemdetection.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qprocessordetection.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcompilerdetection.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qtypeinfo.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsysinfo.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qlogging.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qflags.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qatomic.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qbasicatomic.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qatomic_bootstrap.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qgenericatomic.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qatomic_cxx11.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qatomic_msvc.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qglobalstatic.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmutex.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qnumeric.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qversiontagging.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qbytearray.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qrefcount.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qnamespace.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qarraydata.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstringbuilder.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxmlglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxml-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QMap \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmap.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qiterator.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qlist.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qalgorithms.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qhashfunctions.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qpair.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qbytearraylist.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstringlist.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qregexp.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstringmatcher.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdebug.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qhash.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qtextstream.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qiodevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobject.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobjectdefs.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobjectdefs_impl.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreevent.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qscopedpointer.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmetatype.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvarlengtharray.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcontainerfwd.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobject_impl.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qlocale.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvariant.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qshareddata.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvector.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qpoint.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qset.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcontiguouscache.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer_impl.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qrect.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmargins.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsize.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qvector2d.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtguiglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtgui-config.h \
+		log/logger.h \
+		mainwindow.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qmainwindow.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qwindowdefs.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpaintdevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpalette.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcolor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qrgb.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qrgba64.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qbrush.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qmatrix.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpolygon.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qregion.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdatastream.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qline.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtransform.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpainterpath.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qimage.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpixelformat.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpixmap.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfont.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontmetrics.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontinfo.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qsizepolicy.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcursor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qkeysequence.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qevent.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurl.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurlquery.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qfile.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtouchdevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qicon.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPlainTextEdit \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qplaintextedit.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtextedit.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractscrollarea.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qframe.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextdocument.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextoption.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextcursor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextformat.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qabstracttextdocumentlayout.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextlayout.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qglyphrun.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qrawfont.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontdatabase.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QComboBox \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qcombobox.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractitemdelegate.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qstyleoption.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractspinbox.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qvalidator.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qregularexpression.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qslider.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractslider.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qstyle.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabbar.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qrubberband.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qabstractitemmodel.h \
+		xml/clickerdocument.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomDocument \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QStringList \
+		interpreter/interpreterwin64.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QObject \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QElapsedTimer \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qelapsedtimer.h \
+		interpreter/interpreter.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QThread \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qthread.h
 
 debug\qrc_res.obj: debug\qrc_res.cpp 
 

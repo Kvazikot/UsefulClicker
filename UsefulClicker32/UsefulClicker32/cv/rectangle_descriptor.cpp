@@ -1,4 +1,3 @@
-RectangleDescriptor::RectangleDescriptor()
-{
+#include <cv/rectangle_descriptor.h>
 
-}
+
