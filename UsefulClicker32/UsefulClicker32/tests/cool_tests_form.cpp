@@ -450,6 +450,16 @@ void CoolTestsForm::on_clickrectTest_clicked()
 void CoolTestsForm::on_rectangleDescriptorTest_clicked()
 {
     RectangleDescriptorTest tst;
+    tst.compareTest();
     ui->logEdit->appendPlainText( tst.results_str );
     ui->buttonImage->setPixmap(  QPixmap::fromImage(tst.results_pixmap) );
+}
+
+void CoolTestsForm::on_histCompressionTest_clicked()
+{
+    RectangleDescriptorTest tst;
+    tst.compressionTest();
+    ui->logEdit->appendPlainText( tst.results_str );
+    ui->buttonImage->setPixmap(  QPixmap::fromImage(tst.results_pixmap) );
+
 }

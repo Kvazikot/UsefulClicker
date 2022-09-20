@@ -10,8 +10,12 @@ class RectangleDescriptorTest
     QString results_str;
     QImage results_pixmap;
     std::vector<cv::Mat> matrices;
+    std::vector<std::pair<std::string,std::string>> buttons;
+    std::string path_to_images;
 
     RectangleDescriptorTest();
+    void compressionTest();
+    void compareTest();
 
 
 

@@ -1,6 +1,8 @@
 #ifndef RECTANGLE_DESCRIPTOR_H
 #define RECTANGLE_DESCRIPTOR_H
 
+#include <QScreen>
+#include <QApplication>
 #include <QString>
 #include <QDomNode>
 #include <QMap>
@@ -16,27 +18,17 @@ using namespace  std;
 struct RectangleDescriptor
 {
     int number;
-    float area_weight;
-    float ratio_weight;
-    float center_weight;
-    float number_weight;
     int width;
     int height;
     QPoint center;
-    float ratio;
     cv::Mat hist_base1;
     int h_bins = 100;
     cv::Mat hist;
     cv::MatND HistB, HistG, HistR;
 
 
-
     RectangleDescriptor()
     {
-        area_weight = 5;
-        ratio_weight = 100;
-        center_weight =1./10;
-        number_weight = 1;
     }
 
     RectangleDescriptor(int w, int h, cv::Mat& im)
@@ -49,7 +41,7 @@ struct RectangleDescriptor
 
     void getHist(cv::Mat& im)
     {
-        cv::cvtColor( im, im, cv::COLOR_BGR2HSV );
+        //cv::cvtColor( im, im, cv::COLOR_BGR2HSV );
         int channels[] = { 0 }; //index of channel
         int histSize[] = { h_bins };
         float hranges[] = { 0, 255 };
@@ -72,16 +64,31 @@ struct RectangleDescriptor
         //base_base = compareHist( hist_base1, hist_base2, 2 );
 
 
+
     }
-    float calculateDifference(RectangleDescriptor& r1, RectangleDescriptor r2)
+
+    float area()
     {
-        float da = abs( area(r1) - area(r2) ) * area_weight;
-        float dc = abs( QVector2D(r1.center - r2.center).length() ) * center_weight;
-        float dn = 0;//abs( r1.number - r2.number) * number_weight;
-        float dr = ratio_weight * abs(r1.ratio - r2.ratio);
-        float dh = abs(1 - cv::compareHist( r1.hist, r2.hist, 0 ));
-        //qDebug("dh=%f da=%f dc=%f dn=%f dr=%f",dh,da,dc,dn,dr);
-        return dh + dc + dn  + dr;
+       return width*height;
+    }
+
+    float ratio()
+    {
+        float small = std::min(width, height);
+        float big = std::max(width, height);
+        return float(small/big);
+    }
+
+    float calculateDifference(RectangleDescriptor& r1, RectangleDescriptor& r2)
+    {
+        float dh = abs(1 - cv::compareHist( r1.HistR, r2.HistR, 0 ));
+        dh+= abs(1 - cv::compareHist( r1.HistG, r2.HistG, 0 ));
+        QScreen* screen = QApplication::screens()[0];
+        float screen_area = screen->geometry().width() * screen->geometry().height();
+        float da = abs(r2.area() - r1.area()) / screen_area;
+        float dr = abs(r2.ratio() - r1.ratio());
+        float d = dh + da + dr;
+        return d;
     }
 
     QString compressHistogram(cv::MatND& h)
@@ -188,8 +195,6 @@ struct RectangleDescriptor
             center = QPoint(l[0].toInt(), l[1].toInt());
         width = node.toElement().attribute("width").toInt();
         height = node.toElement().attribute("height").toInt();
-        ratio = float(width)/ float(height);
-        number = node.toElement().attribute("number").toInt();
     }
 
     void writeToMap(QMap<QString, QString>& attrs)
@@ -213,7 +218,6 @@ struct RectangleDescriptor
         width = rect.width();
         height = rect.height();
         center = rect.center();
-        ratio = float(rect.width())/ float(rect.height());
     }
 
     float area(RectangleDescriptor& r)
@@ -229,7 +233,6 @@ struct RectangleDescriptor
             width = list[0].toInt();
             height = list[1].toInt();
         }
-        ratio = width /  height;
     }
     void setNumber(int n)
     {

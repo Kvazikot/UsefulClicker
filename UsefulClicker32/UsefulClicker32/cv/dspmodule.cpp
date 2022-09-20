@@ -306,26 +306,9 @@ QRect DspModule::searchImage(std::string TargetIn_path, int screenNum)
         Mat rect_kernel = getStructuringElement(MORPH_RECT, Size(kernel_size, kernel_size));
         dilate(canny_output, canny_output, rect_kernel, Point(-1, -1), 1);
 
-        //cvtColor(im_gray, im_gray, COLOR_GRAY2RGB);
-
-        int h_bins = 50, s_bins = 60;
-        int histSize[] = { h_bins, s_bins };
-        // hue varies from 0 to 179, saturation from 0 to 255
-        float h_ranges[] = { 0, 180 };
-        float s_ranges[] = { 0, 256 };
-        const float* ranges[] = { h_ranges, s_ranges };
-
-        // Use the 0-th and 1-st channels
-        int channels[] = { 0, 1 };
-        Mat hsv_base1, hsv_base2;
-        Mat hist_base1, hist_base2;
-
         RectangleDescriptor rd1(TargetIn.size[1], TargetIn.size[0], TargetIn);
-        cvtColor( TargetIn, hsv_base2, COLOR_BGR2HSV );
-        calcHist( &hsv_base2, 2, channels, Mat(), hist_base2, 2, histSize, ranges, true, false );
-        normalize( hist_base2, hist_base2, 0, 1, NORM_MINMAX, -1, Mat() );
 
-        Mat	labels, stats, centroids;
+        Mat	labels, stats, centroids, hsv_base1;
         cv::connectedComponentsWithStats(canny_output, labels, stats, centroids);
         cvtColor(im_gray, im_gray, COLOR_GRAY2RGB);
         for(int i=0; i < stats.rows; i++)
@@ -343,13 +326,11 @@ QRect DspModule::searchImage(std::string TargetIn_path, int screenNum)
                 Rect r(x,y,w,h);
                 Mat cutfromSearch = Mat(areaImg, r);
                 cvtColor( cutfromSearch, hsv_base1, COLOR_BGR2HSV );
-                calcHist( &hsv_base1, 1, channels, Mat(), hist_base1, 2, histSize, ranges, true, false );
-                normalize( hist_base1, hist_base1, 0, 1, NORM_MINMAX, -1, Mat() );
                 // only hist deifference // base_base = compareHist( hist_base1, hist_base2, 2 );
                 RectangleDescriptor rd2(hsv_base1.size[1], hsv_base1.size[0], hsv_base1);
-                base_base = rd1.calculateDifference(rd1, rd2);
+                base_base = rd2.calculateDifference(rd1, rd2);
 
-                //qDebug("%s  hist_compare %f ", __FUNCTION__, base_base);
+                qDebug("%s  hist_compare %f ", __FUNCTION__, base_base);
                 if(base_base < min_diff_match )
                 {
                     min_diff_match = base_base;

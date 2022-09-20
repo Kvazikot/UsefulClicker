@@ -309,7 +309,7 @@ text-decoration: underline;</string>
       <rect>
        <x>360</x>
        <y>10</y>
-       <width>191</width>
+       <width>201</width>
        <height>181</height>
       </rect>
      </property>
@@ -361,7 +361,7 @@ text-decoration: underline;</string>
       <item row="4" column="0">
        <widget class="QPushButton" name="rectangleDescriptorTest">
         <property name="text">
-         <string>Rectangle Descriptor Test</string>
+         <string>Rectangle Descriptor Test(#15)</string>
         </property>
        </widget>
       </item>
@@ -370,10 +370,10 @@ text-decoration: underline;</string>
     <widget class="QGroupBox" name="groupBox_10">
      <property name="geometry">
       <rect>
-       <x>559</x>
-       <y>10</y>
-       <width>81</width>
-       <height>181</height>
+       <x>650</x>
+       <y>200</y>
+       <width>111</width>
+       <height>151</height>
       </rect>
      </property>
      <property name="title">
@@ -443,6 +443,32 @@ text-decoration: underline;</string>
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_16">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>10</y>
+       <width>191</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>5. CV Tests</string>
+     </property>
+     <widget class="QPushButton" name="histCompressionTest">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>161</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Histogram compression(#16)</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_3">

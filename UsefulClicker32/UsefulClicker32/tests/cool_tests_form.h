@@ -87,6 +87,8 @@ private slots:
 
     void on_rectangleDescriptorTest_clicked();
 
+    void on_histCompressionTest_clicked();
+
 signals:
     void stopExecutionSignal();
 
