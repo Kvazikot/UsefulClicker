@@ -144,8 +144,11 @@ void ScreenButtonsDetector::wheelEvent(QWheelEvent* event)
     else
         p+=1;
 
+    if (p < 2) return;
+    if (p > 300) return;
     dsp->kernel_size = p;
     rects.clear();
+
     dsp->detectButtons(screenNum, dsp->kernel_size, rects);
     //dsp->detectButtons(screenNum, dsp->kernel_size, rects, true);
 

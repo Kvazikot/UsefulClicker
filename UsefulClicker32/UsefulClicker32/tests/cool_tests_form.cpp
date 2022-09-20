@@ -190,6 +190,7 @@ void CoolTestsForm::on_clickimgTest_clicked()
 {
     hide();
     ui->buttonImage->pixmap()->save("temp.png");
+    ui->buttonImage->setPixmap(QPixmap());
     DspModule dsp;
     QRect rect = dsp.searchImage("temp.png",0);
     ui->logEdit->appendPlainText("search using etalon temp.png and class RectangleDescriptor");

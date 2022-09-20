@@ -17,7 +17,7 @@ CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStri
 INCPATH       = -I. -I-L -I..\..\..\opencv\modules\core\include -I-L -I..\..\..\opencv\build_vs2017\modules -I-L -I..\..\..\opencv\build_vs2017 -I-L -I..\..\..\opencv\include\opencv2 -I-L -I..\..\..\opencv\include -I-L -I..\..\..\opencv\modules\calib3d\include -I-L -I..\..\..\opencv\modules\dnn\include -I-L -I..\..\..\opencv\modules\features2d\include -I-L -I..\..\..\opencv\modules\flann\include -I-L -I..\..\..\opencv\modules\highgui\include -I-L -I..\..\..\opencv\modules\imgcodecs\include -I-L -I..\..\..\opencv\modules\imgproc\include -I-L -I..\..\..\opencv\modules\videoio\include -I-L -I..\..\..\opencv\modules\video\include -I-L -I..\..\..\opencv\modules\gapi\include -I-L -I..\..\..\opencv\modules\objdetect\include -I-L -I..\..\..\opencv\modules\photo\include -I-L -I..\..\..\opencv\opencv_contrib\modules\shape\include -I-L -I..\..\..\opencv\modules\ml\include -I-L -I..\..\..\opencv\modules\stitching\include -Iinterpreter -I..\..\..\opencv\build_vs2017\lib\Release -I..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include -I..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtSvg -I..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets -I..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia -I..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui -I..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtANGLE -I..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml -I..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtNetwork -I..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore -Irelease -I. -I..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\mkspecs\win32-msvc 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /INCREMENTAL:NO /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
-LIBS          = /LIBPATH:C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\qtmain.lib /LIBPATH:C:\utils\my_sql\my_sql\lib /LIBPATH:C:\utils\postgresql\pgsql\lib shell32.lib user32.lib gdi32.lib /LIBPATH:C:\Projects\opencv\build_vs2017\lib\Debug C:\Projects\opencv\build_vs2017\lib\Debug\opencv_core460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_ml460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_flann460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_imgproc460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_photo460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_features2d460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_imgcodecs460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_videoio460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_highgui460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_calib3d460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_objdetect460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_video460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_shape460d.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Svg.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Widgets.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Multimedia.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Gui.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Xml.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Network.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Core.lib 
+LIBS          = /LIBPATH:C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\qtmain.lib /LIBPATH:C:\utils\my_sql\my_sql\lib /LIBPATH:C:\utils\postgresql\pgsql\lib shell32.lib user32.lib gdi32.lib /LIBPATH:C:\Projects\opencv\build_vs2017\lib\Release C:\Projects\opencv\build_vs2017\lib\Release\opencv_core460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_ml460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_flann460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_imgproc460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_photo460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_features2d460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_imgcodecs460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_videoio460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_highgui460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_calib3d460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_objdetect460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_video460.lib C:\Projects\opencv\build_vs2017\lib\Release\opencv_shape460.lib /LIBPATH:C:\Projects\opencv\build_vs2017\lib\Debug C:\Projects\opencv\build_vs2017\lib\Debug\opencv_core460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_ml460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_flann460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_imgproc460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_photo460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_features2d460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_imgcodecs460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_videoio460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_highgui460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_calib3d460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_objdetect460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_video460d.lib C:\Projects\opencv\build_vs2017\lib\Debug\opencv_shape460d.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Svg.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Widgets.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Multimedia.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Gui.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Xml.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Network.lib C:\Qt\Qt5.9.0\5.9\msvc2017_64\lib\Qt5Core.lib 
 QMAKE         = C:\Qt\Qt5.9.0\5.9\msvc2017_64\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -1238,49 +1238,62 @@ release\moc_dspmodule.cpp: ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore
 		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
 		cv\rectangle_descriptor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QScreen \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qscreen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QList \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSize \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSizeF \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTransform \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcursor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpalette.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qbrush.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpixmap.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qshareddata.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qhash.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer_impl.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfont.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontmetrics.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontinfo.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qsizepolicy.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qkeysequence.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qevent.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvariant.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmap.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdebug.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qtextstream.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qlocale.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qset.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcontiguouscache.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurl.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurlquery.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qfile.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qvector2d.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtouchdevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxmlglobal.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxml-config.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QMap \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmap.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdebug.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qhash.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qtextstream.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qlocale.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvariant.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qshareddata.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qset.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcontiguouscache.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer_impl.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qvector2d.h \
 		log\logger.h \
 		mainwindow.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qmainwindow.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qwidget.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpalette.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qbrush.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpixmap.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfont.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontmetrics.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontinfo.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qsizepolicy.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcursor.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qkeysequence.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qevent.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurl.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurlquery.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qfile.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qfiledevice.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtouchdevice.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qicon.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPlainTextEdit \
@@ -1658,13 +1671,26 @@ release\moc_screenbuttonsdetector.cpp: ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\in
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QObject \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QMap \
 		cv\rectangle_descriptor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QScreen \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qscreen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QList \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSize \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSizeF \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTransform \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxmlglobal.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxml-config.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
 		log\logger.h \
 		mainwindow.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
@@ -2363,6 +2389,20 @@ release\moc_mousedialog.cpp: ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWi
 		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
 		cv\rectangle_descriptor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QScreen \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qscreen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QList \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSize \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSizeF \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTransform \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
@@ -2370,7 +2410,6 @@ release\moc_mousedialog.cpp: ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWi
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxml-config.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QMap \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
 		log\logger.h \
 		mainwindow.h \
@@ -4912,6 +4951,21 @@ release\dspmodule.obj: cv\dspmodule.cpp ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\i
 		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
 		cv/rectangle_descriptor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcursor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpalette.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qsizepolicy.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qkeysequence.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qevent.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurl.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurlquery.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qvector2d.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtouchdevice.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
@@ -4920,22 +4974,10 @@ release\dspmodule.obj: cv\dspmodule.cpp ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\i
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QMap \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qvector2d.h \
 		log/logger.h \
 		mainwindow.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qmainwindow.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qwidget.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpalette.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qsizepolicy.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcursor.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qkeysequence.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qevent.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurl.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurlquery.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtouchdevice.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qicon.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPlainTextEdit \
@@ -5500,13 +5542,26 @@ release\createdialog.obj: ui\createdialog.cpp ui\dialogtype.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QPainterPath \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QWheelEvent \
 		cv/rectangle_descriptor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QScreen \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qscreen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QList \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSize \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSizeF \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTransform \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxmlglobal.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxml-config.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
 		log/logger.h \
 		mainwindow.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
@@ -6177,6 +6232,13 @@ release\screenbuttonsdetector.obj: ui\screenbuttonsdetector.cpp ..\..\..\..\Qt\Q
 		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
 		cv/rectangle_descriptor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
@@ -6242,13 +6304,6 @@ release\screenbuttonsdetector.obj: ui\screenbuttonsdetector.cpp ..\..\..\..\Qt\Q
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QAction \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qaction.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qactiongroup.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QButtonGroup \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qbuttongroup.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QHeaderView \
@@ -6988,6 +7043,26 @@ release\mousedialog.obj: ui\mousedialog.cpp ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_
 		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
 		cv/rectangle_descriptor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QScreen \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qscreen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QList \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSize \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSizeF \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTransform \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcursor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpalette.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qsizepolicy.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
@@ -6995,18 +7070,11 @@ release\mousedialog.obj: ui\mousedialog.cpp ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxml-config.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QMap \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
 		log/logger.h \
 		mainwindow.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qmainwindow.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qwidget.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpalette.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qsizepolicy.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcursor.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qicon.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPlainTextEdit \
@@ -7057,13 +7125,6 @@ release\mousedialog.obj: ui\mousedialog.cpp ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QAction \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qaction.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qactiongroup.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QButtonGroup \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qbuttongroup.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QHeaderView \
@@ -8422,6 +8483,20 @@ release\imagesearchdialog.obj: ui\imagesearchdialog.cpp ui/areaselectordialog.h 
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QObject \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QImage \
 		cv/rectangle_descriptor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QScreen \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qscreen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QList \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSize \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSizeF \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTransform \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
@@ -8429,7 +8504,6 @@ release\imagesearchdialog.obj: ui\imagesearchdialog.cpp ui/areaselectordialog.h 
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxml-config.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QMap \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
 		log/logger.h \
 		mainwindow.h \
@@ -8484,13 +8558,6 @@ release\imagesearchdialog.obj: ui\imagesearchdialog.cpp ui/areaselectordialog.h 
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QAction \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qaction.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qactiongroup.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QButtonGroup \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qbuttongroup.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QDialogButtonBox \
@@ -8506,9 +8573,9 @@ release\imagesearchdialog.obj: ui\imagesearchdialog.cpp ui/areaselectordialog.h 
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractbutton.h
 
 release\rectangle_descriptor.obj: cv\rectangle_descriptor.cpp cv/rectangle_descriptor.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstring.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qchar.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QScreen \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qscreen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtguiglobal.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qglobal.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qconfig-bootstrapped.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qconfig.h \
@@ -8530,30 +8597,25 @@ release\rectangle_descriptor.obj: cv\rectangle_descriptor.cpp cv/rectangle_descr
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmutex.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qnumeric.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qversiontagging.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qbytearray.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qrefcount.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qnamespace.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qarraydata.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstringbuilder.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxmlglobal.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxml-config.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QMap \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmap.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qiterator.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtgui-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QList \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qlist.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qalgorithms.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qiterator.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qrefcount.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qarraydata.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qhashfunctions.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qchar.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qpair.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qbytearraylist.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qbytearray.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qnamespace.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstring.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstringbuilder.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstringlist.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qregexp.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstringmatcher.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdebug.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qhash.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qtextstream.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qiodevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QObject \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobject.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobjectdefs.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobjectdefs_impl.h \
@@ -8563,61 +8625,80 @@ release\rectangle_descriptor.obj: cv\rectangle_descriptor.cpp cv/rectangle_descr
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvarlengtharray.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcontainerfwd.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobject_impl.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qlocale.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvariant.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qshareddata.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvector.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qpoint.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qset.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcontiguouscache.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer_impl.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qrect.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmargins.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsize.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qvector2d.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtguiglobal.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtgui-config.h \
-		log/logger.h \
-		mainwindow.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qmainwindow.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qpoint.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSize \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSizeF \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTransform \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtransform.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qmatrix.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpolygon.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvector.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qregion.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qwindowdefs.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdatastream.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qiodevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qline.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpainterpath.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcursor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qwidget.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpaintdevice.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpalette.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcolor.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qrgb.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qrgba64.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qbrush.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qmatrix.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpolygon.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qregion.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdatastream.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qline.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtransform.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpainterpath.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qimage.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpixelformat.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpixmap.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qshareddata.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qhash.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer_impl.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfont.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontmetrics.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontinfo.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qsizepolicy.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcursor.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qkeysequence.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qevent.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvariant.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmap.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdebug.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qtextstream.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qlocale.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qset.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcontiguouscache.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurl.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurlquery.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qvector2d.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtouchdevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxmlglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxml-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QMap \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
+		log/logger.h \
+		mainwindow.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qmainwindow.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qicon.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPlainTextEdit \
@@ -8652,7 +8733,6 @@ release\rectangle_descriptor.obj: cv\rectangle_descriptor.cpp cv/rectangle_descr
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomDocument \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QStringList \
 		interpreter/interpreterwin64.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QObject \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QElapsedTimer \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qelapsedtimer.h \
 		interpreter/interpreter.h \
@@ -8871,9 +8951,9 @@ release\rectangle_descriptor_test.obj: tests\rectangle_descriptor_test.cpp tests
 		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
 		cv/rectangle_descriptor.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstring.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qchar.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QScreen \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qscreen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtguiglobal.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qglobal.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qconfig-bootstrapped.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qconfig.h \
@@ -8895,30 +8975,25 @@ release\rectangle_descriptor_test.obj: tests\rectangle_descriptor_test.cpp tests
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmutex.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qnumeric.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qversiontagging.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qbytearray.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qrefcount.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qnamespace.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qarraydata.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstringbuilder.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxmlglobal.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxml-config.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QMap \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmap.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qiterator.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtgui-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QList \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qlist.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qalgorithms.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qiterator.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qrefcount.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qarraydata.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qhashfunctions.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qchar.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qpair.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qbytearraylist.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qbytearray.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qnamespace.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstring.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstringbuilder.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstringlist.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qregexp.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qstringmatcher.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdebug.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qhash.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qtextstream.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qiodevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QObject \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobject.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobjectdefs.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobjectdefs_impl.h \
@@ -8928,61 +9003,80 @@ release\rectangle_descriptor_test.obj: tests\rectangle_descriptor_test.cpp tests
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvarlengtharray.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcontainerfwd.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qobject_impl.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qlocale.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvariant.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qshareddata.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvector.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qpoint.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qset.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcontiguouscache.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer_impl.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qrect.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmargins.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsize.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qvector2d.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtguiglobal.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtgui-config.h \
-		log/logger.h \
-		mainwindow.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qmainwindow.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qpoint.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSize \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSizeF \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTransform \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtransform.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qmatrix.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpolygon.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvector.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qregion.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qwindowdefs.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdatastream.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qiodevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qline.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpainterpath.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcursor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qwidget.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpaintdevice.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpalette.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcolor.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qrgb.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qrgba64.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qbrush.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qmatrix.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpolygon.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qregion.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdatastream.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qline.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtransform.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpainterpath.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qimage.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpixelformat.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpixmap.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qshareddata.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qhash.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qsharedpointer_impl.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfont.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontmetrics.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontinfo.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qsizepolicy.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qcursor.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qkeysequence.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qevent.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qvariant.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qmap.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdebug.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qtextstream.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qlocale.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qset.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcontiguouscache.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurl.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qurlquery.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qvector2d.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtouchdevice.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomNode \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qdom.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxmlglobal.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\qtxml-config.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QMap \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
+		log/logger.h \
+		mainwindow.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qmainwindow.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qicon.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPlainTextEdit \
@@ -9017,7 +9111,6 @@ release\rectangle_descriptor_test.obj: tests\rectangle_descriptor_test.cpp tests
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomDocument \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QStringList \
 		interpreter/interpreterwin64.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QObject \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QElapsedTimer \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qelapsedtimer.h \
 		interpreter/interpreter.h \

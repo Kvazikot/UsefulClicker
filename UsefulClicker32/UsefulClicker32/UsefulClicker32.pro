@@ -54,41 +54,41 @@ INCLUDEPATH+=-L "$$OPENCV_460_PATH\\modules\\stitching\\include"
 INCLUDEPATH+= "./interpreter"
 
 LIBS += -luser32 -lgdi32
-#win32:CONFIG(release, debug|release):
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_core460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_ml460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_flann460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_imgproc460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_photo460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_features2d460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_imgcodecs460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_videoio460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_highgui460
-##LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\" -lopencv_ts460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_calib3d460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_objdetect460
-##LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_stitching460
-##LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_dnn460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_video460
-#LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_shape460
 
-#win32:CONFIG(debug, debug|release):
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_core460d
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_ml460d
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_flann460d
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_imgproc460d
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_photo460d
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_features2d460d
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_imgcodecs460d
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_videoio460d
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_highgui460d
-#LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\" -lopencv_ts460
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_calib3d460d
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_objdetect460d
-#LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_stitching460
-#LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_dnn460
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_video460d
-LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_shape460d
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_core460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_ml460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_flann460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_imgproc460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_photo460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_features2d460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_imgcodecs460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_videoio460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_highgui460
+win32:CONFIG(release, debug|release): #LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\" -lopencv_ts460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_calib3d460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_objdetect460
+win32:CONFIG(release, debug|release): #LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_stitching460
+win32:CONFIG(release, debug|release): #LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_dnn460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_video460
+win32:CONFIG(release, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Release" -lopencv_shape460
+
+
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_core460d
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_ml460d
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_flann460d
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_imgproc460d
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_photo460d
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_features2d460d
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_imgcodecs460d
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_videoio460d
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_highgui460d
+win32:CONFIG(debug, debug|release): #LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\" -lopencv_ts460
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_calib3d460d
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_objdetect460d
+win32:CONFIG(debug, debug|release): #LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_stitching460
+win32:CONFIG(debug, debug|release): #LIBS+=-L$$OPENCV_460_PATH\\build_vs2017\\lib\\ -lopencv_dnn460
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_video460d
+win32:CONFIG(debug, debug|release): LIBS+=-L"C:\\Projects\\opencv\\build_vs2017\\lib\\Debug" -lopencv_shape460d
 
 #LIBS+=-L$$PYTHON_PATH\\libs\\ -lpython37
 #LIBS+="$$(PYTHON_PATH)\\libs\\python39

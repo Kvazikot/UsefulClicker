@@ -37,6 +37,11 @@ void RectangleDescriptorTest::compareTest()
     {
         auto sample1 = cv::imread(path_to_images+i->first);
         auto sample2 = cv::imread(path_to_images+i->second);
+        if(sample2.rows==0 | sample1.rows==0)
+        {
+            results_str="FAILED! check test images";
+            return;
+        }
         //qDebug() << sample2.cols << "x" << sample2.rows;
         RectangleDescriptor* rd1 = new RectangleDescriptor( sample1.size[1], sample1.size[0], sample1);
         RectangleDescriptor* rd2 = new RectangleDescriptor( sample2.size[1], sample2.size[0], sample2);
@@ -71,6 +76,11 @@ void RectangleDescriptorTest::compressionTest()
     {
         auto sample1 = cv::imread(path_to_images+i->first);
         auto sample2 = cv::imread(path_to_images+i->second);
+        if(sample2.rows==0 | sample1.rows==0)
+        {
+            results_str="FAILED! check test images";
+            return;
+        }
         //qDebug() << sample2.cols << "x" << sample2.rows;
         RectangleDescriptor* rd1 = new RectangleDescriptor( sample1.size[1], sample1.size[0], sample1);
         RectangleDescriptor* rd2 = new RectangleDescriptor( sample2.size[1], sample2.size[0], sample2);
