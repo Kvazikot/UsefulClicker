@@ -31,6 +31,7 @@
 #include "ui/dialogtype.h"
 //#include "log/logger.h"
 
+#include <QScrollBar>
 #include <QDateTime>
 #include <QDebug>
 #include <QPushButton>
@@ -257,9 +258,20 @@ void MainWindow::applyChangesXml()
 
 
     }
+    if( ui->xmlEditor->iamChanged )
+    {
+        auto xml = applyFunctionChanges();
+        updateXmlEditor2(xml);
+    }
     // remove button from status Bar
     statusBar()->removeWidget((QWidget*)applyButton);
     applyButton = 0;
+
+    QStringList list;
+    getDoc()->getFunctionsList(doc->documentElement(),list);
+    functionSelector->clear();
+    functionSelector->addItems(list);
+
 
 }
 
@@ -504,6 +516,8 @@ QString MainWindow::applyFunctionChanges()
     replaceLines(original_lines, function_lines, start_line, end_line);
     QString xml = original_lines.join("\n");
     doc->setContent(*doc, xml);
+    //ui->xmlEditor_2->clear();
+    //ui->xmlEditor_2->setText(xml);
 
     qDebug() << "func_name is " <<  func_name;
     qDebug() << "located at " << start_line << ", " <<  end_line;
@@ -677,7 +691,22 @@ void MainWindow::new_fun()
                                          tr("Function name:"), QLineEdit::Normal,
                                          ui->xmlEditor->genFunName(), &ok);
     if (ok && !text.isEmpty())
-        ui->xmlEditor->newFun(text);
+    {
+        QString text_original = ui->xmlEditor_2->toPlainText();
+        QString initialXml = QString("<func name=\"%1\">\n<click mouse=\"left\" />\n<!-- comment -->\n</func>").arg(text);
+        ui->xmlEditor->setText(initialXml);
+        text_original = text_original.replace("</xml>", initialXml+"\n</xml>");
+        //ui->xmlEditor_2->setText(text_original);
+        updateXmlEditor2(text_original);
+
+        QScrollBar *vbar = ui->xmlEditor_2->verticalScrollBar();
+        int targetYPosition = 0;
+        vbar->setValue(vbar->value() + 11111111);
+
+
+
+
+    }
 
 }
 
@@ -856,18 +885,11 @@ void MainWindow::on_rectClick_clicked()
 void MainWindow::updateXmlEditor2(QString& xml_text)
 {
     ui->xmlEditor_2->enableChangeEvent(true);
-    QTextCursor cur = ui->xmlEditor_2->textCursor();
-    int p = cur.position();
+    int cursorY = ui->xmlEditor_2->cursorRect().top();
     ui->xmlEditor_2->setText(xml_text);
-    // set cursor at last pos
-    QTextCursor c(ui->xmlEditor_2->document());
-    int start = c.selectionStart();
-    int end   = c.selectionEnd();
-    c.setPosition(end + p  ,QTextCursor::MoveAnchor);
-    c.setPosition(start + p,QTextCursor::KeepAnchor);
-    ui->xmlEditor_2->setTextCursor(c);
-    ui->xmlEditor_2->moveCursor(QTextCursor::End);
-
+    QScrollBar *vbar = ui->xmlEditor_2->verticalScrollBar();
+    int targetYPosition = 0;
+    vbar->setValue(vbar->value() + cursorY - targetYPosition);
 }
 
 void MainWindow::on_PlayButton_clicked()

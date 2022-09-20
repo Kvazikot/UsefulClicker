@@ -146,7 +146,7 @@ void XmlEditor::onTextChange()
 
 void XmlEditor::newFun(QString name)
 {
-    QString initialXml = QString("<func name=\"%1\">\n</func>").arg(name);
+    QString initialXml = QString("<func name=\"%1\">\n<click mouse=\"left\" />\n<!-- comment -->\n</func>").arg(name);
     setText(initialXml);
 }
 

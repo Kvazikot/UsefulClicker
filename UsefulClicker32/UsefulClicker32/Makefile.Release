@@ -2935,6 +2935,166 @@ release\moc_cool_tests_form.cpp: ..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qthread.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QObject \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomDocument \
+		cv\rectangle_descriptor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QScreen \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qscreen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QList \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSize \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSizeF \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTransform \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qeventloop.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qinputmethod.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
+		log\logger.h \
+		mainwindow.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qmainwindow.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qicon.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPlainTextEdit \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qplaintextedit.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtextedit.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractscrollarea.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qframe.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextdocument.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextoption.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextcursor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextformat.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qpen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qabstracttextdocumentlayout.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextlayout.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qglyphrun.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qrawfont.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontdatabase.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QComboBox \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qcombobox.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractitemdelegate.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qstyleoption.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractspinbox.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qvalidator.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qregularexpression.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qslider.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractslider.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qstyle.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabbar.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qrubberband.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qabstractitemmodel.h \
+		xml\clickerdocument.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QStringList \
+		interpreter\interpreterwin64.h \
+		..\..\..\opencv\include\opencv2\opencv.hpp \
+		..\..\..\opencv\build_vs2017\opencv2\opencv_modules.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvdef.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\version.hpp \
+		..\..\..\opencv\build_vs2017\cvconfig.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\hal\interface.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\cv_cpu_dispatch.h \
+		..\..\..\opencv\build_vs2017\cv_cpu_config.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\cv_cpu_helper.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\hal\msa_macros.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\fast_math.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\base.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd_wrapper.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\neon_utils.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\vsx_utils.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\check.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\traits.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\matx.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\saturate.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\types.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\mat.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\bufferpool.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\mat.inl.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\persistence.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\operations.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd.inl.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utility.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utils\instrumentation.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utils\tls.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\optim.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\ovx.hpp \
+		..\..\..\opencv\modules\calib3d\include\opencv2\calib3d.hpp \
+		..\..\..\opencv\modules\features2d\include\opencv2\features2d.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\miniflann.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\defines.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\config.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\affine.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dnn.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\async.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\version.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dict.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\layer.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dnn.inl.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\utils\inference_engine.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\flann_base.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\general.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\matrix.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\params.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\any.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\saving.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\nn_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\result_set.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\all_indices.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kdtree_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\dynamic_bitset.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\dist.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\heap.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\allocator.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\random.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kdtree_single_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kmeans_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\logger.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\composite_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\linear_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\hierarchical_clustering_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\lsh_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\lsh_table.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\autotuned_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\ground_truth.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\index_testing.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\timer.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\sampling.h \
+		..\..\..\opencv\modules\highgui\include\opencv2\highgui.hpp \
+		..\..\..\opencv\modules\imgcodecs\include\opencv2\imgcodecs.hpp \
+		..\..\..\opencv\modules\videoio\include\opencv2\videoio.hpp \
+		..\..\..\opencv\modules\imgproc\include\opencv2\imgproc.hpp \
+		..\..\..\opencv\modules\imgproc\include\opencv2\imgproc\segmentation.hpp \
+		..\..\..\opencv\modules\ml\include\opencv2\ml.hpp \
+		..\..\..\opencv\modules\ml\include\opencv2\ml\ml.inl.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect\detection_based_tracker.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect\face.hpp \
+		..\..\..\opencv\modules\photo\include\opencv2\photo.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\warpers.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\warpers.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda_types.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda.inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\warpers_inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\matchers.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\motion_estimators.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\util.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\util_inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\camera.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\exposure_compensate.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\seam_finders.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\blenders.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
 		tests\cool_tests_form.h \
 		release\mocinclude.opt \
 		release\moc_predefs.h \
@@ -3831,6 +3991,122 @@ release\mainwindow.obj: mainwindow.cpp mainwindow.h \
 		tests/cool_tests_form.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QDialog \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QTimerEvent \
+		cv/rectangle_descriptor.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QScreen \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qscreen.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QList \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRect \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSize \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QSizeF \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTransform \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
+		log/logger.h \
+		..\..\..\opencv\include\opencv2\opencv.hpp \
+		..\..\..\opencv\build_vs2017\opencv2\opencv_modules.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvdef.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\version.hpp \
+		..\..\..\opencv\build_vs2017\cvconfig.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\hal\interface.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\cv_cpu_dispatch.h \
+		..\..\..\opencv\build_vs2017\cv_cpu_config.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\cv_cpu_helper.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\hal\msa_macros.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\fast_math.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\base.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd_wrapper.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\neon_utils.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\vsx_utils.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\check.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\traits.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\matx.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\saturate.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\types.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\mat.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\bufferpool.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\mat.inl.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\persistence.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\operations.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cvstd.inl.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utility.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utils\instrumentation.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\utils\tls.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\optim.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\ovx.hpp \
+		..\..\..\opencv\modules\calib3d\include\opencv2\calib3d.hpp \
+		..\..\..\opencv\modules\features2d\include\opencv2\features2d.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\miniflann.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\defines.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\config.h \
+		..\..\..\opencv\modules\core\include\opencv2\core\affine.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dnn.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\async.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\version.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dict.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\layer.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\dnn.inl.hpp \
+		..\..\..\opencv\modules\dnn\include\opencv2\dnn\utils\inference_engine.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\flann_base.hpp \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\general.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\matrix.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\params.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\any.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\saving.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\nn_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\result_set.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\all_indices.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kdtree_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\dynamic_bitset.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\dist.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\heap.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\allocator.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\random.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kdtree_single_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\kmeans_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\logger.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\composite_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\linear_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\hierarchical_clustering_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\lsh_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\lsh_table.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\autotuned_index.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\ground_truth.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\index_testing.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\timer.h \
+		..\..\..\opencv\modules\flann\include\opencv2\flann\sampling.h \
+		..\..\..\opencv\modules\highgui\include\opencv2\highgui.hpp \
+		..\..\..\opencv\modules\imgcodecs\include\opencv2\imgcodecs.hpp \
+		..\..\..\opencv\modules\videoio\include\opencv2\videoio.hpp \
+		..\..\..\opencv\modules\imgproc\include\opencv2\imgproc.hpp \
+		..\..\..\opencv\modules\imgproc\include\opencv2\imgproc\segmentation.hpp \
+		..\..\..\opencv\modules\ml\include\opencv2\ml.hpp \
+		..\..\..\opencv\modules\ml\include\opencv2\ml\ml.inl.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect\detection_based_tracker.hpp \
+		..\..\..\opencv\modules\objdetect\include\opencv2\objdetect\face.hpp \
+		..\..\..\opencv\modules\photo\include\opencv2\photo.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\warpers.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\warpers.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda_types.hpp \
+		..\..\..\opencv\modules\core\include\opencv2\core\cuda.inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\warpers_inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\matchers.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\motion_estimators.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\util.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\util_inl.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\camera.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\exposure_compensate.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\seam_finders.hpp \
+		..\..\..\opencv\modules\stitching\include\opencv2\stitching\detail\blenders.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
+		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
 		ui/aboutbox.h \
 		ui\dialogtype.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QDateTime \
@@ -8056,18 +8332,26 @@ release\cool_tests_form.obj: tests\cool_tests_form.cpp ..\..\..\..\Qt\Qt5.9.0\5.
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QThread \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qthread.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtXml\QDomDocument \
-		interpreter/interpreterwin64.h \
-		ui_cool_tests_form.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QVariant \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QAction \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qaction.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qicon.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qactiongroup.h \
+		cv/rectangle_descriptor.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QApplication \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qapplication.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QButtonGroup \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qbuttongroup.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
+		log/logger.h \
+		mainwindow.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qmainwindow.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabwidget.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qicon.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPlainTextEdit \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qplaintextedit.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qabstracttextdocumentlayout.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextlayout.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qglyphrun.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qrawfont.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontdatabase.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QComboBox \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qcombobox.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractitemdelegate.h \
@@ -8079,57 +8363,11 @@ release\cool_tests_form.obj: tests\cool_tests_form.cpp ..\..\..\..\Qt\Qt5.9.0\5.
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractslider.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qstyle.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabbar.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qrubberband.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qabstractitemmodel.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QDialogButtonBox \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdialogbuttonbox.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QGridLayout \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QGroupBox \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qgroupbox.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QHeaderView \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qheaderview.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractitemview.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qitemselectionmodel.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QLabel \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qlabel.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPlainTextEdit \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qplaintextedit.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qabstracttextdocumentlayout.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qtextlayout.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qglyphrun.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qrawfont.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\qfontdatabase.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPushButton \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qpushbutton.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractbutton.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QRadioButton \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qradiobutton.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QSpinBox \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qspinbox.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QTabWidget \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QVBoxLayout \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QWidget \
-		mainwindow.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QMainWindow \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qmainwindow.h \
 		xml/clickerdocument.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QStringList \
-		ui/areaselectordialog.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QPaintEvent \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QMouseEvent \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QResizeEvent \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QShowEvent \
-		ui/screenbuttonsdetector.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QVector2D \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QKeyEvent \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QPainterPath \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QWheelEvent \
-		ui\dialogtype.h \
-		cv/rectangle_descriptor.h \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QString \
-		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QPoint \
-		log/logger.h \
+		interpreter/interpreterwin64.h \
 		..\..\..\opencv\include\opencv2\opencv.hpp \
 		..\..\..\opencv\build_vs2017\opencv2\opencv_modules.hpp \
 		..\..\..\opencv\modules\core\include\opencv2\core.hpp \
@@ -8235,6 +8473,44 @@ release\cool_tests_form.obj: tests\cool_tests_form.cpp ..\..\..\..\Qt\Qt5.9.0\5.
 		..\..\..\opencv\modules\video\include\opencv2\video.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\tracking.hpp \
 		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
+		ui_cool_tests_form.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QVariant \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QAction \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qaction.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qactiongroup.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QButtonGroup \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qbuttongroup.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QDialogButtonBox \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qdialogbuttonbox.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QGridLayout \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QGroupBox \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qgroupbox.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QHeaderView \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qheaderview.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractitemview.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qitemselectionmodel.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QLabel \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qlabel.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QPushButton \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qpushbutton.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qabstractbutton.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QRadioButton \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qradiobutton.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QSpinBox \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qspinbox.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QTabWidget \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QVBoxLayout \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QWidget \
+		ui/areaselectordialog.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QPaintEvent \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QMouseEvent \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QResizeEvent \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QShowEvent \
+		ui/screenbuttonsdetector.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QKeyEvent \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QPainterPath \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QWheelEvent \
+		ui\dialogtype.h \
 		ui/coordselector.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\QSoundEffect \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtMultimedia\qsoundeffect.h \
@@ -8255,8 +8531,8 @@ release\cool_tests_form.obj: tests\cool_tests_form.cpp ..\..\..\..\Qt\Qt5.9.0\5.
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QTextCharFormat \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QRegularExpression \
 		tests/rectangle_descriptor_test.h \
-		cv/dspmodule.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QImage \
+		cv/dspmodule.h \
 		ui\widgets\areabutton.h \
 		ui\widgets\keyboardbutton.h \
 		ui\widgets\crossbutton.h \
@@ -9116,6 +9392,7 @@ release\rectangle_descriptor_test.obj: tests\rectangle_descriptor_test.cpp tests
 		interpreter/interpreter.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QThread \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qthread.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtGui\QImage \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QDebug
 
 release\qrc_res.obj: release\qrc_res.cpp 
