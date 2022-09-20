@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QPlainTextEdit>
+#include <QListWidgetItem>
 #include <QComboBox>
 #include "xml/clickerdocument.h"
 #include "interpreter/interpreterwin64.h"
@@ -55,6 +56,7 @@ public slots:
     void about();
     void updateFunctionEditor();
     void functionSelected(const QString&);
+    void functionSelected(QListWidgetItem*);
     void slotSetAttrs(QMap<QString,QString> attrs_map);
     void XmlStringFromUniversalDialog(QMap<QString,QString> attrs_map);
     void xmlChanged();
@@ -71,6 +73,8 @@ private slots:
     void on_PlayButton_clicked();
     void applyChangesXml();
     void updateStatus(const QString& text, bool applyChangesFlag);
+    void on_functionFilter_textChanged();
+
 private:
     // log window
     QPlainTextEdit*  logWindow;

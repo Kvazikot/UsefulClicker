@@ -94,11 +94,14 @@ MainWindow::MainWindow(QWidget *parent) :
     QStringList list;
     getDoc()->getFunctionsList(doc->documentElement(),list);
     functionSelector->addItems(list);
+    ui->functionList->clear();
+    ui->functionList->addItems(list);
     functionSelector->setMinimumWidth(200);
     toolbar->addWidget(label);
     toolbar->addWidget(functionSelector);
     //connect(functionSelector, SIGNAL(currentTextChanged(const QString&)), this, SLOT(functionSelected(const QString&)));
     connect(functionSelector, SIGNAL(currentIndexChanged(QString)), this, SLOT(functionSelected(const QString&)));
+    connect(ui->functionList, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(functionSelected(QListWidgetItem*)));
 
     QAction* newFunAction =  toolbar->addAction(QIcon(":/images/new_fun.png"), "New fun");
     connect(newFunAction, &QAction::triggered, this, &MainWindow::new_fun);
@@ -126,6 +129,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave_as, &QAction::triggered, this, &MainWindow::saveXmlAs);
     connect(ui->actionRun_tests, &QAction::triggered, this, &MainWindow::runTests);
 
+}
+
+void MainWindow::functionSelected(QListWidgetItem* item)
+{
+    functionSelector->setCurrentText(item->text());
+    //functionSelected(item->text());
 }
 
 void MainWindow::runTests()
@@ -901,5 +910,20 @@ void MainWindow::on_PlayButton_clicked()
     auto xml = applyFunctionChanges();
     pause();
     //updateXmlEditor2(xml);
+
+}
+
+void MainWindow::on_functionFilter_textChanged()
+{
+    QString sub = ui->functionFilter->toPlainText();
+    QStringList list,list2;
+    getDoc()->getFunctionsList(doc->documentElement(),list);
+    foreach (QString l, list) {
+        if( l.toLower().contains(sub.toLower()) )
+            list2.push_back(l);
+    }
+
+    ui->functionList->clear();
+    ui->functionList->addItems(list2);
 
 }
