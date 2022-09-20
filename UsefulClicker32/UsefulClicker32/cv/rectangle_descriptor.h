@@ -142,8 +142,11 @@ struct RectangleDescriptor
     void decompressHistogram(QString h_str)
     {
         QStringList hist_parts = h_str.split("_");
-        decompressHistogram(hist_parts[0], HistR);
-        decompressHistogram(hist_parts[1], HistG);
+        if(hist_parts.size() == 2)
+        {
+            decompressHistogram(hist_parts[0], HistR);
+            decompressHistogram(hist_parts[1], HistG);
+        }
     }
 
     QString decompressHistogram(QString h_str, cv::Mat& out_hist)
@@ -209,6 +212,9 @@ struct RectangleDescriptor
             center = QPoint(l[0].toInt(), l[1].toInt());
         width = node.toElement().attribute("width").toInt();
         height = node.toElement().attribute("height").toInt();
+        auto h = node.toElement().attribute("h");
+        decompressHistogram(h);
+
     }
 
     void writeToMap(QMap<QString, QString>& attrs)

@@ -563,9 +563,8 @@ void MainWindow::slotSetAttrs(QMap<QString,QString> attrs_map)
 
     if( act.contains("rectangle click") )
     {
-        xml_string = QString("<clickrectn=\"%1\" button=\"left\" n=\"%2\" rect=\"200x140\" area_tolerance=\"5%%\" ratio_tolerance=\"2%%\"  /> ")
-                     .arg(attrs_map["targetImg"])
-                     .arg(attrs_map["targetImg"]);
+        xml_string = QString("<clickrect button=\"left\" h=\"%1\"/> ")
+                     .arg(attrs_map["hist"]);
     }
 
     if( act.contains("Add type") )
