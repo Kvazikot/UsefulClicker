@@ -48,7 +48,7 @@ RectangleDescriptorTest::RectangleDescriptorTest()
         s="";
         s+=s.sprintf("%s and %s : d = %f \n", i->first.c_str(), i->second.c_str(), d);
         s+="\n"+rd1->toString()+"\n";
-        s+="\n"+rd2->toString()+"\n";
+        //s+="\n"+rd2->toString()+"\n";
         results_str=s;
         cv::resize(sample1, sample1, cv::Size(sample2.size[1], sample2.size[0]), cv::INTER_LINEAR);
         cv::hconcat(sample1, sample2, mat );

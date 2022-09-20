@@ -86,23 +86,64 @@ struct RectangleDescriptor
 
     QString compressHistogram(cv::MatND& h)
     {
-        QString out_str;
-        QMap<float, int> zero_indexes;
-        //vector<pair<int,int>> zeroes_pairs;
-        for(int i = 0; i < h_bins; i++)
+        QString out;
+
+        vector<pair<float,float>> mostly_zeroes_pairs;
+
+        float start=0, end=h_bins-1;
+        for(int i = 1; i < h_bins-1; i++)
         {
-            float val = h.at<float>(i);
-            if(zero_indexes.find(val) == zero_indexes.end())
-                zero_indexes[val] = 0;
-            zero_indexes[val]++;
+            float prev = h.at<float>(i-1);
+            float cur = h.at<float>(i);
+            float next = h.at<float>(i+1);
+
+            if( prev!=0 && cur==0  )
+            {
+                start = i;
+                continue;
+            }
+            if( next!=0 && cur==0  )
+            {
+                end = i+1;
+                mostly_zeroes_pairs.push_back(make_pair(start, end));
+                continue;
+            }
+            if(cur!=0)
+               mostly_zeroes_pairs.push_back(make_pair(cur, cur));
         }
-        for(auto it=zero_indexes.begin(); it!=zero_indexes.end(); it++)
+
+        // output compressed string
+        QString s;
+        for(auto it=mostly_zeroes_pairs.begin(); it!=mostly_zeroes_pairs.end(); it++)
         {
-            out_str+=QString::number(it.key()) + "-" + QString::number(it.value())+",";
+            if( it->first!=it->second )
+              out+="#" + QString::number(int(it->second- it->first))+',';
+            else
+              out+=s.sprintf("%0.3f,", it->second);
         }
 
 
-        return out_str;
+        return out;
+    }
+
+    QString decompressHistogram(QString h_str)
+    {
+        QString out;
+
+        QStringList toks = h_str.split(',');
+        foreach (QString t, toks)
+        {
+            if( t.contains('#') )
+            {
+                int n_zeroes = t.right(t.size()-1).toInt();
+                while(--n_zeroes >= 0)
+                    out+="0.000,";
+            }
+            else
+               out+=t+",";
+        }
+
+        return out;
     }
 
     QString toString()
@@ -114,7 +155,10 @@ struct RectangleDescriptor
            sout+=s.sprintf("%0.3f,", HistR.at<float>(i));
         //for(int i = 0; i < h_bins; i++)
          //   sout+=s.sprintf("%0.3f,", HistG.at<float>(i));
-        sout+="compress="+compressHistogram(HistR);
+        QString compressed = compressHistogram(HistR);
+        QString decompressed = decompressHistogram(compressed);
+        sout+="\n\ncompressed="+compressed;
+        sout+="\n\ndecompressed="+decompressed;
         return sout;
     }
 
