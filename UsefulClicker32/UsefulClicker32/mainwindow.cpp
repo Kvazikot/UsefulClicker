@@ -31,6 +31,7 @@
 #include "ui/dialogtype.h"
 //#include "log/logger.h"
 
+#include <QTextBlock>
 #include <QScrollBar>
 #include <QDateTime>
 #include <QDebug>
@@ -96,7 +97,8 @@ MainWindow::MainWindow(QWidget *parent) :
     functionSelector->setMinimumWidth(200);
     toolbar->addWidget(label);
     toolbar->addWidget(functionSelector);
-    connect(functionSelector, SIGNAL(currentTextChanged(const QString&)), this, SLOT(functionSelected(const QString&)));
+    //connect(functionSelector, SIGNAL(currentTextChanged(const QString&)), this, SLOT(functionSelected(const QString&)));
+    connect(functionSelector, SIGNAL(currentIndexChanged(QString)), this, SLOT(functionSelected(const QString&)));
 
     QAction* newFunAction =  toolbar->addAction(QIcon(":/images/new_fun.png"), "New fun");
     connect(newFunAction, &QAction::triggered, this, &MainWindow::new_fun);
@@ -611,16 +613,17 @@ void MainWindow::functionSelected(const QString&)
         // select text in xmlEditor_2
         QTextDocument *document = ui->xmlEditor_2->document();
         QTextCursor c_start(document);
-        c_start.setPosition(0, QTextCursor::MoveAnchor);
-        c_start.setPosition(0, QTextCursor::KeepAnchor);
         QTextCursor c = document->find( functionSelector->currentText(), c_start);
-        //c.movePosition(QTextCursor::Start);
-        int start = c.selectionStart();
-        int end   = c.selectionEnd();
-        c.setPosition(end, QTextCursor::MoveAnchor);
-        c.setPosition(start, QTextCursor::KeepAnchor);        
-        ui->xmlEditor_2->setTextCursor(c);
-        ui->xmlEditor_2->moveCursor(QTextCursor::End);
+        int line_n = c.block().firstLineNumber();
+        QScrollBar *vbar = ui->xmlEditor_2->verticalScrollBar();
+        int targetYPosition = 0;
+        vbar->setValue(0);
+        QFontMetricsF metric(font());
+        qreal lineHeight = qMax(metric.lineSpacing(), metric.boundingRect("Äg").height());
+        vbar->setValue(line_n*lineHeight);
+        //vbar->scroll(0,line_n*30);
+
+
     }
 
     // generate short code for node

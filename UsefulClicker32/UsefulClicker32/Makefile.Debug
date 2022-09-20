@@ -4109,6 +4109,8 @@ debug\mainwindow.obj: mainwindow.cpp mainwindow.h \
 		..\..\..\opencv\modules\video\include\opencv2\video\background_segm.hpp \
 		ui/aboutbox.h \
 		ui\dialogtype.h \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\QScrollBar \
+		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtWidgets\qscrollbar.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QDateTime \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\qdatetime.h \
 		..\..\..\..\Qt\Qt5.9.0\5.9\msvc2017_64\include\QtCore\QDebug \
