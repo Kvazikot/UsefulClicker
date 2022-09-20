@@ -17,7 +17,8 @@ QImage mat2img(cv::Mat& mat, int channels)
 
 RectangleDescriptorTest::RectangleDescriptorTest()
 {
-    buttons = { make_pair("button_with_drawings.png","button.png"),
+    buttons = { make_pair("button.png","button.png"),
+                make_pair("button_with_drawings.png","button.png"),
                 make_pair("button_cropped.png", "button.png"),
                 make_pair("button.png", "button_scaled_no_aspect.png"),
                 make_pair("button_half_size.png", "button_scaled_no_aspect.png")};
@@ -41,9 +42,7 @@ void RectangleDescriptorTest::compareTest()
         RectangleDescriptor* rd2 = new RectangleDescriptor( sample2.size[1], sample2.size[0], sample2);
         auto d = rd1->calculateDifference(*rd1, *rd2);
         s="";
-        s+=s.sprintf("%s and %s : d = %f \n", i->first.c_str(), i->second.c_str(), d);
-        //s+="\n"+rd1->toString()+"\n";
-        //s+="\n"+rd2->toString()+"\n";
+        s.sprintf("%s and %s : d = %f \n", i->first.c_str(), i->second.c_str(), d);
         results_str+=s;
         cv::resize(sample1, sample1, cv::Size(sample2.size[1], sample2.size[0]), cv::INTER_LINEAR);
         cv::hconcat(sample1, sample2, mat );

@@ -325,9 +325,8 @@ QRect DspModule::searchImage(std::string TargetIn_path, int screenNum)
             {
                 Rect r(x,y,w,h);
                 Mat cutfromSearch = Mat(areaImg, r);
-                cvtColor( cutfromSearch, hsv_base1, COLOR_BGR2HSV );
                 // only hist deifference // base_base = compareHist( hist_base1, hist_base2, 2 );
-                RectangleDescriptor rd2(hsv_base1.size[1], hsv_base1.size[0], hsv_base1);
+                RectangleDescriptor rd2(cutfromSearch.size[1], cutfromSearch.size[0], cutfromSearch);
                 base_base = rd2.calculateDifference(rd1, rd2);
 
                 qDebug("%s  hist_compare %f ", __FUNCTION__, base_base);
