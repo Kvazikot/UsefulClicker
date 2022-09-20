@@ -230,7 +230,6 @@ void CoolTestsForm::runFunction(QString func_name)
     testIsRunningFlag = false;
     ui->testStatusLabel->setText("SELECT THE TEST");
     QString msg = QString("Test is done. Execution time is %1 ms!").arg(QString::number(totalTime));
-    show_message("",msg);
 }
 
 void CoolTestsForm::currentStep(const QDomNode& currentNode, Delays delays)

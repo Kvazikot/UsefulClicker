@@ -422,7 +422,6 @@ int InterpreterWin64::executeType(const QDomNode& node)
     QTextStream ss(&str);
     ss << node;
     text = removeTags("type", ss.readAll());
-    //show_message("node value", );
 
     for(auto c = text.begin(); c!=text.end(); c++)
     {
@@ -662,7 +661,6 @@ int InterpreterWin64::executeList(const QDomNode& node)
         if( Globals::global_lists.contains(name))
         {
             str = Globals::global_lists[name];
-            //show_message("list found in global",name);
         }
         else
             Globals::global_lists[name] = str;
@@ -684,7 +682,6 @@ int InterpreterWin64::executeList(const QDomNode& node)
         }
     }
     clipboard->setText(outputString);
-    //show_message("", filename);
     return 1;
 }
 

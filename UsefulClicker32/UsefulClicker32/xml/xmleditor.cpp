@@ -116,8 +116,6 @@ void XmlEditor::setXml(QString xml)
     if( xml.size() > 0 )
     {
         setText(xml);
-        //show_message("original_xml", original_xml);
-        //show_message("xml", xml);
     }
 
 }

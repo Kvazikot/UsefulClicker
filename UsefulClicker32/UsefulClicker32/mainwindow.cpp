@@ -602,7 +602,6 @@ void MainWindow::functionSelected(const QString&)
         c_start.setPosition(0, QTextCursor::KeepAnchor);
         QTextCursor c = document->find( functionSelector->currentText(), c_start);
         //c.movePosition(QTextCursor::Start);
-        show_message("",QString::number(c.position()) );
         int start = c.selectionStart();
         int end   = c.selectionEnd();
         c.setPosition(end, QTextCursor::MoveAnchor);
@@ -623,7 +622,6 @@ void MainWindow::functionSelected(const QString&)
     QList<QTextEdit::ExtraSelection> selections;
     auto cursor = xmlEditor_2->textCursor();
     int _startIndex = xmlEditor_2->toPlainText().indexOf(functionSelector->currentText());
-    show_message("", QString::number(_startIndex));
     cursor.setPosition(_startIndex);
     //cursor.
     //cursor.select(QTextCursor::LineUnderCursor);

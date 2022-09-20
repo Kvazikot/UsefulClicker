@@ -104,7 +104,6 @@ bool ClickerDocument::setFunction(QString funcname, QString new_function_body)
         int n = content_of_all_document.size() - tagEnd;
         auto content_after =  content_of_all_document.right(n);
         tmp = content_before + new_function_body + content_after;
-        show_message("inserted function!", tmp);
         setContent(*this, tmp);
         return true;
     }
