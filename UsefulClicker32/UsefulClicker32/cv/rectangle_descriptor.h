@@ -15,6 +15,9 @@
 
 using namespace  std;
 
+QImage mat2img(cv::Mat& mat, int channels);
+cv::Mat img2mat(QImage& img);
+
 struct RectangleDescriptor
 {
     int number;

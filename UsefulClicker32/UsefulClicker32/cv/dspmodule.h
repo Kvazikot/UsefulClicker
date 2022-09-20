@@ -44,6 +44,7 @@ public:
     QRect searchRect(int screen_num, int kernel, RectangleDescriptor targetDescriptor);
     void detectButtons(int screen_num, int kernel_size, std::vector<QRect>& rects, bool doInvertImage=false);
     QImage saveImage(QRect roi, QString& filename);
+    QString getHistogramString(QRect roi);
     void findTextAreas();
     int X, Y;
     QRect matchedRectangle;

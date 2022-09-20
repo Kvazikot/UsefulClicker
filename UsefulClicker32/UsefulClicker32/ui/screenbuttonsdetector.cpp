@@ -71,6 +71,8 @@ void ScreenButtonsDetector::Show()
     //parent_dialog->show();
 }
 
+#include "cv/rectangle_descriptor.h"
+
 void ScreenButtonsDetector::mousePressEvent(QMouseEvent* event)
 {
     event->accept();
@@ -83,6 +85,9 @@ void ScreenButtonsDetector::mousePressEvent(QMouseEvent* event)
         filename = filename.replace("\"","");
         attrs["targetImg"] = filename;
         attrs["kernel_size"] = QString::number(dsp->kernel_size);
+        attrs["hist"] = dsp->getHistogramString(selected_rect);
+
+
         emit sigSetAttrs(attrs);
         parent_dialog->show();
         close();

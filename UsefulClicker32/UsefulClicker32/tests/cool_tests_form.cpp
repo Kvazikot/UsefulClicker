@@ -155,7 +155,6 @@ void CoolTestsForm::buttonDetectorOut(QMap<QString, QString> attrs)
             xmlstring+=kv.key()+"=\""+kv.value()+"\" ";
     xmlstring+="/>";
 
-    QString str_hist="s_hist={";
 
     if( attrs.contains("targetImg") )
     {
@@ -169,7 +168,6 @@ void CoolTestsForm::buttonDetectorOut(QMap<QString, QString> attrs)
 
     }
     ui->logEdit->appendPlainText(xmlstring);
-    ui->logEdit->appendPlainText(str_hist);
 }
 
 void ExecuteXmlString(QString xml)

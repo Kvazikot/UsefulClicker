@@ -3,17 +3,7 @@
 
 using namespace std;
 
-QImage mat2img(cv::Mat& mat, int channels)
-{
-    if (channels == 1)
-        cv::cvtColor(mat, mat, cv::COLOR_GRAY2BGR);
-    QPixmap pix = QPixmap(mat.cols, mat.rows);
-    std::vector<uchar> im_buf_arr;
-    cv::imencode(".png", mat, im_buf_arr);
-    QByteArray byte_im((char*)&im_buf_arr[0], im_buf_arr.size());
-    pix.loadFromData(byte_im);
-    return pix.toImage();
-}
+
 
 RectangleDescriptorTest::RectangleDescriptorTest()
 {

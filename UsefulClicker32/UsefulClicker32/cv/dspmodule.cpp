@@ -101,6 +101,22 @@ void drawCounters(Size image_size, vector<vector<Point> >& contours, Mat backgro
     }
 }
 
+#include "cv/rectangle_descriptor.h"
+
+// gets compressed histogram of selected area on the screen
+QString DspModule::getHistogramString(QRect roi)
+{
+    QImage ScrROI(roi.width(),roi.height(), last_screenshot.format());
+    ScrROI = last_screenshot.copy(roi);
+    cv::Mat etalon_im;
+    etalon_im = img2mat(ScrROI);
+    RectangleDescriptor rd(etalon_im.cols, etalon_im.rows, etalon_im);
+    QString hr = rd.compressHistogram(rd.HistR);
+    QString hg = rd.compressHistogram(rd.HistG);
+    QString out=hr+"_"+hg;
+    return out;
+}
+
 QImage DspModule::saveImage(QRect roi, QString& filename)
 {
     QDateTime dt;

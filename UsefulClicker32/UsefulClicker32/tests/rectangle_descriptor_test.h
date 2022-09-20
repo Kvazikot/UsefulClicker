@@ -3,6 +3,10 @@
 
 #include <opencv2/opencv.hpp>
 #include <cv/rectangle_descriptor.h>
+#include <QImage>
+
+QImage mat2img(cv::Mat& mat, int channels);
+void img2mat(QImage& img, cv::Mat3b& outImg, int format);
 
 class RectangleDescriptorTest
 {
