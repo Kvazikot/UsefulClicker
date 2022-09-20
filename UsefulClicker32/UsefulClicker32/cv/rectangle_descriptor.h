@@ -102,7 +102,7 @@ struct RectangleDescriptor
                 start = i;
                 continue;
             }
-            if( next!=0 && cur==0  )
+            if( (next!=0 || i == h_bins-2) && cur==0    )
             {
                 end = i+1;
                 mostly_zeroes_pairs.push_back(make_pair(start, end));
@@ -112,8 +112,10 @@ struct RectangleDescriptor
                mostly_zeroes_pairs.push_back(make_pair(cur, cur));
         }
 
+
         // output compressed string
         QString s;
+        out=s.sprintf("%dx%d,", width, height);
         for(auto it=mostly_zeroes_pairs.begin(); it!=mostly_zeroes_pairs.end(); it++)
         {
             if( it->first!=it->second )
@@ -126,21 +128,37 @@ struct RectangleDescriptor
         return out;
     }
 
-    QString decompressHistogram(QString h_str)
+    QString decompressHistogram(QString h_str, cv::Mat& out_hist)
     {
         QString out;
+        int i=0;
 
         QStringList toks = h_str.split(',');
         foreach (QString t, toks)
         {
-            if( t.contains('#') )
+            if( t.contains('x') )
+            {
+                auto p = t.split('x');
+                width = p[0].toInt();
+                height = p[1].toInt();
+                out+=t;
+            }
+            else if( t.contains('#') )
             {
                 int n_zeroes = t.right(t.size()-1).toInt();
                 while(--n_zeroes >= 0)
+                {
                     out+="0.000,";
+                    out_hist.at<int>(i) = 0;
+                    i++;
+                }
             }
             else
+            {
                out+=t+",";
+               out_hist.at<int>(i) = t.toFloat();
+               i++;
+            }
         }
 
         return out;
@@ -156,7 +174,7 @@ struct RectangleDescriptor
         //for(int i = 0; i < h_bins; i++)
          //   sout+=s.sprintf("%0.3f,", HistG.at<float>(i));
         QString compressed = compressHistogram(HistR);
-        QString decompressed = decompressHistogram(compressed);
+        QString decompressed = decompressHistogram(compressed, HistR);
         sout+="\n\ncompressed="+compressed;
         sout+="\n\ndecompressed="+decompressed;
         return sout;
