@@ -155,6 +155,7 @@ void CoolTestsForm::buttonDetectorOut(QMap<QString, QString> attrs)
             xmlstring+=kv.key()+"=\""+kv.value()+"\" ";
     xmlstring+="/>";
 
+    kernel_size = attrs["kernel_size"].toInt();
 
     if( attrs.contains("targetImg") )
     {
@@ -167,6 +168,13 @@ void CoolTestsForm::buttonDetectorOut(QMap<QString, QString> attrs)
         RectangleDescriptor rd(targetImg.size[1], targetImg.size[0], targetImg);
 
     }
+
+    if( attrs.contains("hist") )
+    {
+        auto h = attrs["hist"];
+        targetDescriptor.decompressHistogram(h);
+    }
+
     ui->logEdit->appendPlainText(xmlstring);
 }
 
@@ -184,21 +192,7 @@ void ExecuteXmlString(QString xml)
 
 }
 
-void CoolTestsForm::on_clickimgTest_clicked()
-{
-    hide();
-    ui->buttonImage->pixmap()->save("temp.png");
-    ui->buttonImage->setPixmap(QPixmap());
-    DspModule dsp;
-    QRect rect = dsp.searchImage("temp.png",0);
-    ui->logEdit->appendPlainText("search using etalon temp.png and class RectangleDescriptor");
-    QString s;
-    s = s.sprintf("result of search: %d %d %d %d", rect.left(), rect.top(), rect.right(),rect.bottom());
-    ui->logEdit->appendPlainText(s);
-    MouseClick(rect.center(), Qt::LeftButton);
 
-    show();
-}
 
 
 
@@ -374,6 +368,62 @@ void CoolTestsForm::on_stopTest_clicked()
     ui->testStatusLabel->setText("SELECT THE TEST");
 }
 
+void CoolTestsForm::on_clickimgTest_clicked()
+{
+    hide();
+    ui->buttonImage->pixmap()->save("temp.png");
+    ui->buttonImage->setPixmap(QPixmap());
+    DspModule dsp;
+    QRect rect = dsp.searchImage("temp.png", screenNum);
+    ui->logEdit->appendPlainText("search using etalon temp.png and class RectangleDescriptor");
+    QString s;
+    s = s.sprintf("result of search: %d %d %d %d", rect.left(), rect.top(), rect.right(),rect.bottom());
+    ui->logEdit->appendPlainText(s);
+    MouseClick(rect.center(), Qt::LeftButton);
+
+    show();
+}
+
+
+void CoolTestsForm::on_clickrectTest_clicked()
+{
+    hide();
+    ui->buttonImage->pixmap()->save("temp.png");
+    ui->buttonImage->setPixmap(QPixmap());
+    DspModule dsp;
+    QRect rect = dsp.searchImageByHist(screenNum, kernel_size, targetDescriptor);
+    ui->logEdit->appendPlainText("search using histogram compare class RectangleDescriptor");
+    QString s;
+    s = s.sprintf("result of search: %d %d %d %d", rect.left(), rect.top(), rect.right(),rect.bottom());
+    ui->logEdit->appendPlainText(s);
+    MouseClick(rect.center(), Qt::LeftButton);
+    show();
+}
+
+
+void CoolTestsForm::on_rectangleDescriptorTest_clicked()
+{
+    RectangleDescriptorTest tst;
+    tst.compareTest();
+    ui->logEdit->appendPlainText( tst.results_str );
+    ui->buttonImage->setPixmap(  QPixmap::fromImage(tst.results_pixmap) );
+}
+
+void CoolTestsForm::on_histCompressionTest_clicked()
+{
+    RectangleDescriptorTest tst;
+    tst.compressionTest();
+    ui->logEdit->appendPlainText( tst.results_str );
+    ui->buttonImage->setPixmap(  QPixmap::fromImage(tst.results_pixmap) );
+
+}
+
+
+
+
+
+
+
 
 void CoolTestsForm::on_typeTest2_clicked()
 {
@@ -432,32 +482,4 @@ void CoolTestsForm::on_pirateBayTest_clicked()
 void CoolTestsForm::on_changeFontWindows11_clicked()
 {
     runFunction("Change font Windows 11");
-}
-
-
-void CoolTestsForm::on_clickrectTest_clicked()
-{
-    hide();
-    auto lines = ui->logEdit->toPlainText().split("\n");
-    auto xml = lines.back();
-    ExecuteXmlString(xml);
-    show();
-}
-
-
-void CoolTestsForm::on_rectangleDescriptorTest_clicked()
-{
-    RectangleDescriptorTest tst;
-    tst.compareTest();
-    ui->logEdit->appendPlainText( tst.results_str );
-    ui->buttonImage->setPixmap(  QPixmap::fromImage(tst.results_pixmap) );
-}
-
-void CoolTestsForm::on_histCompressionTest_clicked()
-{
-    RectangleDescriptorTest tst;
-    tst.compressionTest();
-    ui->logEdit->appendPlainText( tst.results_str );
-    ui->buttonImage->setPixmap(  QPixmap::fromImage(tst.results_pixmap) );
-
 }

@@ -39,6 +39,7 @@ struct RectangleDescriptor
         width = w;
         height = h;
         getHist(im);
+        int type = HistR.type();
 
     }
 
@@ -138,6 +139,13 @@ struct RectangleDescriptor
         return out;
     }
 
+    void decompressHistogram(QString h_str)
+    {
+        QStringList hist_parts = h_str.split("_");
+        decompressHistogram(hist_parts[0], HistR);
+        decompressHistogram(hist_parts[1], HistG);
+    }
+
     QString decompressHistogram(QString h_str, cv::Mat& out_hist)
     {
         QString out;
@@ -151,6 +159,7 @@ struct RectangleDescriptor
                 auto p = t.split('x');
                 width = p[0].toInt();
                 height = p[1].toInt();
+                out_hist = cv::MatND::zeros(h_bins,1,5);
                 out+=t;
             }
             else if( t.contains('#') )
@@ -159,14 +168,16 @@ struct RectangleDescriptor
                 while(--n_zeroes >= 0)
                 {
                     out+="0.000,";
-                    out_hist.at<int>(i) = 0;
+                    if(i < h_bins)
+                        out_hist.at<int>(i) = 0;
                     i++;
                 }
             }
             else
             {
                out+=t+",";
-               out_hist.at<int>(i) = t.toFloat();
+               if(i < h_bins)
+                out_hist.at<int>(i) = t.toFloat();
                i++;
             }
         }

@@ -7,6 +7,7 @@
 #include <QElapsedTimer>
 #include <QTimerEvent>
 #include "interpreter.h"
+#include "cv/rectangle_descriptor.h"
 
 namespace Ui {
 class CoolTestsForm;
@@ -19,8 +20,10 @@ class CoolTestsForm : public QDialog
 public:
     int screenNum=0;
     double totalTime=0;
+    int  kernel_size;
     bool saved;
     bool testIsRunningFlag;
+    RectangleDescriptor targetDescriptor;
     QString currentStepText;
     QElapsedTimer lastBlinkTimer;
     QElapsedTimer lastNodeTimer;

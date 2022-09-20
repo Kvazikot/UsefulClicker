@@ -777,7 +777,7 @@ int InterpreterWin64::executeClickRect(const QDomNode& node)
     int kernel = node.toElement().attribute("kernel_size", "4").toInt();
     int screen = node.toElement().attribute("screen_num", "0").toInt();
 
-    dsp->searchRect(screen, kernel, d);
+    dsp->searchImageByHist(screen, kernel, d);
 
     if ( dsp->matchedRectangle.height() < 10 ) return 0;
     if ( dsp->matchedRectangle.width() < 10 ) return 0;

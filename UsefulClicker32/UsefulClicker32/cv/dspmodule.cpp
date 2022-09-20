@@ -134,78 +134,6 @@ QImage DspModule::saveImage(QRect roi, QString& filename)
     return outputImage;
 }
 
-QRect DspModule::searchRect(int screen_num, int kernel, RectangleDescriptor targetDescriptor)
-{
-    if( QGuiApplication::screens().size() < screen_num) return QRect();
-    QScreen* screen = QGuiApplication::screens()[screen_num];
-    QImage screenshot = last_screenshot;
-    if( last_screenshot.width() != screen->geometry().width() )
-    {
-        screenshot = screen->grabWindow(0).toImage();//0, 0, 0, screen->geometry().width(), screen->geometry().height()).toImage();
-        last_screenshot = screenshot;
-    }
-
-    Mat areaImg(screenshot.height(), screenshot.width(),CV_8UC4, screenshot.bits());
-    imwrite("areaImg12334.png",areaImg);
-    //if( doInvertImage )
-    //    cv::invert(areaImg, areaImg);
-
-    Mat im_gray,canny_output;
-    cvtColor(areaImg, im_gray, COLOR_RGB2GRAY);
-    //imwrite("out.png", im_gray);
-
-    blur( im_gray, im_gray, Size(3,3) );
-    int thresh = DEFAULT("canny_threshold").toInt();
-    Canny( im_gray, canny_output, thresh, thresh*2 );
-    //imwrite("canny.png", im_gray);
-
-    //kernel_size = DEFAULT("kernel_size").toInt();
-    //if(kernel_size < 4) kernel_size = 4;
-
-    Mat rect_kernel = getStructuringElement(MORPH_RECT, Size(kernel, kernel));
-    dilate(canny_output, canny_output, rect_kernel, Point(-1, -1), 1);
-    Mat	labels, stats, centroids;
-    cv::connectedComponentsWithStats(canny_output, labels, stats, centroids);
-    cvtColor(im_gray, im_gray, COLOR_GRAY2RGB);
-    RNG rng(12345);
-
-    float minDifference = numeric_limits<float>::max();
-
-    if( stats.cols == 5)
-        for(int i=0; i < stats.rows; i++)
-        {
-            int x = stats.at<int>(i, cv::CC_STAT_LEFT);
-            int y = stats.at<int>(i, cv::CC_STAT_TOP);
-            int w = stats.at<int>(i, cv::CC_STAT_WIDTH);
-            int h = stats.at<int>(i, cv::CC_STAT_HEIGHT);
-            //auto area = stats.at<int>(i, cv::CC_STAT_AREA);
-            if ( ( w < maxRectWidth) && (h < maxRectHeight ) && (w > 0) && (h >0) )
-            {
-                Scalar color = Scalar( rng.uniform(0, 100), rng.uniform(0,100), rng.uniform(0,100) );
-                Rect r(x,y,w,h);
-                rectangle(canny_output, r, color, 4);
-                RectangleDescriptor d;
-                d.setRect(QRect(x,y,w,h));
-                d.setNumber(i);
-
-                // Additional algorithm that take in account neibouring rectangles:
-                // 1. calculate distance to nearest grid point ( 20x20 )
-                // 2. add to nearest grid node list distances to adjusment rectangles
-                // 3. take 4 numbers from that list as a descriptor vector
-
-                float difference = d.calculateDifference(d, targetDescriptor);
-                if( difference  < minDifference )
-                {
-                    minDifference = difference;
-                    matchedRectangle = QRect(x,y,w,h);
-                }
-                //qDebug() << QRect(x,y,w,h);
-            }
-
-        }
-
-
-}
 
 void DspModule::detectButtons(int screen_num, int kernel_size, vector<QRect>& rects, bool doInvertImage)
 {
@@ -264,6 +192,88 @@ void DspModule::detectButtons(int screen_num, int kernel_size, vector<QRect>& re
     //in_out_image = QImage((uchar*) drawing->data, drawing->cols, drawing->rows, drawing->step, QImage::Format_ARGB32);
     imwrite("canny_output1234.png", canny_output);
     //imshow("canny_output", canny_output);
+
+}
+
+
+QRect DspModule::searchImageByHist(int screenNum, int kernel, RectangleDescriptor targetDescriptor)
+{
+    // perform search on all available screens
+    QList<QScreen*> screens;
+
+    if(screenNum == -1)
+        screens = QGuiApplication::screens();
+    else
+    {
+        if(QGuiApplication::screens().size() > screenNum)
+        {
+            QScreen* screen = QGuiApplication::screens()[screenNum];
+            screens.push_back(screen);
+        }
+    }
+
+    double base_base;
+    double min_diff_match = std::numeric_limits<double>::max();
+
+    for(auto screen: screens)
+    {
+
+        QImage screenshot = last_screenshot;
+        if( last_screenshot.width() != screen->geometry().width() )
+        {
+            screenshot = screen->grabWindow(0,0,0,screen->geometry().width(), screen->geometry().height()).toImage();
+            last_screenshot = screenshot;
+        }
+
+        Mat areaImg(screenshot.height(), screenshot.width(),CV_8UC4, screenshot.bits());
+        QRect r = screen->geometry();
+        Mat im_gray,canny_output;
+        cvtColor(areaImg, im_gray, COLOR_RGB2GRAY);
+
+        blur( im_gray, im_gray, Size(3,3) );
+        int thresh = DEFAULT("canny_threshold").toInt();
+        Canny( im_gray, canny_output, thresh, thresh*2 );
+        Mat rect_kernel = getStructuringElement(MORPH_RECT, Size(kernel_size, kernel_size));
+        dilate(canny_output, canny_output, rect_kernel, Point(-1, -1), 1);
+
+        Mat	labels, stats, centroids;
+        cv::connectedComponentsWithStats(canny_output, labels, stats, centroids);
+
+        cvtColor(im_gray, im_gray, COLOR_GRAY2RGB);
+
+        for(int i=0; i < stats.rows; i++)
+        {
+            auto x = stats.at<int>(i, cv::CC_STAT_LEFT);
+            auto y = stats.at<int>(i, cv::CC_STAT_TOP);
+            auto w = stats.at<int>(i, cv::CC_STAT_WIDTH);
+            auto h = stats.at<int>(i, cv::CC_STAT_HEIGHT);
+
+            if ( ( w < maxRectWidth) && (h < maxRectHeight ) && (w > 0) && (h >0)  )
+                if( (x > 0) && (y > 0) && (x < areaImg.cols) && (y < areaImg.rows) )
+            {
+                Rect r(x,y,w,h);
+                Mat cutfromSearch = Mat(areaImg, r);
+                // only hist deifference // base_base = compareHist( hist_base1, hist_base2, 2 );
+                RectangleDescriptor rd2(cutfromSearch.size[1], cutfromSearch.size[0], cutfromSearch);
+                base_base = targetDescriptor.calculateDifference(targetDescriptor, rd2);
+
+                qDebug("%s  hist_compare %f ", __FUNCTION__, base_base);
+                if(base_base < min_diff_match )
+                {
+                    min_diff_match = base_base;
+                    X = r.x;
+                    Y = r.y;
+                    int w = r.width;
+                    int h = r.height;
+                    matchedRectangle = QRect(X,Y,w,h);
+                }
+
+            }
+
+
+        }
+    }
+    return  matchedRectangle;
 
 }
 

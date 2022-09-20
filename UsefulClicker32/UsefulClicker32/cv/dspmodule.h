@@ -41,7 +41,7 @@ public:
     DspModule();
     void computeHaudorf();
     QRect searchImage(std::string TargetIn_path, int screenNum=0);
-    QRect searchRect(int screen_num, int kernel, RectangleDescriptor targetDescriptor);
+    QRect searchImageByHist(int screen_num, int kernel, RectangleDescriptor targetDescriptor);
     void detectButtons(int screen_num, int kernel_size, std::vector<QRect>& rects, bool doInvertImage=false);
     QImage saveImage(QRect roi, QString& filename);
     QString getHistogramString(QRect roi);
