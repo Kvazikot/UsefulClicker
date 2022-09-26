@@ -75,6 +75,8 @@ private slots:
     void updateStatus(const QString& text, bool applyChangesFlag);
     void on_functionFilter_textChanged();
 
+    void on_functionList_itemClicked(QListWidgetItem *item);
+
 private:
     // log window
     QPlainTextEdit*  logWindow;

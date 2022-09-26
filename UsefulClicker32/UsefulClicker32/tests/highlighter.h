@@ -65,10 +65,15 @@ class   Highlighter : public QSyntaxHighlighter
     Q_OBJECT
 
 public:
+    QColor color;
+    bool color_rule;
     Highlighter(QTextDocument *parent = nullptr);
     void highlightBlock(const QString &text) override;
+    void addRuleFunction(QString funname);
 
 private:
+
+
     struct HighlightingRule
     {
         QRegularExpression pattern;

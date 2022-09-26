@@ -64,7 +64,6 @@
 
 <func name="PirateBay test">
 <foreach list="Thrillers_beetwen_1979-1989" do="PirateBay_spider"/>
-<shell cmd="notepad.exe tmp.txt" />
 </func>
 
 <func name="Generators test">

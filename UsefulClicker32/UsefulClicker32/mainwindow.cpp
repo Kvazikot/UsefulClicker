@@ -134,6 +134,7 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::functionSelected(QListWidgetItem* item)
 {
     functionSelector->setCurrentText(item->text());
+    ui->xmlEditor_2->highlighter->addRuleFunction(item->text());
     //functionSelected(item->text());
 }
 
@@ -612,8 +613,66 @@ void MainWindow::slotSetAttrs(QMap<QString,QString> attrs_map)
 
 }
 
+QString getLineAtPos(QString xml, int pos, int line_number)
+{
+    int new_pos=0;
+    int line_n=0;
+    foreach(QString l, xml.split("\n"))
+    {
+        if(new_pos >= pos)
+            return l;
+        new_pos+=l.size();
+        line_n++;
+    }
+}
 
-void MainWindow::functionSelected(const QString&)
+void locateFunction(QString xml, QString  funcname, int& start_pos, int& end_pos)
+{
+    int start=-1, end=-1, pos=0;
+    foreach(QString l, xml.split("\n"))
+    {
+        QRegularExpression re("<func name=\"([\\w _\\d]+)\"");
+        QRegularExpressionMatch match = re.match(l);
+        if( match.hasMatch() )
+        {
+            QString name = match.capturedTexts()[1];
+            name = name.replace("\"","");
+            if(name == funcname)
+                start = pos;
+        }
+        if( l.contains("</func>") )
+        {
+            end = pos;
+            break;
+        }
+        pos+=l.size();
+    }
+    start_pos = start;
+    end_pos = end;
+}
+
+QString textUnderCursor(QTextCursor tc)
+{
+    tc.select(QTextCursor::LineUnderCursor);
+    return tc.selectedText();
+}
+
+void selectLine(QTextEdit* edit)
+{
+
+
+//    QTextCharFormat fmt;
+//    fmt.setBackground(Qt::yellow);
+
+//    QTextCursor cursor(edit->document());
+//    cursor.setPosition(begin, QTextCursor::MoveAnchor);
+//    cursor.setPosition(end, QTextCursor::KeepAnchor);
+//    cursor.setCharFormat(fmt);
+}
+
+
+
+void MainWindow::functionSelected(const QString& )
 {
 
     updateFunctionEditor();
@@ -631,6 +690,7 @@ void MainWindow::functionSelected(const QString&)
         qreal lineHeight = qMax(metric.lineSpacing(), metric.boundingRect("Äg").height());
         vbar->setValue(line_n*lineHeight);
         //vbar->scroll(0,line_n*30);
+        selectLine(ui->xmlEditor_2);
 
 
     }
@@ -642,8 +702,8 @@ void MainWindow::functionSelected(const QString&)
     QString code = uc_codegen.UCforFunction(func_node);
     ui->commentEditor->setHtml(code);
 
-    /*
 
+    /*
     QList<QTextEdit::ExtraSelection> selections;
     auto cursor = xmlEditor_2->textCursor();
     int _startIndex = xmlEditor_2->toPlainText().indexOf(functionSelector->currentText());
@@ -651,14 +711,12 @@ void MainWindow::functionSelected(const QString&)
     //cursor.
     //cursor.select(QTextCursor::LineUnderCursor);
     xmlEditor_2->moveCursor(QTextCursor::End);
-
     QTextFormat format;
     QTextEdit::ExtraSelection es;
     es.format.setBackground(Qt::red);
     es.cursor = cursor;
     selections.push_back(es);
     xmlEditor_2->setExtraSelections(selections);
-
 */
 
 }
@@ -715,6 +773,11 @@ void MainWindow::new_fun()
         int targetYPosition = 0;
         vbar->setValue(vbar->value() + 11111111);
 
+        QStringList list;
+        getDoc()->getFunctionsList(doc->documentElement(),list);
+        functionSelector->addItems(list);
+        ui->functionList->clear();
+        ui->functionList->addItems(list);
 
 
 
@@ -925,5 +988,10 @@ void MainWindow::on_functionFilter_textChanged()
 
     ui->functionList->clear();
     ui->functionList->addItems(list2);
+
+}
+
+void MainWindow::on_functionList_itemClicked(QListWidgetItem *item)
+{
 
 }

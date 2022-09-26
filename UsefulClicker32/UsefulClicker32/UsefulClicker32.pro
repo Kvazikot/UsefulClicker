@@ -125,7 +125,8 @@ SOURCES += main.cpp\
     tests/cool_tests_form.cpp \
     ui/imagesearchdialog.cpp \
     cv/rectangle_descriptor.cpp \
-    tests/rectangle_descriptor_test.cpp
+    tests/rectangle_descriptor_test.cpp \
+    twee_bot/tweebot.cpp
 
 HEADERS  += mainwindow.h \
     xml/clickerdocument.h \
@@ -155,7 +156,8 @@ HEADERS  += mainwindow.h \
     tests/cool_tests_form.h \
     ui/imagesearchdialog.h \
     cv/rectangle_descriptor.h \
-    tests/rectangle_descriptor_test.h
+    tests/rectangle_descriptor_test.h \
+    twee_bot/tweebot.h
 
 FORMS    += mainwindow.ui \
     ui/aboutbox.ui \
@@ -168,13 +170,15 @@ FORMS    += mainwindow.ui \
     ui/widgets/delaywidget.ui \
     ui/widgets/dimensionswidget.ui \
     tests/cool_tests_form.ui \
-    ui/imagesearchdialog.ui
+    ui/imagesearchdialog.ui \
+    twee_bot/tweebot.ui
 
 RESOURCES += \
     res.qrc
 
 DISTFILES += \
-    tests/UsefulClicker_tests.xml
+    tests/UsefulClicker_tests.xml \
+    twee_bot/paraphrazer_rus_py37.txt
 
 INCLUDEPATH += $$PWD/../../../opencv/build_vs2017/lib/Release
 DEPENDPATH += $$PWD/../../../opencv/build_vs2017/lib/Release

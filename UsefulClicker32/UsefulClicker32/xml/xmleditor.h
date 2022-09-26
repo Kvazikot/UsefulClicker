@@ -6,6 +6,7 @@
 #include <QKeyEvent>
 #include <QDomNode>
 #include "clickerdocument.h"
+#include "tests/highlighter.h"
 
 class XmlEditor : public QTextEdit
 {
@@ -29,6 +30,7 @@ signals:
 
 public:
    bool iamChanged;
+   Highlighter* highlighter;
 
 private:
    ClickerDocument* doc;   

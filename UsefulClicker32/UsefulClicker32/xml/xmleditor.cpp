@@ -2,9 +2,7 @@
 #include <QRegularExpression>
 #include "xmleditor.h"
 #include "settings/clickersettings.h"
-#include "tests/highlighter.h"
 
-static Highlighter* highlighter;
 
 XmlEditor::XmlEditor(QWidget *parent)
     : QTextEdit{parent}

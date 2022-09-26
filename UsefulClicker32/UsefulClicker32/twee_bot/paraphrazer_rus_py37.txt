@@ -1,0 +1,28 @@
+# Import libraries
+# !pip install git+https://github.com/neuml/txtai#egg=txtai[pipeline]
+!pip install git+https://github.com/PrithivirajDamodaran/Parrot.git
+from txtai.pipeline import Translation
+from parrot import Parrot
+import torch
+import warnings
+
+
+warnings.filterwarnings("ignore")
+phrases = ["The best scientist i know lived in Germany in 1920."]
+#Init models (make sure you init ONLY once if you integrate this to your code)
+parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
+
+# Create translation model
+translate = Translation()
+translation = translate("This is a test translation into Spanish", "es")
+print(translation)
+
+for phrase in phrases:
+  print("-"*100)
+  print("Input_phrase: ", phrase)
+  print("-"*100)
+  para_phrases = parrot.augment(input_phrase=phrase)
+  for para_phrase in para_phrases:
+   translation = translate(para_phrase[0], "ru")
+   print(translation)   
+   print(para_phrase)

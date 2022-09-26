@@ -56,6 +56,8 @@ Highlighter::Highlighter(QTextDocument *parent)
 {
     HighlightingRule rule;
 
+    color_rule = false;
+
     keywordFormat.setForeground(Qt::darkBlue);
     keywordFormat.setFontWeight(QFont::Bold);
     const QString keywordPatterns[] = {
@@ -106,10 +108,15 @@ Highlighter::Highlighter(QTextDocument *parent)
 //! [5]
     functionFormat.setFontItalic(true);
     functionFormat.setForeground(Qt::blue);
+
     rule.pattern = QRegularExpression(QStringLiteral("\\b[A-Za-z0-9_]+(?=\\()"));
     rule.format = functionFormat;
     highlightingRules.append(rule);
 //! [5]
+//!
+//!
+
+
 
 //! [6]
     commentStartExpression = QRegularExpression(QStringLiteral("/\\*"));
@@ -117,14 +124,32 @@ Highlighter::Highlighter(QTextDocument *parent)
 }
 //! [6]
 
+void Highlighter::addRuleFunction(QString funname)
+{
+    HighlightingRule rule1;
+    QTextCharFormat format;
+    format.setForeground(QColor(238, 130, 238));
+    format.setFontWeight(QFont::Bold);
+    QString s = QString("\\b%1\\b").arg(funname);
+    rule1.pattern = QRegularExpression(s);
+    rule1.format = format;
+    highlightingRules.removeLast();
+    highlightingRules.append(rule1);
+    rehighlight();
+}
+
+
 //! [7]
-void Highlighter::highlightBlock(const QString &text)
+void Highlighter::highlightBlock(const QString &text )
 {
     for (const HighlightingRule &rule : qAsConst(highlightingRules)) {
         QRegularExpressionMatchIterator matchIterator = rule.pattern.globalMatch(text);
         while (matchIterator.hasNext()) {
             QRegularExpressionMatch match = matchIterator.next();
-            setFormat(match.capturedStart(), match.capturedLength(), rule.format);
+            if(!color_rule)
+                setFormat(match.capturedStart(), match.capturedLength(), rule.format);
+            else
+                setFormat(match.capturedStart(), match.capturedLength(), color);
         }
     }
 //! [7] //! [8]
