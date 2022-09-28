@@ -91,7 +91,7 @@
      <widget class="QTextEdit" name="textEdit_2"/>
     </item>
     <item row="2" column="0">
-     <widget class="QPlainTextEdit" name="plainTextEdit">
+     <widget class="QPlainTextEdit" name="consoleEdit">
       <property name="minimumSize">
        <size>
         <width>0</width>
