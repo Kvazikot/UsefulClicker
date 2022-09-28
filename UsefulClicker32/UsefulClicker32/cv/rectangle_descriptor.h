@@ -20,6 +20,7 @@ cv::Mat img2mat(QImage& img);
 
 struct RectangleDescriptor
 {
+    bool ignoreSize;
     int number;
     int width;
     int height;
@@ -32,15 +33,16 @@ struct RectangleDescriptor
 
     RectangleDescriptor()
     {
+        ignoreSize = false;
     }
 
-    RectangleDescriptor(int w, int h, cv::Mat& im)
+    RectangleDescriptor(int w, int h, cv::Mat& im, bool ignore_size=false)
     {
         width = w;
         height = h;
         getHist(im);
+        ignoreSize = ignore_size;
         int type = HistR.type();
-
     }
 
     void getHist(cv::Mat& im)
@@ -92,6 +94,8 @@ struct RectangleDescriptor
         float da = abs(r2.area() - r1.area()) / screen_area;
         float dr = abs(r2.ratio() - r1.ratio());
         float d = dh + da + dr;
+        if( ignoreSize )
+            d = dh;
         return d;
     }
 

@@ -772,11 +772,12 @@ int InterpreterWin64::executeForeach(const QDomNode& node)
 int InterpreterWin64::executeClickRect(const QDomNode& node)
 {
     QString button;
-    RectangleDescriptor d;
-
-    d.fromDomNode(node);
     int kernel = node.toElement().attribute("kernel_size", "4").toInt();
     int screen = node.toElement().attribute("screen_num", "0").toInt();
+    bool ignoreSize = node.toElement().attribute("ignoreSize", "false").toInt();
+    RectangleDescriptor d;
+    d.fromDomNode(node);
+    d.ignoreSize = ignoreSize;
 
     dsp->searchImageByHist(screen, kernel, d);
 

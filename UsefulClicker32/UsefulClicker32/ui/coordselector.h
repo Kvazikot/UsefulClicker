@@ -17,7 +17,7 @@ class CoordSelector : public QDialog
 
 public:
     int screenNum=0;
-    explicit CoordSelector(QWidget *parent = nullptr, bool withEasterEgg=false);
+    explicit CoordSelector(QWidget *parent = nullptr, bool withEasterEgg=false, int screen_num=0);
     ~CoordSelector();
     QPoint mpos;
     QRectF hit_rect;

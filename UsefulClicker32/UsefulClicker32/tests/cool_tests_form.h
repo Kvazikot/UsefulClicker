@@ -92,6 +92,10 @@ private slots:
 
     void on_histCompressionTest_clicked();
 
+    void on_ignoreSize_clicked();
+
+    void on_pickColor_clicked();
+
 signals:
     void stopExecutionSignal();
 

@@ -18,9 +18,10 @@ static QImage sprite[10];
 static QImage bullet_sprite ;
 static QMap<QString, QString> attrs;
 
+static QImage screenshot;
 #define rnd ((float)rand()/RAND_MAX)
 
-CoordSelector::CoordSelector(QWidget *parent, bool withEasterEgg) :
+CoordSelector::CoordSelector(QWidget *parent, bool withEasterEgg, int screen_num) :
     QDialog(0),
     ui(new Ui::CoordSelector)
 {
@@ -32,6 +33,11 @@ CoordSelector::CoordSelector(QWidget *parent, bool withEasterEgg) :
     setAttribute(Qt::WA_PaintOnScreen); // not needed in Qt 5.2 and up
     setCursor(Qt::CrossCursor);
     showEasterEgg = withEasterEgg;
+    //makeScreenshot();
+    if( QGuiApplication::screens().size() < screen_num) return;
+    QScreen* screen = QGuiApplication::screens()[screen_num];
+    screenshot = screen->grabWindow(0).toImage();//0, 0, 0, screen->geometry().width(), screen->geometry().height()).toImage();
+
     ui->setupUi(this);
 
     QImage bg_image(300,300,QImage::Format_ARGB32);
@@ -90,6 +96,17 @@ void CoordSelector::mousePressEvent(QMouseEvent* event)
 
     attrs["x"] = QString::number(mpos.x());
     attrs["y"] = QString::number(mpos.y());
+
+    int x,y;
+
+    if(mpos.x() > screenshot.width())
+        x = mpos.x() - screenshot.width();
+    else
+        x = mpos.x();
+    y = screenshot.height() - mpos.y();
+    QColor rgb = screenshot.pixelColor(x,y);
+
+    attrs["pixel"] = QString("(%1,%2,%3)").arg(rgb.red()).arg(rgb.green()).arg(rgb.blue());
 
     if(!showEasterEgg)
     {

@@ -72,7 +72,6 @@ struct Train
     }
 };
 
-
 class ScreenButtonsDetector : public QDialog
 {
     Q_OBJECT

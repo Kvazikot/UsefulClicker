@@ -317,17 +317,10 @@ text-decoration: underline;</string>
       <string>4. CV tests</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
-      <item row="0" column="0">
-       <widget class="QPushButton" name="buttonsDetector1">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="imageSearch">
         <property name="text">
-         <string>Buttons Detector 1 (#11)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="clickrectTest">
-        <property name="text">
-         <string>clickrect test (#14)</string>
+         <string>Image Search (#12)</string>
         </property>
        </widget>
       </item>
@@ -338,10 +331,17 @@ text-decoration: underline;</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="imageSearch">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="buttonsDetector1">
         <property name="text">
-         <string>Image Search (#12)</string>
+         <string>Buttons Detector 1 (#11)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="rectangleDescriptorTest">
+        <property name="text">
+         <string>Rectangle Descriptor Test(#15)</string>
         </property>
        </widget>
       </item>
@@ -355,13 +355,6 @@ text-decoration: underline;</string>
         </property>
         <property name="value">
          <number>100</number>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QPushButton" name="rectangleDescriptorTest">
-        <property name="text">
-         <string>Rectangle Descriptor Test(#15)</string>
         </property>
        </widget>
       </item>
@@ -449,26 +442,56 @@ text-decoration: underline;</string>
       <rect>
        <x>580</x>
        <y>10</y>
-       <width>191</width>
-       <height>181</height>
+       <width>166</width>
+       <height>171</height>
       </rect>
      </property>
      <property name="title">
       <string>5. CV Tests</string>
      </property>
-     <widget class="QPushButton" name="histCompressionTest">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>20</y>
-        <width>161</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Histogram compression(#16)</string>
-      </property>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="histCompressionTest">
+        <property name="text">
+         <string>Histogram compression(#16)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="clickrectTest">
+        <property name="text">
+         <string>clickrect test (#14)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pickColor">
+        <property name="text">
+         <string>pick color</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="ignoreSize">
+        <property name="text">
+         <string>ignoreSize</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_3">

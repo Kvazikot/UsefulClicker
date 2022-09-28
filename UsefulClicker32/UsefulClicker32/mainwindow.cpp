@@ -893,7 +893,7 @@ MainWindow* MainWindow::getInstance()
 
 void MainWindow::setLogWindow(QPlainTextEdit* wnd)
 {
-    logWindow = wnd;
+    //logWindow = wnd;
 }
 
 void MainWindow::log(QString msg)

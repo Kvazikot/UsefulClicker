@@ -8,7 +8,6 @@
 #include "cool_tests_form.h"
 #include "interpreter/interpreterwin64.h"
 #include "ui_cool_tests_form.h"
-#include "../mainwindow.h"
 #include "ui/areaselectordialog.h"
 #include "ui/screenbuttonsdetector.h"
 #include "ui/coordselector.h"
@@ -18,19 +17,8 @@
 #include "tests/highlighter.h"
 #include "tests/rectangle_descriptor_test.h"
 #include "cv/dspmodule.h"
-#include "ui/widgets/areabutton.h"
-#include "ui/widgets/crossbutton.h"
-#include "ui/widgets/keyboardbutton.h"
-#include "ui/widgets/mousebutton.h"
-#include "ui/widgets/comboedit.h"
-#include "ui/widgets/shellbutton.h"
 
-
-static KeyboardButton* keyboard_but;
-static CrossButton* cross_but;
-static MouseButton* mouse_but;
-static AreaButton* area_but;
-static ShellButton* shell_but;
+static ClickerDocument* doc;
 static QTextEdit* editor = 0;
 static Highlighter* highlighter = 0;
 //static QVector<QImage> icons_cache;
@@ -57,16 +45,23 @@ CoolTestsForm::CoolTestsForm(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CoolTestsForm)
 {
-    MainWindow* window = MainWindow::getInstance();
-    window->setLogWindow(ui->logEdit);
+    //MainWindow* window = MainWindow::getInstance();
+    //window->setLogWindow(ui->logEdit);
     QString fn = ":/tests/UsefulClicker_tests.xml";
-    window->loadDocument(fn);    
+    QString filename = ".\\tests\\UsefulClicker_tests.xml";
+
+    QFile f(filename);
+    if ( f.exists() )
+    {
+        doc = new ClickerDocument(filename);
+    }
+
     ui->setupUi(this);
 
-    QDomDocument* doc = static_cast<QDomDocument*>(window->getDoc());
+
     QStringList list;
     if( doc!=0 )
-        window->getDoc()->getFunctionsList(doc->documentElement(),list);
+        doc->getFunctionsList(doc->documentElement(),list);
     ui->functionsList->clear();
     ui->functionsList->addItems(list);
     ui->functionsList->setCurrentIndex(2);
@@ -83,7 +78,7 @@ CoolTestsForm::CoolTestsForm(QWidget *parent) :
     highlighter = new Highlighter(ui->xmlEditor->document());
     ui->groupBox_5->layout()->replaceWidget(ui->xmlEditor, editor);
 
-    auto func_body_text = window->getDoc()->getFunction(ui->functionsList->currentText());
+    auto func_body_text = doc->getFunction(ui->functionsList->currentText());
     ui->xmlEditor->clear();
     ui->xmlEditor->setText(func_body_text);
 
@@ -391,6 +386,7 @@ void CoolTestsForm::on_clickrectTest_clicked()
     ui->buttonImage->pixmap()->save("temp.png");
     ui->buttonImage->setPixmap(QPixmap());
     DspModule dsp;
+    targetDescriptor.ignoreSize = ui->ignoreSize->isChecked();
     QRect rect = dsp.searchImageByHist(screenNum, kernel_size, targetDescriptor);
     ui->logEdit->appendPlainText("search using histogram compare class RectangleDescriptor");
     QString s;
@@ -482,4 +478,22 @@ void CoolTestsForm::on_pirateBayTest_clicked()
 void CoolTestsForm::on_changeFontWindows11_clicked()
 {
     runFunction("Change font Windows 11");
+}
+
+void CoolTestsForm::on_ignoreSize_clicked()
+{
+
+}
+
+void CoolTestsForm::on_pickColor_clicked()
+{
+    CoordSelector* dlg = new CoordSelector(this);
+    int screenNum = 0;
+    if( ui->screen1->isChecked() )
+        screenNum = 1;
+    dlg->setScreenNumber(screenNum);
+    connect(dlg, SIGNAL(sigSetAttrs(QMap<QString,QString>)), this, SLOT(slotSetAttrs(QMap<QString,QString>)));
+    dlg->showFullScreen();
+
+
 }
