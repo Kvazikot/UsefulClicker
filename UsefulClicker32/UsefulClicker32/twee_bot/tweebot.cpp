@@ -24,7 +24,10 @@ TweeBot::TweeBot(QWidget *parent) :
 
 void TweeBot::timerEvent(QTimerEvent* event)
 {
+    QDateTime dt = QDateTime::currentDateTime();
 
+    QString s = "<html><head/><body><p>now " + dt.toString("hh:mm:ss") + "</p></body></html>";
+    ui->timerLabel->setText(s);
 }
 
 TweeBot::~TweeBot()
