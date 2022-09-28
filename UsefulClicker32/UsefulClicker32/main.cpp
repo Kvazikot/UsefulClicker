@@ -9,8 +9,8 @@ int main(int argc, char *argv[])
     //MainWindow w;
     //w.show();
 
-    TweeBot w;
-    w.show();
+    TweeBot w2;
+    w2.show();
 
     return a.exec();
 }

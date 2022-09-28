@@ -71,5 +71,8 @@
         <file>images/vector-star-icon.png</file>
         <file>images/vector-star-icon.svg</file>
         <file>images/open-file.png</file>
+        <file>images/answer.png</file>
+        <file>images/answer2.png</file>
+        <file>images/vector-find-icon.jpg</file>
     </qresource>
 </RCC>
