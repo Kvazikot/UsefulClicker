@@ -18,6 +18,9 @@ public:
     void timerEvent(QTimerEvent* event);
     ~TweeBot();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::TweeBot *ui;
 };

@@ -19,8 +19,6 @@ TweeBot::TweeBot(QWidget *parent) :
     mainInstance = ui->consoleEdit;
     startTimer(100);
 
-    TestTwitterActivity test1;
-    test1.run();
 }
 
 void TweeBot::timerEvent(QTimerEvent* event)
@@ -34,4 +32,10 @@ void TweeBot::timerEvent(QTimerEvent* event)
 TweeBot::~TweeBot()
 {
     delete ui;
+}
+
+void TweeBot::on_pushButton_clicked()
+{
+    TestTwitterActivity test1;
+    test1.run();
 }
