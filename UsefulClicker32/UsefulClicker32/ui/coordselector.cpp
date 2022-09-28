@@ -7,8 +7,13 @@
 #include <QDir>
 #include <QDebug>
 #include <QSoundEffect>
+#include <algorithm>
+#include <map>
+#include <set>
 #include "coordselector.h"
 #include "ui_coordselector.h"
+
+using namespace std;
 
 static std::vector<QRectF> rects;
 static std::vector<QVector2D> velocitys;
@@ -88,6 +93,60 @@ CoordSelector::~CoordSelector()
     delete ui;
 }
 
+// Comparison function for sorting the
+// set by increasing order of its pair's
+// second value
+struct comp {
+    template <typename T>
+
+    // Comparator function
+    bool operator()(const T& l,
+                    const T& r) const
+    {
+        if (l.second != r.second) {
+            return l.second > r.second;
+        }
+        return l.first < r.first;
+    }
+};
+
+void print(QString s);
+
+void makeShotgunShooting(int x, int y)
+{
+    std::map<std::string, int> localHistogram;
+    int radius = 10;
+    int n_points = 50;
+    while(--n_points > 0)
+    {
+        int x1 = x + rand() % radius;
+        int y1 = y + rand() % radius;
+        QColor rgb = screenshot.pixelColor(x1,y1);
+        attrs["pixel"] = QString("(%1,%2,%3)").arg(rgb.red()).arg(rgb.green()).arg(rgb.blue());
+        string key = attrs["pixel"].toStdString();
+        if( localHistogram.find(key) == localHistogram.end())
+            localHistogram[key] = 0;
+        else
+            localHistogram[key]++;
+    }
+    //std::sort(localHistogram.begin(), localHistogram.end());
+
+
+    // Declare set of pairs and insert
+    // pairs according to the comparator
+    // function comp()
+    set<pair<string, int>, comp> S(localHistogram.begin(),
+                                   localHistogram.end());
+
+    // Print the sorted value
+    QString s,s2;
+    for (auto& it : S) {
+        s+=" ";
+        s2=it.first.c_str();
+        s+=s2 + " " + QString::number(it.second) + ",";
+    }
+    attrs["localHistogram"] = s;
+}
 
 void CoordSelector::mousePressEvent(QMouseEvent* event)
 {
@@ -103,10 +162,8 @@ void CoordSelector::mousePressEvent(QMouseEvent* event)
         x = mpos.x() - screenshot.width();
     else
         x = mpos.x();
-    y = screenshot.height() - mpos.y();
-    QColor rgb = screenshot.pixelColor(x,y);
-
-    attrs["pixel"] = QString("(%1,%2,%3)").arg(rgb.red()).arg(rgb.green()).arg(rgb.blue());
+    y = mpos.y();
+    makeShotgunShooting(x,y);
 
     if(!showEasterEgg)
     {

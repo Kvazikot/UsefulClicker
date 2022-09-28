@@ -487,10 +487,11 @@ void CoolTestsForm::on_ignoreSize_clicked()
 
 void CoolTestsForm::on_pickColor_clicked()
 {
-    CoordSelector* dlg = new CoordSelector(this);
     int screenNum = 0;
     if( ui->screen1->isChecked() )
         screenNum = 1;
+    CoordSelector* dlg = new CoordSelector(this, false, screenNum);
+
     dlg->setScreenNumber(screenNum);
     connect(dlg, SIGNAL(sigSetAttrs(QMap<QString,QString>)), this, SLOT(slotSetAttrs(QMap<QString,QString>)));
     dlg->showFullScreen();
