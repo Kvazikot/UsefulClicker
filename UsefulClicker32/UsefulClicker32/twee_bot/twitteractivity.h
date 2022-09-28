@@ -22,6 +22,7 @@ public:
     TwitterActivity();
     virtual void run();
     void ParseTwits(QString clipboard_data);
+    void ParseTwit(QString text);
 };
 
 #endif // TWITTERACTIVITY_H

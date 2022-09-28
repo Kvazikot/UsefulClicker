@@ -12,6 +12,23 @@ TwitterActivity::TwitterActivity()
 
 }
 
+void TwitterActivity::ParseTwit(QString twit_text)
+{
+    QStringList lst = twit_text.split("\r");
+    if(lst.size()>1)
+    {
+        lst[0] = " ";
+        lst[1] = " ";
+        lst[2] = " ";
+        lst[lst.size()-1] = " ";
+        lst[lst.size()-2] = " ";
+        twits[twits.size()-1].time = lst[2];
+        twits[twits.size()-1].text = lst.join("\r").trimmed();
+    }
+
+
+}
+
 void TwitterActivity::ParseTwits(QString clipboard_data)
 {
     twits.clear();
@@ -26,6 +43,11 @@ void TwitterActivity::ParseTwits(QString clipboard_data)
     {
         QString& l_prev = lines[i-1];
         QString& l = lines[i];
+        if( l.contains("Актуальные темы") )
+        {
+            ParseTwit(twit_text);
+            break;
+        }
         QRegularExpressionMatch m = re.match(l);
         if( m.hasMatch() )
         {
@@ -35,25 +57,8 @@ void TwitterActivity::ParseTwits(QString clipboard_data)
             t.number_on_screen = number_on_screen;
             number_on_screen++;
             if(twits.size()>0)
-            {
-                QStringList lst = twit_text.split("\r");
-                if(lst.size()>1)
-                {
-                    lst[0] = " ";
-                    lst[1] = " ";
-                    lst[2] = " ";
-                    lst[lst.size()-1] = " ";
-                    lst[lst.size()-2] = " ";
-                    twits[twits.size()-1].time = lst[2];
-                    twits[twits.size()-1].text = lst.join("\r").trimmed();
-                }
-
-
-
-
-            }
+                ParseTwit(twit_text);
             twits.push_back(t);
-
             twit_text="";
         }
             twit_text+=l;
