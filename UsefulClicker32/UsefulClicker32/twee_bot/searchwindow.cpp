@@ -38,8 +38,8 @@ BOOL CALLBACK FindProcessesWindowEnum(HWND hWnd,LPARAM lParam)
     GetClassNameA(hWnd,ClassName,256);
 
 
-
-    if((strstr(name,"Google")!=0))
+    char* query = (char*) lParam;
+    if((strstr(name,query)!=0))
     {
         g_Processes = hWnd;
         print(QString(name));
@@ -51,23 +51,24 @@ BOOL CALLBACK FindProcessesWindowEnum(HWND hWnd,LPARAM lParam)
     return TRUE;
 }
 
-VOID FindProcessesWindow(HWND hWndStart)
+VOID FindProcessesWindow(HWND hWndStart, char* query)
 {
     g_Processes = NULL;
-    EnumChildWindows(hWndStart, FindProcessesWindowEnum, NULL);
+    EnumChildWindows(hWndStart, FindProcessesWindowEnum, (LPARAM)query);
     if (g_Processes != NULL)
-        EnumChildWindows(g_Processes, FindProcessesChildWindowEnum, NULL);
+        EnumChildWindows(g_Processes, FindProcessesChildWindowEnum, (LPARAM)query);
 }
 
-void SearchWindow::setWindowFocus(std::string name)
+HWND SearchWindow::setWindowFocus(std::string name)
 {
     std::vector<HWND> wnds = SearchWnd(name);
-    if(wnds.size()==0) return;
+    if(wnds.size()==0) return 0;
     int index = rand() % wnds.size();
     //BOOL enumeratingWindowsSucceeded = ::EnumChildWindows( GetDesktopWindow(), enumWindowsProc,  (LPARAM)programname.c_str());
     //qDebug << "Setting focus to window." << std::endl;
     HWND hWnd = wnds[index];
     SetForegroundWindow(hWnd);
+    return hWnd;
 }
 
 
@@ -79,6 +80,6 @@ SearchWindow::SearchWindow()
 std::vector<HWND> SearchWindow::SearchWnd(std::string name)
 {
     handles.clear();
-    FindProcessesWindow(GetDesktopWindow());
+    FindProcessesWindow(GetDesktopWindow(),(char*)name.c_str());
     return handles;
 }

@@ -36,5 +36,6 @@ void RegularActivity::addActivity(Activity* activity)
     print("add activity" + activity->toStr());
     activities.push_back(activity);
     SearchWindow search;
-    search.setWindowFocus("Chrome");
+    HWND h = search.setWindowFocus("Chrome");
+    ShowWindow(h, SW_MAXIMIZE);
 }
