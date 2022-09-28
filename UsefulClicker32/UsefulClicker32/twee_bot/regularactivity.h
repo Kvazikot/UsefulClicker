@@ -2,6 +2,7 @@
 #define REGULARACTIVITY_H
 
 #include <QString>
+#include <QDateTime>
 #include <vector>
 
 enum ActivityType
@@ -14,8 +15,21 @@ class Activity
 {
 public:
     ActivityType type;
+    QDateTime startTime;
+    QDateTime endTime;
+    Activity::Activity()
+    {
+        startTime = QDateTime::currentDateTime();
+        endTime = startTime.addSecs(30);
+    }
     virtual void run(){};
-    virtual QString toStr(){return "Activity ";}
+    virtual QString toStr()
+    {
+        QString s;
+        s+=" startTime = " + startTime.toString() + " ";
+        s+=" endTime = " + endTime.toString() + " ";
+        return s;
+    }
 };
 
 class GoToSite: public Activity
@@ -27,7 +41,8 @@ class GoToSite: public Activity
     QString toStr()
     {
         QString out;
-        out+="GoToSite " + URL;
+        out+=Activity::toStr()  + "\n";
+        out+="GoToSite " + URL + "\n";
         return out;
     }
 
