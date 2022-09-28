@@ -1,6 +1,7 @@
 #include <QDebug>
 #include <windows.h>
 #include "regularactivity.h"
+#include "twee_bot/twitteractivity.h"
 #include "twee_bot/searchwindow.h"
 //doc.appendChild(root);
 
@@ -16,8 +17,8 @@ RegularActivity::RegularActivity()
 
 TestTwitterActivity::TestTwitterActivity()
 {
-    addActivity(new GoToSite("https://twitter.com/"));
-    //setWindowFocus(L"Chrome");
+    TwitterActivity twitter_activity;
+    twitter_activity.run();
 }
 
 void GoToSite::run()
@@ -35,7 +36,4 @@ void RegularActivity::addActivity(Activity* activity)
 {
     print("add activity" + activity->toStr());
     activities.push_back(activity);
-    SearchWindow search;
-    HWND h = search.setWindowFocus("Google Chrome");
-    ShowWindow(h, SW_MAXIMIZE);
 }

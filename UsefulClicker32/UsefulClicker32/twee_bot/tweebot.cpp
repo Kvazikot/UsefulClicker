@@ -36,6 +36,11 @@ TweeBot::~TweeBot()
 
 void TweeBot::on_pushButton_clicked()
 {
+
+}
+
+void TweeBot::on_toolButton_2_clicked()
+{
     TestTwitterActivity test1;
     test1.run();
 }

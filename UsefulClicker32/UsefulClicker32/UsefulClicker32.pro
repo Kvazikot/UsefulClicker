@@ -128,7 +128,8 @@ SOURCES += main.cpp\
     tests/rectangle_descriptor_test.cpp \
     twee_bot/tweebot.cpp \
     twee_bot/regularactivity.cpp \
-    twee_bot/searchwindow.cpp
+    twee_bot/searchwindow.cpp \
+    twee_bot/twitteractivity.cpp
 
 HEADERS  += mainwindow.h \
     xml/clickerdocument.h \
@@ -161,7 +162,8 @@ HEADERS  += mainwindow.h \
     tests/rectangle_descriptor_test.h \
     twee_bot/tweebot.h \
     twee_bot/regularactivity.h \
-    twee_bot/searchwindow.h
+    twee_bot/searchwindow.h \
+    twee_bot/twitteractivity.h
 
 FORMS    += mainwindow.ui \
     ui/aboutbox.ui \
@@ -182,7 +184,8 @@ RESOURCES += \
 
 DISTFILES += \
     tests/UsefulClicker_tests.xml \
-    twee_bot/paraphrazer_rus_py37.txt
+    twee_bot/paraphrazer_rus_py37.txt \
+    twee_bot/clipboard.txt
 
 INCLUDEPATH += $$PWD/../../../opencv/build_vs2017/lib/Release
 DEPENDPATH += $$PWD/../../../opencv/build_vs2017/lib/Release
