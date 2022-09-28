@@ -71,7 +71,7 @@ public:
 
     void MainLoop();
     QDomNode populateVars(QDomNode node);
-    void ExecuteXmlString(QString xml);
+    static void ExecuteXmlString(QString xml);
     void resetStopFlag();
     int execute(const QDomNode& node) override;
     int executeHotkey(const QDomNode& node);

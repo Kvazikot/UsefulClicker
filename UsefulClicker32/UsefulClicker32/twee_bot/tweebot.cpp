@@ -1,6 +1,7 @@
 #include <QPlainTextEdit>
 #include "tweebot.h"
 #include "ui_tweebot.h"
+
 #include "twee_bot/regularactivity.h"
 
 QPlainTextEdit* mainInstance;

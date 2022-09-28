@@ -817,8 +817,8 @@ void InterpreterWin64::ExecuteXmlString(QString xml)
     if( doc.setContent( xml ) )
     {
         QDomElement root = doc.documentElement();
-        InterpreterWin64*  interpreter = new InterpreterWin64();
-        interpreter->execute(root);
+        InterpreterWin64  interpreter;
+        interpreter.execute(root);
     }
 
 }

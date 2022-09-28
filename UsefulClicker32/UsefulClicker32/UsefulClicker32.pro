@@ -127,7 +127,8 @@ SOURCES += main.cpp\
     cv/rectangle_descriptor.cpp \
     tests/rectangle_descriptor_test.cpp \
     twee_bot/tweebot.cpp \
-    twee_bot/regularactivity.cpp
+    twee_bot/regularactivity.cpp \
+    twee_bot/searchwindow.cpp
 
 HEADERS  += mainwindow.h \
     xml/clickerdocument.h \
@@ -159,7 +160,8 @@ HEADERS  += mainwindow.h \
     cv/rectangle_descriptor.h \
     tests/rectangle_descriptor_test.h \
     twee_bot/tweebot.h \
-    twee_bot/regularactivity.h
+    twee_bot/regularactivity.h \
+    twee_bot/searchwindow.h
 
 FORMS    += mainwindow.ui \
     ui/aboutbox.ui \
