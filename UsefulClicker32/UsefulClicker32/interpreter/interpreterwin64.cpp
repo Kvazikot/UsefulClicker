@@ -513,6 +513,7 @@ void InterpreterWin64::executeFunction(const QDomNode& rootNode, QDomNode funcNo
 
 }
 
+
 int InterpreterWin64::executeShellCommand(const QDomNode& node)
 {
     QString cmd;
@@ -808,6 +809,20 @@ std::map<std::string, method_t> interpreter_func_map{{"click",&InterpreterWin64:
                                 {"scrollup",&InterpreterWin64::executeScrollUp},
                                 {"scrolldown",&InterpreterWin64::executeScrollDown},
                                 {"hotkey",&InterpreterWin64::executeHotkey}};
+
+
+void InterpreterWin64::ExecuteXmlString(QString xml)
+{
+    QDomDocument doc;
+    if( doc.setContent( xml ) )
+    {
+        QDomElement root = doc.documentElement();
+        InterpreterWin64*  interpreter = new InterpreterWin64();
+        interpreter->execute(root);
+    }
+
+}
+
 
 int InterpreterWin64::execute(const QDomNode& node)
 {

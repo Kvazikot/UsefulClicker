@@ -7,6 +7,8 @@
 #include <QElapsedTimer>
 #include "interpreter/interpreter.h"
 
+
+
 template <typename T, typename U>
 class create_map
 {
@@ -69,6 +71,7 @@ public:
 
     void MainLoop();
     QDomNode populateVars(QDomNode node);
+    void ExecuteXmlString(QString xml);
     void resetStopFlag();
     int execute(const QDomNode& node) override;
     int executeHotkey(const QDomNode& node);
