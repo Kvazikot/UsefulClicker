@@ -366,13 +366,13 @@ void CoolTestsForm::on_stopTest_clicked()
 void CoolTestsForm::on_clickimgTest_clicked()
 {
     hide();
-    ui->buttonImage->pixmap()->save("temp.png");
+    ui->buttonImage->pixmap().save("temp.png");
     ui->buttonImage->setPixmap(QPixmap());
     DspModule dsp;
     QRect rect = dsp.searchImage("temp.png", screenNum);
     ui->logEdit->appendPlainText("search using etalon temp.png and class RectangleDescriptor");
     QString s;
-    s = s.sprintf("result of search: %d %d %d %d", rect.left(), rect.top(), rect.right(),rect.bottom());
+    s = s.asprintf("result of search: %d %d %d %d", rect.left(), rect.top(), rect.right(),rect.bottom());
     ui->logEdit->appendPlainText(s);
     MouseClick(rect.center(), Qt::LeftButton);
 
@@ -383,14 +383,14 @@ void CoolTestsForm::on_clickimgTest_clicked()
 void CoolTestsForm::on_clickrectTest_clicked()
 {
     hide();
-    ui->buttonImage->pixmap()->save("temp.png");
+    ui->buttonImage->pixmap().save("temp.png");
     ui->buttonImage->setPixmap(QPixmap());
     DspModule dsp;
     targetDescriptor.ignoreSize = ui->ignoreSize->isChecked();
     QRect rect = dsp.searchImageByHist(screenNum, kernel_size, targetDescriptor);
     ui->logEdit->appendPlainText("search using histogram compare class RectangleDescriptor");
     QString s;
-    s = s.sprintf("result of search: %d %d %d %d", rect.left(), rect.top(), rect.right(),rect.bottom());
+    s = s.asprintf("result of search: %d %d %d %d", rect.left(), rect.top(), rect.right(),rect.bottom());
     ui->logEdit->appendPlainText(s);
     MouseClick(rect.center(), Qt::LeftButton);
     show();

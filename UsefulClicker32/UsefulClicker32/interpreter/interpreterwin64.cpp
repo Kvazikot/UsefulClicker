@@ -8,8 +8,8 @@
 #include <QScreen>
 #include <QtGlobal>
 #include <QApplication>
-#include <random>
 #include <windows.h>
+#include <random>
 #include "interpreter/interpreterwin64.h"
 //#include "log/logger.h"
 #include "cv/dspmodule.h"

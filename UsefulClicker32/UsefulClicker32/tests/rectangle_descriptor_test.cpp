@@ -37,7 +37,7 @@ void RectangleDescriptorTest::compareTest()
         RectangleDescriptor* rd2 = new RectangleDescriptor( sample2.size[1], sample2.size[0], sample2);
         auto d = rd1->calculateDifference(*rd1, *rd2);
         s="";
-        s.sprintf("%s and %s : d = %f \n", i->first.c_str(), i->second.c_str(), d);
+        s.asprintf("%s and %s : d = %f \n", i->first.c_str(), i->second.c_str(), d);
         results_str+=s;
         cv::resize(sample1, sample1, cv::Size(sample2.size[1], sample2.size[0]), cv::INTER_LINEAR);
         cv::hconcat(sample1, sample2, mat );

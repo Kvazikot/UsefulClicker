@@ -42,7 +42,7 @@ public:
     map_add_values(std::map<T, U>& _map):m_map(_map){}
     map_add_values& operator()(char* _key, int _val)
     {
-        m_map[key] = val;
+        m_map[_key] = _val;
         return *this;
     }
 };

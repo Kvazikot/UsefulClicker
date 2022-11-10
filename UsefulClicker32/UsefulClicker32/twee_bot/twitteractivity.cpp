@@ -84,7 +84,9 @@ void TwitterActivity::run()
     if( f.open( QFile::ReadOnly ) )
     {
         QTextStream ts(&f);
-        ts.setCodec("utf8");
+        //ts.setCodec("utf8");
+        ts.setEncoding(QStringConverter::Utf8);
+
         ParseTwits( ts.readAll() );
         f.close();
     }

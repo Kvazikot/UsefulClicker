@@ -1,18 +1,20 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.0)
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.2.4)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "../mainwindow.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.0. It"
+#elif Q_MOC_OUTPUT_REVISION != 68
+#error "This file was generated using the moc from 6.2.4. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,52 +23,49 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[36];
+    const uint offsetsAndSize[72];
     char stringdata0[530];
 };
-#define QT_MOC_LITERAL(idx, ofs, len) \
-    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs \
-        - idx * sizeof(QByteArrayData)) \
-    )
+#define QT_MOC_LITERAL(ofs, len) \
+    uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
-QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
-QT_MOC_LITERAL(1, 11, 8), // "runTests"
-QT_MOC_LITERAL(2, 20, 0), // ""
-QT_MOC_LITERAL(3, 21, 6), // "reload"
-QT_MOC_LITERAL(4, 28, 14), // "reloadFromFile"
-QT_MOC_LITERAL(5, 43, 8), // "QString&"
-QT_MOC_LITERAL(6, 52, 8), // "filename"
-QT_MOC_LITERAL(7, 61, 7), // "new_fun"
-QT_MOC_LITERAL(8, 69, 7), // "saveXml"
-QT_MOC_LITERAL(9, 77, 9), // "saveXmlAs"
-QT_MOC_LITERAL(10, 87, 5), // "pause"
-QT_MOC_LITERAL(11, 93, 7), // "openXml"
-QT_MOC_LITERAL(12, 101, 5), // "about"
-QT_MOC_LITERAL(13, 107, 20), // "updateFunctionEditor"
-QT_MOC_LITERAL(14, 128, 16), // "functionSelected"
-QT_MOC_LITERAL(15, 145, 16), // "QListWidgetItem*"
-QT_MOC_LITERAL(16, 162, 12), // "slotSetAttrs"
-QT_MOC_LITERAL(17, 175, 21), // "QMap<QString,QString>"
-QT_MOC_LITERAL(18, 197, 9), // "attrs_map"
-QT_MOC_LITERAL(19, 207, 28), // "XmlStringFromUniversalDialog"
-QT_MOC_LITERAL(20, 236, 10), // "xmlChanged"
-QT_MOC_LITERAL(21, 247, 20), // "on_leftClick_clicked"
-QT_MOC_LITERAL(22, 268, 24), // "on_keyboardClick_clicked"
-QT_MOC_LITERAL(23, 293, 20), // "on_areaClick_clicked"
-QT_MOC_LITERAL(24, 314, 21), // "on_imageClick_clicked"
-QT_MOC_LITERAL(25, 336, 18), // "on_typeTag_clicked"
-QT_MOC_LITERAL(26, 355, 17), // "xml2CursorChanged"
-QT_MOC_LITERAL(27, 373, 20), // "on_rectClick_clicked"
-QT_MOC_LITERAL(28, 394, 21), // "on_PlayButton_clicked"
-QT_MOC_LITERAL(29, 416, 15), // "applyChangesXml"
-QT_MOC_LITERAL(30, 432, 12), // "updateStatus"
-QT_MOC_LITERAL(31, 445, 4), // "text"
-QT_MOC_LITERAL(32, 450, 16), // "applyChangesFlag"
-QT_MOC_LITERAL(33, 467, 29), // "on_functionFilter_textChanged"
-QT_MOC_LITERAL(34, 497, 27), // "on_functionList_itemClicked"
-QT_MOC_LITERAL(35, 525, 4) // "item"
+QT_MOC_LITERAL(0, 10), // "MainWindow"
+QT_MOC_LITERAL(11, 8), // "runTests"
+QT_MOC_LITERAL(20, 0), // ""
+QT_MOC_LITERAL(21, 6), // "reload"
+QT_MOC_LITERAL(28, 14), // "reloadFromFile"
+QT_MOC_LITERAL(43, 8), // "QString&"
+QT_MOC_LITERAL(52, 8), // "filename"
+QT_MOC_LITERAL(61, 7), // "new_fun"
+QT_MOC_LITERAL(69, 7), // "saveXml"
+QT_MOC_LITERAL(77, 9), // "saveXmlAs"
+QT_MOC_LITERAL(87, 5), // "pause"
+QT_MOC_LITERAL(93, 7), // "openXml"
+QT_MOC_LITERAL(101, 5), // "about"
+QT_MOC_LITERAL(107, 20), // "updateFunctionEditor"
+QT_MOC_LITERAL(128, 16), // "functionSelected"
+QT_MOC_LITERAL(145, 16), // "QListWidgetItem*"
+QT_MOC_LITERAL(162, 12), // "slotSetAttrs"
+QT_MOC_LITERAL(175, 21), // "QMap<QString,QString>"
+QT_MOC_LITERAL(197, 9), // "attrs_map"
+QT_MOC_LITERAL(207, 28), // "XmlStringFromUniversalDialog"
+QT_MOC_LITERAL(236, 10), // "xmlChanged"
+QT_MOC_LITERAL(247, 20), // "on_leftClick_clicked"
+QT_MOC_LITERAL(268, 24), // "on_keyboardClick_clicked"
+QT_MOC_LITERAL(293, 20), // "on_areaClick_clicked"
+QT_MOC_LITERAL(314, 21), // "on_imageClick_clicked"
+QT_MOC_LITERAL(336, 18), // "on_typeTag_clicked"
+QT_MOC_LITERAL(355, 17), // "xml2CursorChanged"
+QT_MOC_LITERAL(373, 20), // "on_rectClick_clicked"
+QT_MOC_LITERAL(394, 21), // "on_PlayButton_clicked"
+QT_MOC_LITERAL(416, 15), // "applyChangesXml"
+QT_MOC_LITERAL(432, 12), // "updateStatus"
+QT_MOC_LITERAL(445, 4), // "text"
+QT_MOC_LITERAL(450, 16), // "applyChangesFlag"
+QT_MOC_LITERAL(467, 29), // "on_functionFilter_textChanged"
+QT_MOC_LITERAL(497, 27), // "on_functionList_itemClicked"
+QT_MOC_LITERAL(525, 4) // "item"
 
     },
     "MainWindow\0runTests\0\0reload\0reloadFromFile\0"
@@ -89,7 +88,7 @@ QT_MOC_LITERAL(35, 525, 4) // "item"
 static const uint qt_meta_data_MainWindow[] = {
 
  // content:
-       7,       // revision
+      10,       // revision
        0,       // classname
        0,    0, // classinfo
       27,   14, // methods
@@ -99,34 +98,34 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // flags
        0,       // signalCount
 
- // slots: name, argc, parameters, tag, flags
-       1,    0,  149,    2, 0x0a /* Public */,
-       3,    0,  150,    2, 0x0a /* Public */,
-       4,    1,  151,    2, 0x0a /* Public */,
-       7,    0,  154,    2, 0x0a /* Public */,
-       8,    0,  155,    2, 0x0a /* Public */,
-       9,    0,  156,    2, 0x0a /* Public */,
-      10,    0,  157,    2, 0x0a /* Public */,
-      11,    0,  158,    2, 0x0a /* Public */,
-      12,    0,  159,    2, 0x0a /* Public */,
-      13,    0,  160,    2, 0x0a /* Public */,
-      14,    1,  161,    2, 0x0a /* Public */,
-      14,    1,  164,    2, 0x0a /* Public */,
-      16,    1,  167,    2, 0x0a /* Public */,
-      19,    1,  170,    2, 0x0a /* Public */,
-      20,    0,  173,    2, 0x0a /* Public */,
-      21,    0,  174,    2, 0x08 /* Private */,
-      22,    0,  175,    2, 0x08 /* Private */,
-      23,    0,  176,    2, 0x08 /* Private */,
-      24,    0,  177,    2, 0x08 /* Private */,
-      25,    0,  178,    2, 0x08 /* Private */,
-      26,    0,  179,    2, 0x08 /* Private */,
-      27,    0,  180,    2, 0x08 /* Private */,
-      28,    0,  181,    2, 0x08 /* Private */,
-      29,    0,  182,    2, 0x08 /* Private */,
-      30,    2,  183,    2, 0x08 /* Private */,
-      33,    0,  188,    2, 0x08 /* Private */,
-      34,    1,  189,    2, 0x08 /* Private */,
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    0,  176,    2, 0x0a,    1 /* Public */,
+       3,    0,  177,    2, 0x0a,    2 /* Public */,
+       4,    1,  178,    2, 0x0a,    3 /* Public */,
+       7,    0,  181,    2, 0x0a,    5 /* Public */,
+       8,    0,  182,    2, 0x0a,    6 /* Public */,
+       9,    0,  183,    2, 0x0a,    7 /* Public */,
+      10,    0,  184,    2, 0x0a,    8 /* Public */,
+      11,    0,  185,    2, 0x0a,    9 /* Public */,
+      12,    0,  186,    2, 0x0a,   10 /* Public */,
+      13,    0,  187,    2, 0x0a,   11 /* Public */,
+      14,    1,  188,    2, 0x0a,   12 /* Public */,
+      14,    1,  191,    2, 0x0a,   14 /* Public */,
+      16,    1,  194,    2, 0x0a,   16 /* Public */,
+      19,    1,  197,    2, 0x0a,   18 /* Public */,
+      20,    0,  200,    2, 0x0a,   20 /* Public */,
+      21,    0,  201,    2, 0x08,   21 /* Private */,
+      22,    0,  202,    2, 0x08,   22 /* Private */,
+      23,    0,  203,    2, 0x08,   23 /* Private */,
+      24,    0,  204,    2, 0x08,   24 /* Private */,
+      25,    0,  205,    2, 0x08,   25 /* Private */,
+      26,    0,  206,    2, 0x08,   26 /* Private */,
+      27,    0,  207,    2, 0x08,   27 /* Private */,
+      28,    0,  208,    2, 0x08,   28 /* Private */,
+      29,    0,  209,    2, 0x08,   29 /* Private */,
+      30,    2,  210,    2, 0x08,   30 /* Private */,
+      33,    0,  215,    2, 0x08,   33 /* Private */,
+      34,    1,  216,    2, 0x08,   34 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -163,12 +162,12 @@ static const uint qt_meta_data_MainWindow[] = {
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        MainWindow *_t = static_cast<MainWindow *>(_o);
-        Q_UNUSED(_t)
+        auto *_t = static_cast<MainWindow *>(_o);
+        (void)_t;
         switch (_id) {
         case 0: _t->runTests(); break;
         case 1: _t->reload(); break;
-        case 2: _t->reloadFromFile((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: _t->reloadFromFile((*reinterpret_cast< std::add_pointer_t<QString&>>(_a[1]))); break;
         case 3: _t->new_fun(); break;
         case 4: _t->saveXml(); break;
         case 5: _t->saveXmlAs(); break;
@@ -176,10 +175,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->openXml(); break;
         case 8: _t->about(); break;
         case 9: _t->updateFunctionEditor(); break;
-        case 10: _t->functionSelected((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 11: _t->functionSelected((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
-        case 12: _t->slotSetAttrs((*reinterpret_cast< QMap<QString,QString>(*)>(_a[1]))); break;
-        case 13: _t->XmlStringFromUniversalDialog((*reinterpret_cast< QMap<QString,QString>(*)>(_a[1]))); break;
+        case 10: _t->functionSelected((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 11: _t->functionSelected((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 12: _t->slotSetAttrs((*reinterpret_cast< std::add_pointer_t<QMap<QString,QString>>>(_a[1]))); break;
+        case 13: _t->XmlStringFromUniversalDialog((*reinterpret_cast< std::add_pointer_t<QMap<QString,QString>>>(_a[1]))); break;
         case 14: _t->xmlChanged(); break;
         case 15: _t->on_leftClick_clicked(); break;
         case 16: _t->on_keyboardClick_clicked(); break;
@@ -190,18 +189,28 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 21: _t->on_rectClick_clicked(); break;
         case 22: _t->on_PlayButton_clicked(); break;
         case 23: _t->applyChangesXml(); break;
-        case 24: _t->updateStatus((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
+        case 24: _t->updateStatus((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2]))); break;
         case 25: _t->on_functionFilter_textChanged(); break;
-        case 26: _t->on_functionList_itemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
+        case 26: _t->on_functionList_itemClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
         default: ;
         }
     }
 }
 
-const QMetaObject MainWindow::staticMetaObject = {
-    { &QMainWindow::staticMetaObject, qt_meta_stringdata_MainWindow.data,
-      qt_meta_data_MainWindow,  qt_static_metacall, nullptr, nullptr}
-};
+const QMetaObject MainWindow::staticMetaObject = { {
+    QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
+    qt_meta_stringdata_MainWindow.offsetsAndSize,
+    qt_meta_data_MainWindow,
+    qt_static_metacall,
+    nullptr,
+qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
+, QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QMap<QString,QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QMap<QString,QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>
+
+
+>,
+    nullptr
+} };
 
 
 const QMetaObject *MainWindow::metaObject() const
@@ -213,7 +222,7 @@ void *MainWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_MainWindow.stringdata0))
-        return static_cast<void*>(const_cast< MainWindow*>(this));
+        return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 
@@ -228,7 +237,7 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 27;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 27)
-            *reinterpret_cast<int*>(_a[0]) = -1;
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
         _id -= 27;
     }
     return _id;

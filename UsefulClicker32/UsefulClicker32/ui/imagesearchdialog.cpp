@@ -19,10 +19,11 @@
 ```
 */
 
+#include <windows.h>
 #include "areaselectordialog.h"
 #include "imagesearchdialog.h"
 #include "cv/dspmodule.h"
-#include <windows.h>
+
 #include <QDateTime>
 #include <QDir>
 #include "ui_imagesearchdialog.h"

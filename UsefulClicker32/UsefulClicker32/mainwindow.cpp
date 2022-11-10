@@ -20,7 +20,7 @@
 */
 
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "ui/ui_mainwindow.h"
 #include "settings/clickersettings.h"
 #include "xml/clickerdocument.h"
 #include "interpreter/interpreter.h"
@@ -109,7 +109,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QLabel* xmlEditorStatus = new QLabel(this);
     connect(ui->xmlEditor, SIGNAL(updateStatusBar(const QString&, bool)), this, SLOT(updateStatus(const QString&, bool)));
     connect(ui->xmlEditor_2, SIGNAL(updateStatusBar(const QString&, bool)), this, SLOT(updateStatus(const QString&, bool)));
-    //connect(xmlEditor, SIGNAL(textChanged()), this, SLOT(updateFunctionEditor()));
+    //connect(ui->xmlEditor, SIGNAL(textChanged()), this, SLOT(updateFunctionEditor()));
     //updateStatusBar
     statusBar()->addWidget(xmlEditorStatus);
 
@@ -136,6 +136,7 @@ void MainWindow::functionSelected(QListWidgetItem* item)
     functionSelector->setCurrentText(item->text());
     ui->xmlEditor_2->highlighter->addRuleFunction(item->text());
     //functionSelected(item->text());
+    updateFunctionEditor();
 }
 
 void MainWindow::runTests()
@@ -150,7 +151,8 @@ void MainWindow::saveXml()
     if (f.open(QFile::WriteOnly | QFile::Truncate) )
     {
         QTextStream ts(&f);
-        ts.setCodec("utf8");
+        //ts.setCodec("utf8");
+        ts.setEncoding(QStringConverter::Utf8);
         ts << ui->xmlEditor_2->toPlainText();
     }
 }
@@ -172,7 +174,8 @@ void MainWindow::saveXmlAs()
             if (f.open(QFile::WriteOnly | QFile::Truncate) )
             {
                 QTextStream ts(&f);
-                ts.setCodec("utf8");
+                //ts.setCodec("utf8");
+                ts.setEncoding(QStringConverter::Utf8);
                 ts << ui->xmlEditor_2->toPlainText();
             }
 
@@ -813,7 +816,8 @@ _load:
         if( !f.open( QFile::ReadOnly ) )
             qDebug() << "Cannot open file " + filename;
         QTextStream ts(&f);
-        ts.setCodec("utf8");
+        //ts.setCodec("utf8");
+        ts.setEncoding(QStringConverter::Utf8);
         QString xml_text = ts.readAll();
         ui->xmlEditor_2->enableChangeEvent(true);
         QTextCursor cur = ui->xmlEditor_2->textCursor();
@@ -843,7 +847,7 @@ _load:
                 if( !f.open( QFile::ReadOnly ) )
                     qDebug() << "Cannot open file " + filename;
                 QTextStream ts(&f);
-                ts.setCodec("UTF-8");
+                ts.setEncoding(QStringConverter::Utf8);// setCodec("UTF-8");
                 QString xml_text = ts.readAll();
                 ui->xmlEditor_2->enableChangeEvent(true);
                 QTextCursor cur = ui->xmlEditor_2->textCursor();

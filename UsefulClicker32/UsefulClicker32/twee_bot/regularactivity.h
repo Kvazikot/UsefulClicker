@@ -17,7 +17,7 @@ public:
     ActivityType type;
     QDateTime startTime;
     QDateTime endTime;
-    Activity::Activity()
+    Activity()
     {
         startTime = QDateTime::currentDateTime();
         endTime = startTime.addSecs(30);

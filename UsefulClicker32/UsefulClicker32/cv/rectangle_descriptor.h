@@ -130,13 +130,13 @@ struct RectangleDescriptor
 
         // output compressed string
         QString s;
-        out=s.sprintf("%dx%d,", width, height);
+        out=s.asprintf("%dx%d,", width, height);
         for(auto it=mostly_zeroes_pairs.begin(); it!=mostly_zeroes_pairs.end(); it++)
         {
             if( it->first!=it->second )
               out+="#" + QString::number(int(it->second- it->first))+',';
             else
-              out+=s.sprintf("%0.3f,", it->second);
+              out+=s.asprintf("%0.3f,", it->second);
         }
 
 
@@ -195,12 +195,12 @@ struct RectangleDescriptor
     QString toString()
     {
         QString sout;
-        sout = sout.sprintf("%dx%d,", width, height);
+        sout = sout.asprintf("%dx%d,", width, height);
         QString s;
         for(int i = 0; i < h_bins; i++)
-           sout+=s.sprintf("%0.3f,", HistR.at<float>(i));
+           sout+=s.asprintf("%0.3f,", HistR.at<float>(i));
         //for(int i = 0; i < h_bins; i++)
-         //   sout+=s.sprintf("%0.3f,", HistG.at<float>(i));
+         //   sout+=s.asprintf("%0.3f,", HistG.at<float>(i));
         QString compressed = compressHistogram(HistR);
         QString decompressed = decompressHistogram(compressed, HistR);
         sout+="\n\ncompressed="+compressed;

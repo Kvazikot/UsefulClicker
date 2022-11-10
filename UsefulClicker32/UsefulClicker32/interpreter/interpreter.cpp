@@ -21,8 +21,9 @@
 
 #include <QPoint>
 #include <QApplication>
-#include "interpreter/interpreter.h"
 #include <windows.h>
+#include "interpreter/interpreter.h"
+
 #include "interpreter/interpreterpy.h"
 
 

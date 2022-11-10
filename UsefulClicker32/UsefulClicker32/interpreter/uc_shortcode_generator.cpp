@@ -28,7 +28,7 @@ QString UC(QDomNode& node)
             image_str =  QDir::currentPath() + "/images/mouse_left_click.png";
         if( b("button") == "right" )
             image_str =  QDir::currentPath() + "/images/mouse_right_click.png";
-        code = code.sprintf("xy,%s:%s",a("x"), a("y"));
+        code = code.asprintf("xy,%s:%s",a("x"), a("y"));
         code+="<img src = \""+ image_str +"\" alt = \"\" width=\"20\" height=\"20\"/>";
     }
     if( name == "hotkey")
