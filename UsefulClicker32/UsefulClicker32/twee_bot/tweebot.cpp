@@ -27,6 +27,7 @@ void TweeBot::timerEvent(QTimerEvent* event)
 
     QString s = "<html><head/><body><p>now " + dt.toString("hh:mm:ss") + "</p></body></html>";
     ui->timerLabel->setText(s);
+    event->accept();
 }
 
 TweeBot::~TweeBot()

@@ -12,18 +12,49 @@ TwitterActivity::TwitterActivity()
 
 }
 
+bool isNameLike(QString str)
+{
+    QStringList lst = str.split(" ");
+
+    bool toLongWords = false;
+    foreach(QString s, lst )
+    {
+        if (s.size() > 14)
+            toLongWords = true;
+    }
+
+    if( lst.size() > 0 &&   lst.size() < 4 && !toLongWords)
+        return true;
+    else
+        return false;
+}
+
 void TwitterActivity::ParseTwit(QString twit_text)
 {
+    // TODO: delete strings like  2 093 просмотра
+    // TODO: delete strings like   0:13 / 0:30
+    QRegularExpression re1("[\\d:]+[ /][\\d:]+");
+
     QStringList lst = twit_text.split("\r");
+    for(int i=0; i < lst.size(); i++)
+    {
+         QRegularExpressionMatch m = re1.match(lst[i]);
+         if ( m.hasMatch() )
+             lst[i] = " ";
+    }
+
     if(lst.size()>1)
     {
+        Twit twit = twits[twits.size()-1];
+        Twit prevtwit;
+        twit.time = lst[2];
         lst[0] = " ";
         lst[1] = " ";
         lst[2] = " ";
-        lst[lst.size()-1] = " ";
-        lst[lst.size()-2] = " ";
-        twits[twits.size()-1].time = lst[2];
-        twits[twits.size()-1].text = lst.join("\r").trimmed();
+        if (isNameLike(lst[lst.size()-2]))
+          lst[lst.size()-2] = " ";
+        twit.text = lst.join("\r").trimmed();
+        twits[twits.size()-1] = twit;
     }
 
 
@@ -51,7 +82,7 @@ void TwitterActivity::ParseTwits(QString clipboard_data)
         QRegularExpressionMatch m = re.match(l);
         if( m.hasMatch() )
         {
-            print(m.capturedTexts()[0]);
+            //print(m.capturedTexts()[0]);
             t.nick = m.capturedTexts()[0];
             t.name = l_prev;
             t.number_on_screen = number_on_screen;
@@ -64,12 +95,18 @@ void TwitterActivity::ParseTwits(QString clipboard_data)
             twit_text+=l;
     }
 
-    foreach (auto twit, twits) {
+    print(">> LIST of TWITS--------------------------");
+    foreach (auto twit, twits)
         print(twit.nick);
-        print("--------------------------");
+    print("<< END OF LIST--------------------------");
+
+    print(">> TEXTS of TWITS--------------------------");
+    foreach (auto twit, twits) {
+        print(">>--------------------------<<");
         print(twit.text);
-        print("--------------------------");
     }
+    print("<< END OF LIST--------------------------");
+
 }
 
 void TwitterActivity::run()

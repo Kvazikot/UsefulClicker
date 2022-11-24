@@ -13,17 +13,17 @@ HWND g_Processes = NULL;
 BOOL CALLBACK FindProcessesChildWindowEnum(HWND hWnd, LPARAM lParam)
 {
     char name[256];
-    GetWindowTextA(hWnd,name,256);
+
+    name[0] = (char)lParam;
+    int ret = GetWindowTextA(hWnd, name, 256);
 
     char ClassName[256];
     GetClassNameA(hWnd,ClassName,256);
 
-   // print(QString(name));
-
-    if((strcmp(ClassName,"")==0)&&(strstr(name,"Chrome")!=0))
+    if( (strcmp(ClassName,"")==0) && (strstr(name,"Chrome")!=0))
         g_Processes = hWnd;
 
-    if (name == NULL)
+    if ( ret == 0 )
         return FALSE;
     return TRUE;
 }
@@ -32,7 +32,7 @@ BOOL CALLBACK FindProcessesChildWindowEnum(HWND hWnd, LPARAM lParam)
 BOOL CALLBACK FindProcessesWindowEnum(HWND hWnd,LPARAM lParam)
 {
     char name[256];
-    GetWindowTextA(hWnd,name,256);
+    int ret = GetWindowTextA(hWnd,name,256);
 
     char ClassName[256];
     GetClassNameA(hWnd,ClassName,256);
@@ -46,7 +46,7 @@ BOOL CALLBACK FindProcessesWindowEnum(HWND hWnd,LPARAM lParam)
         handles.push_back(hWnd);
     }
 
-    if (name == NULL)
+    if ( ret == 0 )
         return FALSE;
     return TRUE;
 }
